@@ -1,1 +1,3 @@
-<p>Some footer text.</p>
+</body>
+
+</html>
