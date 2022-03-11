@@ -4,6 +4,21 @@
       <div class="site-footer__link_wrapper">
         <a class="site-footer__link" href="/o-nas">O nas</a>
       </div>
+      <div class="site-footer__link_wrapper">
+        <a class="site-footer__link" href="/przepisy">Przepisy</a>
+      </div>
+      <div class="site-footer__link_wrapper">
+        <a class="site-footer__link" href="/porady">Porady</a>
+      </div>
+      <div class="site-footer__link_wrapper">
+        <a class="site-footer__link" href="/kontakt">Kontakt</a>
+      </div>
+      <div class="site-footer__link_wrapper">
+        <a class="site-footer__link" href="/regulamin">Regulamin</a>
+      </div>
+      <div class="site-footer__link_wrapper">
+        <a class="site-footer__link" href="/polityka-prywatnosci">Polityka prywatności</a>
+      </div>
     </div>
   </div>
 </footer>
