@@ -46,6 +46,19 @@ li {
   text-decoration: none;
 }
 
+.site-footer__footer_logo{
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  margin: 0 auto 30px auto;
+}
+
+.site-footer__footer_logo--img{
+  height: calc(2.3461538462vw + 15.9538461538px);
+  width: calc(6.3461538462vw + 43.1538461538px);
+}
+
 .site-footer__site_map{
   width: 100%;
   display: -ms-flexbox;
