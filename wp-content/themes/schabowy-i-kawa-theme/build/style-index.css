@@ -1,3 +1,5 @@
+/* Default css */
+
 body {
   color: #fff;
   font-family: 'Lato', sans-serif;
@@ -36,6 +38,15 @@ li {
   max-width: 1920px;
   width:100%;
   margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+}
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
 }
 
 .group:before,
