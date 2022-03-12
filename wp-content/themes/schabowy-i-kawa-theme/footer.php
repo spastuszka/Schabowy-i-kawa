@@ -44,6 +44,11 @@
         </ul>
       </nav>
     </div>
+    <div class="site-footer__copyright">
+      <p class="site-footer__copyright--text">
+        &copy; 2022 <a href="#" class="site-footer__link">Schabowy i kawa</a> | Wszelkie prawa zastrzeżone.
+      </p>
+    </div>
   </div>
 </footer>
 
