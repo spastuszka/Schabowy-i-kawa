@@ -55,6 +55,17 @@ li {
   display: table;
 }
 
+/* Header */
+
+.site-header{
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+}
+
 /* Footer */
 .site-footer {
   padding: 2rem 0 3.5rem 0;
