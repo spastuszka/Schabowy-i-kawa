@@ -49,10 +49,19 @@ li {
   float: right;
 }
 
+.container:before,
+.container:after,
 .group:before,
 .group:after {
   content: " ";
   display: table;
+}
+.container:after,
+.group:after {
+  clear: both;
+}
+.hide {
+  display: none;
 }
 
 /* Header */
