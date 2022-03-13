@@ -293,13 +293,14 @@ li {
 /* Search trigger */
 
 .search-trigger {
+  font-size:1.2rem;
   display: none;
   color: #fff;
   position: relative;
   cursor: pointer;
   top: 1px;
   margin-left: 20px;
-  margin-left: 30px;
+  margin-right: 30px;
 }
 @media (min-width: 960px) {
   .search-trigger {
@@ -317,7 +318,7 @@ li {
   font-size: 1.2rem;
   position: absolute;
   top: 6px;
-  right: 16px;
+  right: 45px;
 }
 @media (min-width: 530px) {
   .site-header__search-trigger {
@@ -338,7 +339,7 @@ li {
   position: absolute;
   z-index: 10;
   top: 7px;
-  right: 46px;
+  right: 85px;
 }
 @media (min-width: 530px) {
   .site-header__menu-trigger {
