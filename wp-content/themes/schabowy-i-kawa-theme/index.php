@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="page-banner">
-  <div class="page-banner__bg-image" style="background-image: url(/wp-content/themes/schabowy-i-kawa-theme/images/cooking.jpg)"></div>
+  <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/cooking.jpg') ?>)"></div>
   <div class="page-banner__content container t-center c-white">
     <h1 class="headline headline--large">Witam!</h1>
     <h2 class="headline headline--medium">Dziękuję za obejrzenie mojej strony.</h2>
