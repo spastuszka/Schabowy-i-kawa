@@ -299,6 +299,7 @@ li {
   cursor: pointer;
   top: 1px;
   margin-left: 20px;
+  margin-left: 30px;
 }
 @media (min-width: 960px) {
   .search-trigger {
