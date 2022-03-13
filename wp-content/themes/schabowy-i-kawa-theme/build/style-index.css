@@ -55,6 +55,10 @@ li {
   font-size: 0.85rem;
 }
 
+.t-dark{
+  color: #000;
+}
+
 .float-left {
   float: left;
 }
@@ -97,7 +101,7 @@ li {
   }
 }
 .headline--large-medium {
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 0 0 1rem 0;
 }
 .headline--medium {
@@ -520,4 +524,18 @@ px
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   position: relative;
+}
+
+.full-width-split{
+  padding: 40px;
+}
+
+/* Recipes */
+
+.recipe-summary{
+  position: relative;
+  padding-left: 107px;
+  min-height: 77px;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
 }
