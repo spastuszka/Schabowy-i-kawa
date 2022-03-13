@@ -9,7 +9,7 @@
   <header class="site-header">
     <div class="container">
       <h1 class="site-logo-text float-left">
-        <a href="#"><strong>Schabowy</strong> i kawa</a>
+        <a href="#"><img class="site-logo--img" src="<?php echo get_theme_file_uri('/images/logo_doradca_smaku.svg'); ?>" alt="Logo Schabowy i Kawa"></a>
       </h1>
       <span class="site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
