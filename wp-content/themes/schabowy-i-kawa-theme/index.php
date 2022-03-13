@@ -15,15 +15,13 @@
   <h2 class="headline headline--large-medium t-left t-dark">Pomysły na pyszne przekąski</h2>
 
   <div class="recipe-summary">
-    <a class="event-summary__date t-center" href="#">
-      <span class="event-summary__month">Mar</span>
-      <span class="event-summary__day">25</span>
-    </a>
     <div class="event-summary__content">
-      <h5 class="event-summary__title headline headline--tiny"><a href="#">Poetry in the 100</a></h5>
-      <p>Bring poems you&rsquo;ve wrote to the 100 building this Tuesday for an open mic and snacks. <a href="#" class="nu gray">Learn more</a></p>
+      <h5 class="event-summary__title headline headline--tiny t-left t-dark"><a href="#">Przepis 1</a></h5>
+      <p class="t-left t-dark">Krótki opis do przepisu <a href="#" class="nu gray">Więcej</a></p>
     </div>
   </div>
+
+  <p class="t-center  no-margin"><a href="#" class="btn btn--dark-outline">Wszystkie z tej kategorii</a></p>
 </div>
 
 <?php get_footer(); ?>

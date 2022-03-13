@@ -176,6 +176,17 @@ li {
   background-color: #49021b;
 }
 
+.btn--dark-outline {
+  color:#470D21;
+  border: 2px solid #470D21;
+}
+
+.btn--dark-outline:hover {
+  color: inherit;
+  background-color: #49021b;
+  border: 2px solid #470D21;
+}
+
 .btn--pink {
   color:#000;
   background-color: #F9E4D4;
