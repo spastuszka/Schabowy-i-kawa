@@ -318,6 +318,17 @@ li {
   top: 6px;
   right: 16px;
 }
+@media (min-width: 530px) {
+  .site-header__search-trigger {
+    top: 4px;
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 960px) {
+  .site-header__search-trigger {
+    display: none;
+  }
+}
 
 .site-header__menu-trigger {
   color: #fff;
@@ -338,6 +349,42 @@ li {
   .site-header__menu-trigger {
     display: none;
   }
+}
+
+/* Page banner*/
+
+.page-banner {
+  background-color: #000;
+  padding: 80px 0 40px 0;
+  position: relative;
+}
+@media (min-width: 530px) {
+  .page-banner {
+    padding: 130px 0 60px 0;
+  }
+}
+
+.page-banner__bg-image {
+  opacity: 0.80;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.page-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.page-banner__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 3.6rem;
+  margin: 0 0 1rem 0;
+  color: #fff;
 }
 
 /* Footer */
