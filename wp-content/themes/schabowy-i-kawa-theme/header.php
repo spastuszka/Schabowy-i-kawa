@@ -17,7 +17,7 @@
         <nav class="main-navigation">
           <ul>
             <li><a href="#">O nas</a></li>
-            <li><a href="#">rzepisy</a></li>
+            <li><a href="#">Przepisy</a></li>
             <li><a href="#">Porady</a></li>
             <li><a href="#">Kontakt</a></li>
           </ul>
