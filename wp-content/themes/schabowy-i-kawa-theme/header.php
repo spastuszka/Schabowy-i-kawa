@@ -25,7 +25,7 @@
         <div class="site-header__util">
           <a href="#" class="btn btn--medium btn--dark-red float-left push-right">Zaloguj</a>
           <a href="#" class="btn btn--medium btn--pink float-left">Rejestracja</a>
-          <span class="search-trigger js-search-trigger push-right"><i class="fa fa-search" aria-hidden="true"></i></span>
+          <span class="search-trigger js-search-trigger push-right"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
         </div>
       </div>
     </div>

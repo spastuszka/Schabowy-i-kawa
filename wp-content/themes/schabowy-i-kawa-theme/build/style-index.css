@@ -290,7 +290,27 @@ li {
   }
 }
 
-.site-header__search-trigger{
+/* Search trigger */
+
+.search-trigger {
+  display: none;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  top: 1px;
+  margin-left: 20px;
+}
+@media (min-width: 960px) {
+  .search-trigger {
+    display: inline-block;
+    top: 6px;
+  }
+}
+.search-trigger:hover {
+  opacity: 0.65;
+}
+
+.site-header__search-trigger {
   cursor: pointer;
   color: #fff;
   font-size: 1.2rem;
