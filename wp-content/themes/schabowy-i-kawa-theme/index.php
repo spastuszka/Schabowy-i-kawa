@@ -12,19 +12,27 @@
 </div>
 
 <div class="full-width-split group">
-  <h2 class="headline headline--large-medium t-left t-dark">Pomysły na pyszne przekąski</h2>
+  <h2 class="headline headline--large-medium t-left t-dark">Polecane przepisy</h2>
 
   <div class="recipe-summary">
     <div class="event-summary__content">
       <h5 class="event-summary__title headline headline--tiny t-left t-dark"><a href="#">Przepis 1</a></h5>
-      <p class="t-left t-dark">Krótki opis do przepisu <a href="#" class="nu gray">Więcej</a></p>
+      <p class="t-left t-dark">Krótki opis do przepisu <a href="#" class="nu gray">Zobacz więcej</a></p>
     </div>
   </div>
 
   <p class="t-center  no-margin"><a href="#" class="btn btn--dark-outline">Wszystkie z tej kategorii</a></p>
 </div>
-
-<div>Przerywnik w postać banner z przyciskiem do jednego sponsorowanego przepisu</div>
+<div class="promo-section">
+  <a href="#">
+    <div class="promo-section__bg">
+      <div class="promo-section__content promo-section--overlay">
+        <h2>Pasta z pomysłem na...</h2>
+        <p>Kliknij i sprawdź go!</p>
+      </div>
+    </div>
+  </a>
+</div>
 
 <div class="full-width-split group">
   <h2 class="headline headline--large-medium t-left t-dark">Porady i inspiracje</h2>
