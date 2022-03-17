@@ -85,6 +85,10 @@ li {
   display: none;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 /* Headlines */
 .headline {
   margin: 0;
@@ -102,7 +106,7 @@ li {
 }
 .headline--large-medium {
   font-size: 4rem;
-  margin: 0 0 1rem 0;
+  margin: 0px 0 1rem 0;
 }
 .headline--medium {
   font-size: 1.9rem;
@@ -544,13 +548,109 @@ px
 /* Recipes */
 
 .recipe-summary{
-  position: relative;
-  padding-left: 107px;
-  min-height: 77px;
-  padding-bottom: 1px;
-  margin-bottom: 20px;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.recipe-summary__item{
+  width: calc(calc(100% / 3) - 10px);
+  margin: 0 0 45px 0;
 }
 
+.recipe-summary__item--inner{
+  text-align: left;
+}
+
+.recipe-summary__item--wrapper{
+  position: relative;
+  overflow: hidden;
+  margin-bottom: calc(1.4423076923vw + 2.3076923077px);
+}
+
+.img_wrapper{
+  z-index: 1;
+  position: relative;
+  display: block;
+}
+
+.recipe-summary__item--description{
+  margin-top: 0.5rem;
+}
+
+.rec{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.item__title{
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.item__stats{
+  margin-top: 1rem;
+  display: flex;
+}
+
+.stats__duration{
+  min-width: 4.9375rem;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-flex-align: center;
+  align-items: center;
+  stroke: grey;
+}
+
+.stats__duration--clock{
+  stroke: #999;
+  height: 1rem;
+  width: 1rem;
+  background-size: 1rem;
+  display: inline-block;
+  margin-right: 0.4375rem;
+  background-image: url('./../images/clock.svg');
+  background-repeat: no-repeat;
+}
+
+.stats__duration--text{
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.stats__difficulty{
+  margin-left: 0.9375rem;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-flex-align: center;
+  align-items: center;
+  color: #999;
+}
+
+.stats__difficulty--icon{
+  width: 1.3125rem;
+  height: 1.3125rem;
+  background-size: 1.25rem 1.25rem;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url('./../images/poziom.webp');
+}
+
+.stats__difficulty--text{
+  margin-left: 0.25rem;
+  font-size: 14px;
+  line-height: 20px;
+}
 
 /* Promo section*/
 .promo-section{
