@@ -585,9 +585,7 @@ px
 }
 
 .rec{
-  display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -650,6 +648,43 @@ px
   margin-left: 0.25rem;
   font-size: 14px;
   line-height: 20px;
+}
+
+/* Advice */
+
+.advice-summary{
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.advice-summary__item{
+  width: calc(calc(100% / 3) - 10px);
+  margin: 0 0 45px 0;
+}
+
+.advice-summary__item--inner{
+  text-align: left;
+}
+
+.advice-summary__item--wrapper{
+  position: relative;
+  overflow: hidden;
+  margin-bottom: calc(1.4423076923vw + 2.3076923077px);
+}
+
+.advice-summary__item--description{
+  margin-top: 0.5rem;
+}
+
+.advice-summary__item--description .rec{
+  text-align: center;
 }
 
 /* Promo section*/
