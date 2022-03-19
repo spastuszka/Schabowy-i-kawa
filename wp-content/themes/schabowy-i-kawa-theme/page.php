@@ -7,9 +7,9 @@ while (have_posts()) {
   <div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
     <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title">Template page title</h1>
+      <h1 class="page-banner__title"><?php the_title(); ?></h1>
       <div class="page-banner__intro c-white">
-        <p>Template page intro.</p>
+        <p>DO ZROBIENIA PÓŹNIEJ</p>
       </div>
     </div>
   </div>
@@ -20,18 +20,17 @@ while (have_posts()) {
         <a class="metabox__blog-home-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Back to About Us</a> <span class="metabox__main">Our History</span>
       </p>
     </div>
-
+    <!-- 
     <div class="page-links">
       <h2 class="page-links__title"><a href="#">About Us</a></h2>
       <ul class="min-list">
         <li class="current_page_item"><a href="#">Our History</a></li>
         <li><a href="#">Our Goals</a></li>
       </ul>
-    </div>
+    </div> -->
 
     <div class="generic-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptates vero vel temporibus aliquid possimus, facere accusamus modi. Fugit saepe et autem, laboriosam earum reprehenderit illum odit nobis, consectetur dicta. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos molestiae, tempora alias atque vero officiis sit commodi ipsa vitae impedit odio repellendus doloremque quibusdam quo, ea veniam, ad quod sed.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptates vero vel temporibus aliquid possimus, facere accusamus modi. Fugit saepe et autem, laboriosam earum reprehenderit illum odit nobis, consectetur dicta. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos molestiae, tempora alias atque vero officiis sit commodi ipsa vitae impedit odio repellendus doloremque quibusdam quo, ea veniam, ad quod sed.</p>
+      <?php the_content(); ?>
     </div>
   </div>
 
