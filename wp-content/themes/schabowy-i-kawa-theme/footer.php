@@ -5,7 +5,7 @@
     </div>
     <div class="site-footer__site_map">
       <div class="site-footer__link_wrapper">
-        <a class="site-footer__link" href="/o-nas">O nas</a>
+        <a class="site-footer__link" href="<?php echo site_url('/o-nas') ?>">O nas</a>
       </div>
       <div class="site-footer__link_wrapper">
         <a class="site-footer__link" href="/przepisy">Przepisy</a>
