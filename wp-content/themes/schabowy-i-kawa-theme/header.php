@@ -9,14 +9,14 @@
   <header class="site-header">
     <div class="container">
       <h1 class="site-logo-text float-left">
-        <a href="#"><img class="site-logo--img" src="<?php echo get_theme_file_uri('/images/logo_doradca_smaku.svg'); ?>" alt="Logo Schabowy i Kawa"></a>
+        <a href="<?php echo site_url(); ?>"><img class="site-logo--img" src="<?php echo get_theme_file_uri('/images/logo_doradca_smaku.svg'); ?>" alt="Logo Schabowy i Kawa"></a>
       </h1>
       <span class="site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
       <div class="site-header__menu group">
         <nav class="main-navigation">
           <ul>
-            <li><a href="#">O nas</a></li>
+            <li><a href="<?php echo site_url('/o-nas'); ?>">O nas</a></li>
             <li><a href="#">Przepisy</a></li>
             <li><a href="#">Porady</a></li>
             <li><a href="#">Kontakt</a></li>

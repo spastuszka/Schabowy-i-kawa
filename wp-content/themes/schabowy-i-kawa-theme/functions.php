@@ -9,3 +9,13 @@ function pork_coffee_files()
 }
 
 add_action('wp_enqueue_scripts', 'pork_coffee_files');
+
+
+/* Created dynamic page title */
+
+function cooking_features()
+{
+  add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'cooking_features');

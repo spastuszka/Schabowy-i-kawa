@@ -1,7 +1,7 @@
 /* Default css */
 
 body {
-  color: #fff;
+  color: #000;
   font-family: 'Lato', sans-serif;
   overflow-x: hidden;
   position: relative;
@@ -42,6 +42,10 @@ li {
   position: relative;
 }
 
+.container--narrow {
+  max-width: 1300px;
+}
+
 .t-left {
   text-align: left;
 }
@@ -57,6 +61,13 @@ li {
 
 .t-dark{
   color: #000;
+}
+
+.c-white {
+  color: #fff;
+}
+.c-dark {
+  color: #333;
 }
 
 .float-left {
@@ -87,6 +98,65 @@ li {
 
 .no-margin {
   margin: 0;
+}
+
+.generic-content p,
+.generic-content li {
+  font-size: 1.15rem;
+}
+.generic-content blockquote,
+.generic-content blockquote p {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.generic-content h1,
+.generic-content h2,
+.generic-content h3,
+.generic-content h4,
+.generic-content h5,
+.generic-content h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.generic-content h1 {
+  font-size: 3.6rem;
+}
+.generic-content h2 {
+  font-size: 3.1rem;
+}
+.generic-content h3 {
+  font-size: 2.6rem;
+}
+.generic-content h4 {
+  font-size: 2.1rem;
+}
+.generic-content h5 {
+  font-size: 1.6rem;
+}
+.generic-content h6 {
+  font-size: 1.15rem;
+}
+@media (min-width: 530px) {
+  .generic-content h1 {
+    font-size: 6.25rem;
+  }
+  .generic-content h2 {
+    font-size: 5rem;
+  }
+  .generic-content h3 {
+    font-size: 3.125rem;
+  }
+  .generic-content h4 {
+    font-size: 2.4rem;
+  }
+  .generic-content h5 {
+    font-size: 1.9rem;
+  }
+  .generic-content h6 {
+    font-size: 1.15rem;
+  }
 }
 
 /* Headlines */
@@ -388,6 +458,29 @@ li {
   .page-banner {
     padding: 150px 0 150px 0;
   }
+}
+
+.page-banner__content {
+  position: relative;
+  z-index: 2;
+}
+.page-banner__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 3.6rem;
+  margin: 0 0 1rem 0;
+  color: #fff;
+}
+@media (min-width: 530px) {
+  .page-banner__title {
+    font-size: 5rem;
+  }
+}
+.page-banner__intro {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: #ededed;
 }
 
 .page-banner__bg-image {
@@ -739,4 +832,124 @@ px
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.68);
   padding: 40px;
+}
+
+/* Page */
+
+.page-section {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+@media (min-width: 530px) {
+  .page-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+.page-section--white {
+  background-color: #fff;
+}
+
+.page-section p:last-of-type {
+  margin-bottom: 0;
+}
+
+.metabox {
+  background-color: #F9E4D4;
+  border-radius: 3px;
+  padding: 10px 15px;
+  display: inline-block;
+  margin-bottom: 30px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.07);
+}
+.metabox--position-up {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+}
+.metabox--with-home-link {
+  padding: 0;
+}
+.metabox__main {
+  padding: 10px 15px 10px 11px;
+}
+.metabox p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #000;
+}
+.metabox a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+.metabox a:hover {
+  text-decoration: underline;
+}
+.metabox .metabox__blog-home-link {
+  background-color: #470D21;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 3px 0 0 3px;
+  font-weight: normal;
+}
+.metabox .metabox__blog-home-link:hover {
+  text-decoration: none;
+  background-color: #470D21;
+}
+
+
+/* Page navigation */
+
+.page-links {
+  position: relative;
+  z-index: 1;
+  background-color: #F9E4D4;
+  margin: 0 0 40px 0;
+}
+@media (min-width: 767px) {
+  .page-links {
+    margin: 0 0 40px 20px;
+    width: 300px;
+    float: right;
+  }
+}
+.page-links__title {
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #470D21;
+  color: #fff;
+}
+.page-links__title a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #470D21;
+}
+.page-links li {
+  border-top: 1px solid #f4de89;
+}
+.page-links li:first-child {
+  border-top: none;
+}
+.page-links__active,
+.page-links .current_page_item {
+  text-align: center;
+  background-color: #f4e6b1;
+  color: #470D21;
+  font-weight: bold;
+}
+.page-links li a {
+  display: block;
+  text-align: center;
+  padding: 17px 10px;
+  text-decoration: none;
+  color: #470D21;
+  transition: all 0.3s;
+}
+.page-links li a:hover {
+  color: #470D21;
+  background-color: #f2e3aa;
 }
