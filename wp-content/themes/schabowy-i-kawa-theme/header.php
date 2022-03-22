@@ -17,7 +17,7 @@
         <nav class="main-navigation">
           <ul>
             <li><a href="<?php echo site_url('/o-nas'); ?>">O nas</a></li>
-            <li><a href="#">Przepisy</a></li>
+            <li><a href="<?php echo site_url('/przepisy'); ?>">Przepisy</a></li>
             <li><a href="#">Porady</a></li>
             <li><a href="#">Kontakt</a></li>
           </ul>
