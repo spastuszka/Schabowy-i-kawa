@@ -42,6 +42,12 @@ li {
   position: relative;
 }
 
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed;
+  }
+}
+
 .container--narrow {
   max-width: 1300px;
 }
