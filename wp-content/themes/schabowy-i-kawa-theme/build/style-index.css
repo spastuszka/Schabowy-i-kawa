@@ -959,3 +959,9 @@ px
   color: #470D21;
   background-color: #f2e3aa;
 }
+
+/* Menu */
+.main-navigation .current-menu-item a,
+.main-navigation a:hover {
+  color: #69414f;
+}
