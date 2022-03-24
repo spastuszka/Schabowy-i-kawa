@@ -7,7 +7,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
   <header class="site-header">
     <div class="container">
       <h1 class="site-logo-text float-left">
