@@ -18,18 +18,18 @@
       <div class="site-header__menu group">
         <nav class="main-navigation">
           <!-- Menu dynamiczne używane przez zwykłego użytkownika -->
-          <?php
+          <?php /*
           wp_nav_menu(array(
             'theme_location' => 'defaultHeader',
-          ));
+          )); */
           ?>
           <!-- Menu zmieniane manualnie w kodzie -->
-          <!-- <ul>
-            <li><a href="<?php /* echo site_url('/o-nas'); */ ?> ">O nas</a></li>
-            <li><a href="<?php /* echo site_url('/przepisy'); */ ?>">Przepisy</a></li>
+          <ul>
+            <li><a href="<?php echo site_url('/o-nas'); ?> ">O nas</a></li>
+            <li><a href="<?php echo site_url('/przepisy'); ?>">Przepisy</a></li>
             <li><a href="#">Porady</a></li>
             <li><a href="#">Kontakt</a></li>
-          </ul> -->
+          </ul>
         </nav>
         <div class="site-header__util">
           <a href="#" class="btn btn--medium btn--dark-red float-left push-right">Zaloguj</a>

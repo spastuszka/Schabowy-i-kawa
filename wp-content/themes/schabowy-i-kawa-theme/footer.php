@@ -4,6 +4,11 @@
       <a href="<?php echo site_url(); ?>"><img class="site-footer__footer_logo--img" src="<?php echo get_theme_file_uri('/images/logo_doradca_smaku.svg'); ?>" alt="Logo Schabowy i Kawa"></a>
     </div>
     <div class="site-footer__site_map">
+      <?php /*
+      wp_nav_menu(array(
+        'theme_location' => 'footerLocation',
+      )); */
+      ?>
       <div class="site-footer__link_wrapper">
         <a class="site-footer__link" href="<?php echo site_url('/o-nas') ?>">O nas</a>
       </div>

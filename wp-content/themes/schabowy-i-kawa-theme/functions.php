@@ -16,8 +16,7 @@ add_action('wp_enqueue_scripts', 'pork_coffee_files');
 function cooking_features()
 {
   register_nav_menu('defaultHeader', 'Menu Główne');
-  register_nav_menu('footerLocationOne', 'Stopka - 1 kolumna');
-  register_nav_menu('footerLocationTwo', 'Stopka - 2 kolumna');
+  register_nav_menu('footerLocation', 'Stopka - Centrum');
   add_theme_support('title-tag');
 }
 
