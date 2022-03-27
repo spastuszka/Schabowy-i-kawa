@@ -979,6 +979,11 @@ px
 }
 
 .post-item{
-  width: calc(calc(100% / 3) - 20px);
+  width: calc(calc(100% / 3));
   margin: 0 0 45px 0;
+}
+
+.headline--post-title a {
+  color: #470D21;
+  text-decoration: none;
 }

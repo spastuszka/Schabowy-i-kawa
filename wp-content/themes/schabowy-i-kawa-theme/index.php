@@ -20,7 +20,7 @@
           <img alt="Sałatka z zupek chińskich foto" class="lazy loaded" src="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.jpg" data-src="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.jpg" data-was-processed="true">
         </picture>
       </a>
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+      <h2 class="headline headline--small headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       <div class="generic-content">
         <?php the_excerpt(); ?>
         <p><a class="btn btn--dark-red" href="<?php the_permalink(); ?>">Więcej</a></p>
