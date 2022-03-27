@@ -21,3 +21,11 @@ function cooking_features()
 }
 
 add_action('after_setup_theme', 'cooking_features');
+
+
+/* Change default excerpt length */
+function blog_custom_excerpt_length($length)
+{
+  return 20;
+}
+add_filter('excerpt_length', 'blog_custom_excerpt_length', 999);
