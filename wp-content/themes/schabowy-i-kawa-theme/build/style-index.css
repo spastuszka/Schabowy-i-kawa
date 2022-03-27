@@ -979,8 +979,12 @@ px
 }
 
 .post-item{
-  width: calc(calc(100% / 3));
+  width: calc(calc(100% / 3) - 20px);
   margin: 0 0 45px 0;
+  padding: 10px;
+}
+.headline--post-title{
+  margin-top: 20px;
 }
 
 .headline--post-title a {
