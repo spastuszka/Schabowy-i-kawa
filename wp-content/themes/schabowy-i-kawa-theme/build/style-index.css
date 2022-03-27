@@ -979,6 +979,6 @@ px
 }
 
 .post-item{
-  width: calc(calc(100% / 3) - 10px);
+  width: calc(calc(100% / 3) - 20px);
   margin: 0 0 45px 0;
 }
