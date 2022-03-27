@@ -965,3 +965,20 @@ px
 .main-navigation a:hover {
   color: #69414f;
 }
+
+/* Blog */
+
+.blog-flex-container{
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.post-item{
+  width: calc(calc(100% / 3) - 10px);
+  margin: 0 0 45px 0;
+}
