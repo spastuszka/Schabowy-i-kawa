@@ -21,6 +21,9 @@
         </picture>
       </a>
       <h2 class="headline headline--small headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+      <div class="metabox">
+        <p>Utworzone przez <?php the_author_posts_link(); ?> w dniu <?php the_time('j.n.Y'); ?> w kategorii: News</p>
+      </div>
       <div class="generic-content">
         <?php the_excerpt(); ?>
         <p><a class="btn btn--dark-red" href="<?php the_permalink(); ?>">Więcej</a></p>
