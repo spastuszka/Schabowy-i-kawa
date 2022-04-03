@@ -991,3 +991,16 @@ px
   color: #470D21;
   text-decoration: none;
 }
+
+/* Breadcrumbs */
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f2e3aa;
+  border-radius: 4px;
+}
+.breadcrumb a {
+  color: #470D21;
+  text-decoration: none;
+}
