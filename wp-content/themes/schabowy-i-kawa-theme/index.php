@@ -30,7 +30,8 @@
       </div>
     </div>
 
-  <?php } ?>
+  <?php }  ?>
 </div>
+<div class="container container--narrow"><?php echo paginate_links(); ?> </div>
 
 <?php get_footer(); ?>
