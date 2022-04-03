@@ -15,7 +15,40 @@ add_action('wp_enqueue_scripts', 'pork_coffee_files');
 
 function cooking_features()
 {
+  register_nav_menu('defaultHeader', 'Menu Główne');
+  register_nav_menu('footerLocation', 'Stopka - Centrum');
   add_theme_support('title-tag');
 }
 
 add_action('after_setup_theme', 'cooking_features');
+
+
+/* Change default excerpt length */
+function blog_custom_excerpt_length($length)
+{
+  return 20;
+}
+add_filter('excerpt_length', 'blog_custom_excerpt_length', 999);
+
+
+/* Breadcrumbs function */
+function get_breadcrumb()
+{
+  echo '<a href="' . home_url() . '" rel="nofollow">Strona Główna</a>';
+  if (is_category() || is_single()) {
+    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+    the_category(' &bull; ');
+    if (is_single()) {
+      echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+      the_title();
+    }
+  } elseif (is_page()) {
+    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+    echo the_title();
+  } elseif (is_search()) {
+    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+    echo '"<em>';
+    echo the_search_query();
+    echo '</em>"';
+  }
+}
