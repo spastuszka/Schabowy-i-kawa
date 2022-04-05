@@ -27,7 +27,7 @@
           <ul>
             <li <?php if (is_page('o-nas') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/o-nas'); ?> ">O nas</a></li>
             <li><a href="<?php echo site_url('/przepisy'); ?>">Przepisy</a></li>
-            <li><a href="<?php echo site_url('/porady'); ?>">Porady</a></li>
+            <li <?php if (get_post_type() == 'post') echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/porady'); ?>">Porady</a></li>
             <li><a href="#">Kontakt</a></li>
           </ul>
         </nav>
