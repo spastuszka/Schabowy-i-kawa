@@ -6,6 +6,7 @@ function cooker_post_types()
 {
   register_post_type('recipe', array(
     'public' => true,
+    'show_in_rest' => true,
     'description' => 'Recipe custom post type',
     'labels' => array(
       'name' => 'Recipes',
