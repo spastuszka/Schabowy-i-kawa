@@ -18,6 +18,7 @@ function cooking_features()
   register_nav_menu('defaultHeader', 'Menu Główne');
   register_nav_menu('footerLocation', 'Stopka - Centrum');
   add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'cooking_features');
