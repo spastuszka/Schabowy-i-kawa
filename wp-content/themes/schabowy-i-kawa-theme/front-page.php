@@ -57,7 +57,7 @@
     ?>
   </div>
 
-  <p class="t-center  no-margin"><a href="<?php echo site_url('/przepisy'); ?>" class="btn btn--dark-outline">Wszystkie z tej kategorii</a></p>
+  <p class="t-center  no-margin"><a href="<?php echo get_post_type_archive_link('recipe'); ?>" class="btn btn--dark-outline">Wszystkie z tej kategorii</a></p>
 </div>
 <div class="promo-section">
   <a href="#">
