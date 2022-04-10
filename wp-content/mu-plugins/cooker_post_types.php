@@ -6,6 +6,10 @@ function cooker_post_types()
 {
   register_post_type('recipe', array(
     'supports' => array('title', 'editor', 'thumbnail'),
+    'rewrite' => array(
+      'slug' => 'recipes',
+    ),
+    'has_archive' => true,
     'public' => true,
     'show_in_rest' => true,
     'description' => 'Recipe custom post type',
