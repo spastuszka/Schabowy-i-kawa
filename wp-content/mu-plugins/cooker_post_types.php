@@ -5,6 +5,7 @@
 function cooker_post_types()
 {
   register_post_type('recipe', array(
+    'show_in_rest' => true,
     'supports' => array('title', 'editor', 'thumbnail'),
     'rewrite' => array(
       'slug' => 'recipes',
