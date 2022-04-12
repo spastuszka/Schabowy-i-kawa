@@ -23,9 +23,14 @@
       <div class="metabox">
         <p>Utworzone przez <?php the_author_posts_link(); ?> w dniu <?php the_time('j.m.Y'); ?> w kategorii: <?php echo get_the_category_list(', '); ?></p>
       </div>
-      <div class="generic-content">
-        <?php the_excerpt(); ?>
-        <p><a class="btn btn--dark-red" href="<?php the_permalink(); ?>">Więcej</a></p>
+      <div class="generic-content generic-content--recipe_excerpt">
+        <?php if (has_excerpt()) {
+          echo get_the_excerpt();
+        } else {
+          echo wp_trim_words(get_the_content(), 18);
+        }
+        ?>
+        <p class="recipe-summary__item--button"> <a class="btn btn--dark-red" href="<?php the_permalink(); ?>">Więcej</a></p>
       </div>
     </div>
 
