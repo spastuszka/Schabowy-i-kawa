@@ -683,8 +683,13 @@ px
   display: block;
 }
 
+
 .recipe-summary__item--description{
   margin-top: 0.5rem;
+}
+
+.recipe-summary__item--button{
+  margin-top: 0.5rem ;
 }
 
 .rec{
