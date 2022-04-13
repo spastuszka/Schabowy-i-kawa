@@ -21,6 +21,9 @@
     $homepageRecipes = new WP_Query(array(
       'posts_per_page' => 3,
       'post_type' => 'recipe',
+      'meta_key' => 'recipe_difficulty_level',
+      'orderby' => 'meta_value',
+      'order' => 'ASC',
     ));
 
     while ($homepageRecipes->have_posts()) {
