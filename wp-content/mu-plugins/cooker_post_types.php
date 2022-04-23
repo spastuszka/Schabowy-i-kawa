@@ -27,7 +27,7 @@ function cooker_post_types()
   // Custom Post Type - Cookers
   register_post_type('cooker', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+    'supports' => array('title', 'editor', 'thumbnail'),
     'rewrite' => array(
       'slug' => 'cookers',
     ),
