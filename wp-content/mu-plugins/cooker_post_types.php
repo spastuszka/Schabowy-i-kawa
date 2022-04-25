@@ -1,6 +1,6 @@
 <?php
 
-/* Custom Post Type */
+/* Custom Post Types */
 
 function cooker_post_types()
 {
