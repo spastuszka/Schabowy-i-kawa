@@ -9,37 +9,28 @@
   </div>
 </div>
 
-<div class="container container--narrow page-section blog-flex-container">
-  <?php while (have_posts()) {
-    the_post(); ?>
-    <div class="recipe-summary__item">
-      <div class="recipe-summary__item--inner">
-        <div class="recipe-summary__item--wrapper">
-          <a href="<?php the_permalink(); ?>" class="img_wrapper">
-            <picture>
-              <source type="image/webp" srcset="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.webp" data-srcset="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.webp" class="" media="(min-width: 400px)">
-              <img alt="Sałatka z zupek chińskich foto" class="lazy loaded" src="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.jpg" data-src="https://pliki.doradcasmaku.pl/salatka-z-zupek-chinskich91-3.jpg" data-was-processed="true">
-            </picture>
-          </a>
+<div class="container container--narrow page-section">
+  <section class="cookers">
+    <div class="cookers_inner">
+      <div class="users_list">
+        <div class="users_list_inner">
+          <?php while (have_posts()) {
+            the_post(); ?>
+            <div class="user_promo_card">
+              <div class="user_promo_card--inner">
+                <a href="<?php the_permalink(); ?>">
+                  <img class="default_avatar_icon" src="<?php echo get_theme_file_uri('/images/default_avatar_black.svg'); ?>" alt="Defaulu">
+                </a>
+                <div class="user_info">
+                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </div>
+              </div>
+            </div>
+          <?php }  ?>
         </div>
-        <div class="recipe-summary__item--description">
-          <div class="rec">
-            <h4 class="item__title t-dark no-margin"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-          </div>
-        </div>
-      </div>
-      <div class="generic-content generic-content--recipe_excerpt">
-        <?php if (has_excerpt()) {
-          echo get_the_excerpt();
-        } else {
-          echo wp_trim_words(get_the_content(), 18);
-        }
-        ?>
-        <p class="recipe-summary__item--button"> <a class="btn btn--dark-red" href="<?php the_permalink(); ?>">Więcej</a></p>
       </div>
     </div>
-
-  <?php }  ?>
+  </section>
 </div>
 <div class="container container--narrow"><?php echo paginate_links(); ?> </div>
 
