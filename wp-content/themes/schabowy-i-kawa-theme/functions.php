@@ -53,15 +53,3 @@ function get_breadcrumb()
     echo '</em>"';
   }
 }
-
-function cooking_adjust_queries($query)
-{
-  //Tutaj funkcja ma ostatnie słowo przed wysłaniem zapytania do DB WP
-  if (!is_admin() and is_post_type_archive() == 'recipe' and $query->is_main_query()) {
-    $query->set('meta_key', 'recipe_difficulty_level');
-    $query->set('orderby', 'meta_value');
-    $query->set('order', 'DESC');
-  }
-}
-
-add_action('pre_get_posts', 'cooking_adjust_queries');

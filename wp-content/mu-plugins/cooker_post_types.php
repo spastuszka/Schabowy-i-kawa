@@ -24,10 +24,10 @@ function cooker_post_types()
     'menu_icon' => 'dashicons-food',
   ));
 
-  // Custom Post Type - Cookers
+  // Custom Post Type - Cooker user
   register_post_type('cooker', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor', 'thumbnail'),
+    'supports' => array('title', 'editor'),
     'rewrite' => array(
       'slug' => 'cookers',
     ),
@@ -40,7 +40,7 @@ function cooker_post_types()
       'all_items' => 'All Cookers',
       'singular_name' => 'Cooker',
     ),
-    'menu_icon' => 'dashicons-drumstick',
+    'menu_icon' => 'dashicons-admin-users',
   ));
 }
 
