@@ -19,10 +19,25 @@
             <div class="user_promo_card">
               <div class="user_promo_card--inner">
                 <a href="<?php the_permalink(); ?>">
-                  <img class="default_avatar_icon" src="<?php echo get_theme_file_uri('/images/default_avatar_black.svg'); ?>" alt="Defaulu">
+                  <img class="default_avatar_icon" src="<?php echo get_theme_file_uri('/images/default_avatar_black.svg'); ?>" alt="Default">
                 </a>
                 <div class="user_info">
-                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                  <a class="user_name" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                  <div class="user_profile_statistics">
+                    <div class="statistics">
+                      <img class="icon add_recipe_icon_svg" src="<?php echo get_theme_file_uri('/images/ksiazka.svg'); ?>" alt="Liczba przepisów dodanych przez użytkownika" />
+                      <p>0</p>
+                    </div>
+                    <div class="statistics">
+                      <img class="icon black_heart_icon_svg" src="<?php echo get_theme_file_uri('/images/serce_black.svg'); ?>" alt="Ilość lajków od zarejestrowanych i niezarejestrowanych w serwisie użytkowników" />
+                      <p>0</p>
+                    </div>
+                  </div>
+                  <div>
+                    <button onclick="location.href='<?php the_permalink(); ?>'" type=" button" class="generic_red_button small">
+                      <span>Więcej</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
