@@ -1034,6 +1034,10 @@ section{
     margin-bottom: calc(2.1634615385vw + 3.46px);
 }
 
+.users_list_inner{
+  display: flex;
+}
+
 .user_promo_card{
   width: calc(calc(100% / 3) - 10px);
   margin-bottom: calc(2.8846153846vw + 4.62px);
