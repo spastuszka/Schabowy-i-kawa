@@ -17,10 +17,12 @@ while (have_posts()) {
     <div class="generic-content">
       <?php the_content(); ?>
     </div>
-  </div>
+    <?php
+    $relatedCooker = get_field('related_cookers');
 
-  <section class="recipe-item">
-    <div class="recipe-item__inner"></div>
-  </section>
+    foreach ($relatedCooker as $cook) { ?>
+      <li><a href="<?php echo get_the_permalink($cook); ?>"><?php echo get_the_title($cook); ?></a></li>
+    <?php } ?>
+  </div>
 <?php }
 get_footer(); ?>
