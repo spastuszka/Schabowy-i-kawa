@@ -1042,8 +1042,12 @@ section{
   width: calc(calc(100% / 3) - 10px);
   margin-bottom: calc(2.8846153846vw + 4.62px);
 }
+.user_promo_desc{
+  width: calc(calc(100% / 2));
+  margin-bottom: calc(2.8846153846vw + 4.62px);
+}
 
-.user_promo_card--inner{
+.user_promo_card--inner,.user_promo_desc--inner{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1121,4 +1125,9 @@ section{
   font-weight: 700;
   line-height: 1;
   height: calc(1.6923076923vw + 11.51px);
+}
+
+
+.user_cooker_info{
+  display: flex;
 }
