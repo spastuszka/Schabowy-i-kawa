@@ -1131,3 +1131,17 @@ section{
 .user_cooker_info{
   display: flex;
 }
+
+/* Single Recipe */
+
+.recipe-content{
+  display: flex;
+  justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.recipe-gallery{
+  width: 65%;
+  position: relative;
+}

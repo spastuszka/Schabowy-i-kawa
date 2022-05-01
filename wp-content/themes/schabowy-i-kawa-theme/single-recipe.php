@@ -14,15 +14,20 @@ while (have_posts()) {
   </div>
 
   <div class="container container--narrow page-section">
-    <div class="generic-content">
-      <?php the_content(); ?>
-    </div>
-    <?php
-    $relatedCooker = get_field('related_cookers');
+    <div class="recipe-content">
+      <div class="recipe-gallery">
+        <?php the_post_thumbnail('single-post-thumbnail'); ?>
+      </div>
+      <div class="generic-content">
+        <?php the_content(); ?>
+      </div>
+      <?php
+      $relatedCooker = get_field('related_cookers');
 
-    foreach ($relatedCooker as $cook) { ?>
-      <li><a href="<?php echo get_the_permalink($cook); ?>"><?php echo get_the_title($cook); ?></a></li>
-    <?php } ?>
+      foreach ($relatedCooker as $cook) { ?>
+        <li><a href="<?php echo get_the_permalink($cook); ?>"><?php echo get_the_title($cook); ?></a></li>
+      <?php } ?>
+    </div>
   </div>
 <?php }
 get_footer(); ?>
