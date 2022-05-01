@@ -23,10 +23,12 @@ while (have_posts()) {
       </div>
       <?php
       $relatedCooker = get_field('related_cookers');
-
-      foreach ($relatedCooker as $cook) { ?>
-        <li><a href="<?php echo get_the_permalink($cook); ?>"><?php echo get_the_title($cook); ?></a></li>
-      <?php } ?>
+      if ($relatedCooker) :
+        foreach ($relatedCooker as $cook) { ?>
+          <li><a href="<?php echo get_the_permalink($cook); ?>"><?php echo get_the_title($cook); ?></a></li>
+      <?php }
+        wp_reset_postdata();
+      endif; ?>
     </div>
   </div>
 <?php }
