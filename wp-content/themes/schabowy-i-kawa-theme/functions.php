@@ -1,5 +1,26 @@
 <?php
 
+/* Funkcja - Page Banner */
+function pageBanner()
+{
+?>
+
+  <div class="page-banner">
+    <div class="page-banner__bg-image" style="background-image: url(
+      <?php $pageBannerImage = get_field('page_banner_background_image');
+      echo $pageBannerImage['sizes']['pageBanner'];
+      ?>)"></div>
+    <div class="page-banner__content container container--narrow">
+      <h1 class="page-banner__title"><?php the_title(); ?></h1>
+      <div class="page-banner__intro c-white">
+        <p>DO ZROBIENIA PÓŹNIEJ</p>
+      </div>
+    </div>
+  </div>
+
+<?php
+}
+
 function pork_coffee_files()
 {
   wp_enqueue_style('font-lato', '//fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
