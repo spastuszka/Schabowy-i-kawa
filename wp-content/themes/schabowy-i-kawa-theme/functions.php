@@ -1,7 +1,7 @@
 <?php
 
 /* Funkcja - Page Banner */
-function pageBanner()
+function pageBanner($args)
 {
 ?>
 
@@ -11,9 +11,9 @@ function pageBanner()
       echo $pageBannerImage['sizes']['pageBanner'];
       ?>)"></div>
     <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"><?php the_title(); ?></h1>
+      <h1 class="page-banner__title"><?php echo $args['title']; ?></h1>
       <div class="page-banner__intro c-white">
-        <p>DO ZROBIENIA PÓŹNIEJ</p>
+        <p><?php echo $args['subtitle']; ?></p>
       </div>
     </div>
   </div>
