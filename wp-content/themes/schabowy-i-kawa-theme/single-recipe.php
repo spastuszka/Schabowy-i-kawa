@@ -13,7 +13,8 @@ while (have_posts()) {
   <div class="container container--narrow page-section">
     <div class="recipe-content">
       <div class="recipe-gallery">
-        <?php the_post_thumbnail('single-post-thumbnail'); ?>
+        <?php the_post_thumbnail('single-post-thumbnail');
+        ?>
       </div>
       <div class="recipe_intro">
         <div class="intro_wrapper">
