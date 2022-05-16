@@ -1,4 +1,4 @@
-# Custom recipe WP Theme
+# Custom Cooking WP Theme
 
 #### Author: Sebastian Pastuszka
 
