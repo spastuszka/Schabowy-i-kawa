@@ -148,6 +148,7 @@ dist
 # Note: if you want to stage/commit WP core files
 # you can delete this whole section/until Configuration.
 /wp-admin/
+/wp-content/plugins/
 /wp-content/index.php
 /wp-content/languages
 /wp-content/plugins/index.php
@@ -186,5 +187,30 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 
+
+# ignore everything in the "wp-content" directory, except:
+# mu-plugins, plugins, and themes directories
+# wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore all mu-plugins, plugins, and themes
+# unless explicitly whitelisted at the end of this file
+wp-content/mu-plugins/*
+wp-content/plugins/*
+wp-content/themes/*
+
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!.phpcs.xml.dist
+!README.md
+!CHANGELOG.md
+!composer.json
 
 # End of https://www.toptal.com/developers/gitignore/api/wordpress,node
