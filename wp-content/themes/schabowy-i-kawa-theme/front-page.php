@@ -88,7 +88,13 @@
         <div class="advice-summary__item--inner">
           <div class="advice-summary__item--wrapper">
             <a href="<?php the_permalink(); ?>" class="img_wrapper">
-              <?php the_post_thumbnail('single-post-thumbnail');
+              <?php if (has_post_thumbnail()) {
+                the_post_thumbnail('postImg');
+              } else {
+              ?>
+                <?php echo wp_get_attachment_image(58, 'postImg'); ?>
+              <?php
+              }
               ?>
             </a>
           </div>
