@@ -58,6 +58,7 @@ function cooking_features()
   add_image_size('cookerPortrait', 200, 200, true);
   add_image_size('recipeLandscape', 400, 200, true);
   add_image_size('pageBanner', 1500, 350, true);
+  add_image_size('postImg', 500, 350, true);
 }
 
 add_action('after_setup_theme', 'cooking_features');
