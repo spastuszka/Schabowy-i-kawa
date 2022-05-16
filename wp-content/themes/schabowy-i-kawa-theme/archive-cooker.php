@@ -1,13 +1,11 @@
-<?php get_header(); ?>
+<?php get_header();
+pageBanner(array(
+  'title' => 'Nasi kucharze',
+  'subtitle' => '',
+  'photo' => '',
+));
+?>
 
-<div class="page-banner">
-  <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
-  <div class="page-banner__content container container--narrow">
-    <h1 class="page-banner__title">
-      Nasi kucharze
-    </h1>
-  </div>
-</div>
 
 <div class="container container--narrow page-section">
   <section class="cookers">

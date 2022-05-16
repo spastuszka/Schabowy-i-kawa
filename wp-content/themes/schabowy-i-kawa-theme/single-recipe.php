@@ -2,14 +2,13 @@
 
 
 while (have_posts()) {
-  the_post(); ?>
-
-
-
-  <div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
-
-  </div>
+  the_post();
+  pageBanner(array(
+    'title' => ' ',
+    'subtitle' => '',
+    'photo' => '',
+  ));
+?>
 
   <div class="container container--narrow page-section">
     <div class="recipe-content">
