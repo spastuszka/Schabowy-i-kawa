@@ -1,5 +1,7 @@
+/* ========== */
+
 .metabox {
-  background-color: $beige;
+  background-color: $lightPink;
   border-radius: 3px;
   padding: 10px 15px;
   display: inline-block;
@@ -23,11 +25,11 @@
   p {
     margin: 0;
     font-size: 0.9rem;
-    color: adjust-color($beige, $lightness: -45%, $saturation: -33%);
+    color: #000;
   }
 
   a {
-    color: adjust-color($beige, $lightness: -45%, $saturation: -33%);
+    color: #000;
     text-decoration: none;
     font-weight: bold;
   }
@@ -48,5 +50,20 @@
   & &__blog-home-link:hover {
     text-decoration: none;
     background-color: adjust-color($mainBlue, $lightness: -5%);
+  }
+
+  .metabox__blog{
+    &-home-link{
+      background-color: $darkRed;
+      color: #fff;
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 3px 0 0 3px;
+      font-weight: normal;
+    }
+    &-home-link:hover{
+      text-decoration: none;
+      background-color: $darkRed;
+    }
   }
 }
