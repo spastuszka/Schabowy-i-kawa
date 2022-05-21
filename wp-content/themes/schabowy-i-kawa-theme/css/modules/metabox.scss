@@ -39,7 +39,7 @@
   }
 
   & &__blog-home-link {
-    background-color: $mainBlue;
+    background-color: #0000ff;
     color: #fff;
     display: inline-block;
     padding: 10px 15px;
@@ -49,7 +49,7 @@
 
   & &__blog-home-link:hover {
     text-decoration: none;
-    background-color: adjust-color($mainBlue, $lightness: -5%);
+    background-color: adjust-color(#0000ff, $lightness: -5%);
   }
 
   .metabox__blog{

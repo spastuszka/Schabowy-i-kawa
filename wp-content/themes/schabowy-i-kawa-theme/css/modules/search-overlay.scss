@@ -38,7 +38,7 @@
   &__icon {
     margin-right: 10px;
     font-size: 1.8rem;
-    color: $darkOrange;
+    color: $darkRed;
     @include atMedium {
       font-size: 2.5rem;
     }
@@ -53,7 +53,7 @@
   &__section-title {
     margin: 30px 0 1px 0;
     font-weight: 400;
-    color: $mainBlue;
+    color: #0000ff;
     font-size: 2rem;
     padding: 15px 0;
     border-bottom: 1px solid #ccc;
@@ -67,7 +67,7 @@
     cursor: pointer;
     transition: all 0.3s;
     background-color: #fff;
-    color: $darkOrange;
+    color: $darkRed;
     line-height: 0.7;
     @include atSmall {
       top: 18px;
@@ -95,10 +95,10 @@
   padding: 15px 0;
   margin: 0;
   background-color: transparent;
-  font-size: 1rem;
+  font-size:1rem;
   font-weight: 300;
   outline: none;
-  color: $darkOrange;
+  color: $darkRed;
   @include atSmall {
     font-size: 1.5rem;
   }
