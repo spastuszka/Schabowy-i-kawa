@@ -46,7 +46,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-
+build/
+build/*
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -193,13 +194,13 @@ wp-config.php
 # wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
-!wp-content/themes/
+!wp-content/themes/schabowy-i-kawa-theme/images/
 
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
 wp-content/mu-plugins/*
 wp-content/plugins/*
-wp-content/themes/*
+wp-content/themes/schabowy-i-kawa-theme/images/*
 
 
 # ignore node dependency directories (used by grunt)

@@ -1,0 +1,61 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.19rem;
+  padding: 12px 24px;
+  border: none;
+  outline: none;
+
+  &--small {
+    font-size: 0.88rem;
+    padding: 7px 13px;
+    font-weight: 300;
+  }
+
+  &--medium{
+    font-size: 1.2rem;
+    padding: 6px 30px;
+    font-weight: 400;
+  }
+
+  &--dark-red{
+    background-color: $darkRed;
+  }
+
+  &--dark-red:hover{
+    background-color: $darkRedHover;
+  }
+
+  &--dark-outline{
+    color:$darkRed;
+    border: 2px solid $darkRed;
+  }
+
+  &--dark-outline:hover{
+    color: inherit;
+    background-color: $darkRedHover;
+    border: 2px solid $darkRed;
+  }
+
+  &--large {
+    font-size: 1.3rem;
+    padding: 16px 34px;
+    border-radius: 7px;
+    @include atSmall {
+      font-size: 1.9rem;
+    }
+  }
+
+  &--pink{
+    color:#000;
+    background-color: $lightPink;
+  }
+
+  &--pink:hover{
+    background: $lightPink;
+  }
+}

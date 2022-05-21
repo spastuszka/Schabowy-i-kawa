@@ -1,0 +1,52 @@
+.promo-section{
+  position: relative;
+  z-index: 2;
+  text-align: justify;
+  background:#000;
+
+  a{
+    text-decoration: none;
+  }
+
+  h2{
+    font-size: calc(36px + 12 * ((100vw - 1400px) / 520));
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: calc(2.1634615385vw + 3.4615384615px);
+    font-weight: 700;
+  }
+
+  p{
+    font-family: 'Lato', sans-serif;
+    font-size: calc(18px + 6 * ((100vw - 580px) / 1340));
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    margin-bottom: calc(1.4423076923vw + 2.3076923077px);
+  }
+
+  &__bg{
+    background-image: url('http://schabowy-i-kawa.local/wp-content/themes/schabowy-i-kawa-theme/images/pasta.jpg');
+    padding:calc(101.25px + 33.75 * ((100vw - 1400px) / 520)) calc(15px + 0 * ((100vw - 1400px) / 520));
+    text-align: center;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &__content{
+    position: relative;
+    z-index: 2;
+  }
+
+  &--overlay{
+    width:50%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.68);
+    padding: 40px;
+  }
+}
