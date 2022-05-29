@@ -216,3 +216,8 @@ node_modules/
 !composer.json
 
 # End of https://www.toptal.com/developers/gitignore/api/wordpress,node
+
+#My Gitignore sources
+
+build/*
+!build/build.xml

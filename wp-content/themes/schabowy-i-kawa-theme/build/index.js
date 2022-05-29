@@ -16,6 +16,7 @@ __webpack_require__.r(__webpack_exports__);
  // Instantiate a new object using our modules/classes
 
 const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
+alert('Test');
 
 /***/ }),
 
