@@ -10,7 +10,42 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.scss */ "./css/style.scss");
+/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+ // Our modules / classes
 
+ // Instantiate a new object using our modules/classes
+
+const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
+
+/***/ }),
+
+/***/ "./src/modules/MobileMenu.js":
+/*!***********************************!*\
+  !*** ./src/modules/MobileMenu.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+class MobileMenu {
+  constructor() {
+    this.menu = document.querySelector('.site-header__menu');
+    this.openButton = document.querySelector('.site-header__menu-trigger');
+    this.events();
+  }
+
+  events() {
+    this.openButton.addEventListener('click', () => this.openMenu());
+  }
+
+  openMenu() {
+    this.openButton.classList.toggle('fa-bars');
+    this.openButton.classList.toggle('fa-window-close');
+    this.menu.classList.toggle('site-header__menu--active');
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
 
 /***/ }),
 
