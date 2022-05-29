@@ -5,5 +5,3 @@ import MobileMenu from './modules/MobileMenu'
 
 // Instantiate a new object using our modules/classes
 const mobileMenu = new MobileMenu()
-
-alert('Test 2')
