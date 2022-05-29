@@ -1,5 +1,5 @@
-.site-logo{
-  &--text{
+.site-logo {
+  &--text {
     position: relative;
     z-index: 20;
     margin: 0;
@@ -7,17 +7,17 @@
     font-weight: 100;
   }
 
-  strong{
+  strong {
     font-weight: 400;
   }
 
-  a{
+  a {
     color: #fff;
     text-decoration: none;
   }
 
-  &--img{
-    height: calc(2vw + 16px);
+  &--img {
+    height: calc(2vw + 15px);
     width: calc(7vw + 43px);
   }
 }

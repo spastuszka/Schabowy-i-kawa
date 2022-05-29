@@ -660,7 +660,7 @@ body.login {
   text-decoration: none;
 }
 .site-logo--img {
-  height: calc(2vw + 16px);
+  height: calc(2vw + 15px);
   width: calc(7vw + 43px);
 }
 
