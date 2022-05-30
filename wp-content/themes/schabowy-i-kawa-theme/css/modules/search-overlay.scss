@@ -32,7 +32,14 @@
   }
 
   &__top {
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: rgba(71, 13, 33, 0.8);
+    color: #fff;
+    ::placeholder {
+      color: #fff;
+    }
+    input[type='text'] {
+      color: #fff;
+    }
   }
 
   &__icon {
@@ -95,7 +102,7 @@
   padding: 15px 0;
   margin: 0;
   background-color: transparent;
-  font-size:1rem;
+  font-size: 1rem;
   font-weight: 300;
   outline: none;
   color: $darkRed;
