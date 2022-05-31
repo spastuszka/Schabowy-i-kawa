@@ -13,6 +13,7 @@ class Search {
   events() {
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
+    $(document).on('keyup', this.keyPressSearch.bind(this))
   }
 
   // 3. Metody
@@ -23,6 +24,16 @@ class Search {
   closeOverlay() {
     this.searchOverlay.removeClass('search-overlay--active')
     $('body').removeClass('body-no-scroll')
+  }
+
+  keyPressSearch(e) {
+    if (e.keyCode == 83) {
+      this.openOverlay()
+    }
+
+    if (e.keyCode == 27) {
+      this.closeOverlay()
+    }
   }
 }
 
