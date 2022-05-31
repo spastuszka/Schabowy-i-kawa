@@ -69,19 +69,18 @@
   &__close {
     position: absolute;
     top: 13px;
-    right: 16px;
     font-size: 2.1rem;
     cursor: pointer;
     transition: all 0.3s;
     background-color: #fff;
     color: $darkRed;
-    line-height: 0.7;
+    line-height: 0.6;
     @include atSmall {
       top: 18px;
       font-size: 2.1rem;
     }
     @include atMedium {
-      top: 26px;
+      top: 30px;
       font-size: 2.8rem;
     }
   }
