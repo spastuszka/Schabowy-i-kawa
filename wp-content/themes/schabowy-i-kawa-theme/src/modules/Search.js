@@ -13,7 +13,7 @@ class Search {
   events() {
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
-    $(document).on('keyup', this.keyPressSearch.bind(this))
+    $(document).on('keydown', this.keyPressSearch.bind(this))
   }
 
   // 3. Metody
