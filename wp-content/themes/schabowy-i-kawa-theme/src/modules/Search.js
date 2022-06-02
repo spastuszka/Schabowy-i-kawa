@@ -9,6 +9,7 @@ class Search {
     this.searchField = $('#search-term')
     this.events()
     this.isOverlayOpen = false
+    this.typingTimer
   }
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
@@ -16,12 +17,16 @@ class Search {
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
     $(document).on('keydown', this.keyPressSearch.bind(this))
-    this.searchField.on('keydown', this.typingLogic)
+    this.searchField.on('keydown', this.typingLogic.bind(this))
   }
 
   // 3. Metody
   typingLogic() {
-    console.log('test')
+    //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
+    clearTimeout(this.typingTimer)
+    this.typingTimer = setTimeout(function () {
+      console.log('Test po 2 sekundach')
+    }, 2000)
   }
 
   openOverlay() {
