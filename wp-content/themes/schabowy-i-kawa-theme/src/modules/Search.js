@@ -7,6 +7,7 @@ class Search {
     this.closeButton = $('.search-overlay__close')
     this.searchOverlay = $('.search-overlay')
     this.events()
+    this.isOverlayOpen = false
   }
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
@@ -27,12 +28,14 @@ class Search {
   }
 
   keyPressSearch(e) {
-    if (e.keyCode == 83) {
+    if (e.keyCode == 83 && !this.isOverlayOpen) {
       this.openOverlay()
+      this.isOverlayOpen = true
     }
 
-    if (e.keyCode == 27) {
+    if (e.keyCode == 27 && this.isOverlayOpen) {
       this.closeOverlay()
+      this.isOverlayOpen = false
     }
   }
 }
