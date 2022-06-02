@@ -7,6 +7,7 @@ class Search {
     this.closeButton = $('.search-overlay__close')
     this.searchOverlay = $('.search-overlay')
     this.searchField = $('#search-term')
+    this.searchResults = $('#search-overlay__results')
     this.events()
     this.isOverlayOpen = false
     this.typingTimer
@@ -24,9 +25,11 @@ class Search {
   typingLogic() {
     //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
     clearTimeout(this.typingTimer)
-    this.typingTimer = setTimeout(function () {
-      console.log('Test po 2 sekundach')
-    }, 2000)
+    this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
+  }
+
+  getResults() {
+    this.searchResults.html('Test result')
   }
 
   openOverlay() {
