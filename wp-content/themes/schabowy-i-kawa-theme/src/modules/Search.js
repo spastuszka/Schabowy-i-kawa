@@ -6,6 +6,7 @@ class Search {
     this.openButton = $('.js-search-trigger')
     this.closeButton = $('.search-overlay__close')
     this.searchOverlay = $('.search-overlay')
+    this.searchField = $('#search-term')
     this.events()
     this.isOverlayOpen = false
   }
@@ -15,9 +16,14 @@ class Search {
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
     $(document).on('keydown', this.keyPressSearch.bind(this))
+    this.searchField.on('keydown', this.typingLogic)
   }
 
   // 3. Metody
+  typingLogic() {
+    console.log('test')
+  }
+
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active')
     $('body').addClass('body-no-scroll')
