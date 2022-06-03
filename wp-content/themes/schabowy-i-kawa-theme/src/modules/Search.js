@@ -12,6 +12,7 @@ class Search {
     this.isOverlayOpen = false
     this.typingTimer
     this.isSpinnerVisible = false
+    this.previousValue
   }
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
@@ -19,18 +20,23 @@ class Search {
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
     $(document).on('keydown', this.keyPressSearch.bind(this))
-    this.searchField.on('keydown', this.typingLogic.bind(this))
+    this.searchField.on('keyup', this.typingLogic.bind(this))
   }
 
   // 3. Metody
   typingLogic() {
-    //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
-    clearTimeout(this.typingTimer)
-    if (!this.isSpinnerVisible) {
-      this.searchResults.html('<div class="loader"></div>')
-      this.isSpinnerVisible = true
+    //warunek logiczny uruchamiajacy wyszukiwanie wtedy kiedy wartos pola wyszukiwania sie zmienia
+    if (this.searchField.val() != this.previousValue) {
+      //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
+      clearTimeout(this.typingTimer)
+      if (!this.isSpinnerVisible) {
+        this.searchResults.html('<div class="loader"></div>')
+        this.isSpinnerVisible = true
+      }
+      this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
     }
-    this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
+    //Ustanowienie zmiennej ktora bedzie przechowywac wartosc pola wyszuykiwania
+    this.previousValue = this.searchField.val()
   }
 
   getResults() {
