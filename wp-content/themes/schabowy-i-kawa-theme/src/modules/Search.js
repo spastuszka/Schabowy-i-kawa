@@ -25,6 +25,7 @@ class Search {
   typingLogic() {
     //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
     clearTimeout(this.typingTimer)
+    this.searchResults.html('<div class="spinner-loader"></div>')
     this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
   }
 
