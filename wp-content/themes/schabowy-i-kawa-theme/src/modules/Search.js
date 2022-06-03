@@ -26,12 +26,16 @@ class Search {
   typingLogic() {
     //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
     clearTimeout(this.typingTimer)
-    this.searchResults.html('<div class="loader"></div>')
+    if (!this.isSpinnerVisible) {
+      this.searchResults.html('<div class="loader"></div>')
+      this.isSpinnerVisible = true
+    }
     this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
   }
 
   getResults() {
     this.searchResults.html('Test result')
+    this.isSpinnerVisible = false
   }
 
   openOverlay() {
