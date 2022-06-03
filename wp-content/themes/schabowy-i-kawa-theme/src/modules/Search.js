@@ -11,6 +11,7 @@ class Search {
     this.events()
     this.isOverlayOpen = false
     this.typingTimer
+    this.isSpinnerVisible = false
   }
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
@@ -25,7 +26,7 @@ class Search {
   typingLogic() {
     //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
     clearTimeout(this.typingTimer)
-    this.searchResults.html('<div class="spinner-loader"></div>')
+    this.searchResults.html('<div class="loader"></div>')
     this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
   }
 
