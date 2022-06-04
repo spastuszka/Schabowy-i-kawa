@@ -77,6 +77,10 @@ class Search {
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active')
     $('body').addClass('body-no-scroll')
+    //deprecated focus - todo - fix
+    setTimeout(() => {
+      this.searchField.focus()
+    }, 301)
   }
   closeOverlay() {
     this.searchOverlay.removeClass('search-overlay--active')
