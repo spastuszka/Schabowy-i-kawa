@@ -1,18 +1,10 @@
-.min-list {
-  padding: 0;
-  margin: 0;
-}
-.min-list li {
-  list-style: none;
-}
-
-.bold{
+.bold {
   font-weight: bold;
 }
 
 .container {
   max-width: 1920px;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
   padding: 0 16px;
   position: relative;
@@ -41,7 +33,7 @@
   font-size: 0.85rem;
 }
 
-.t-dark{
+.t-dark {
   color: #000;
 }
 
@@ -67,7 +59,7 @@
 .container:after,
 .group:before,
 .group:after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 .container:after,
@@ -82,10 +74,9 @@
   margin: 0;
 }
 
-.full-width-split{
+.full-width-split {
   padding: 40px;
 }
-
 
 /* Breadcrumbs */
 .breadcrumb {

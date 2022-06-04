@@ -51,8 +51,8 @@ class Search {
         this.searchField.val(),
       (results) => {
         this.searchResults.html(`
-          <h2>Testowe informacje</h2>
-          <ul>
+          <h2 class="search-overlay__section-title">Przepisy</h2>
+          <ul class="link-list min-list">
             <li><a href="${results[0].link}">${results[0].title.rendered}</a></li>
           </ul>
         `)

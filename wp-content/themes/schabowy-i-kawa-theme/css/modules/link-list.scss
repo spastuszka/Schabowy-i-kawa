@@ -2,7 +2,7 @@
   li {
     padding: 1rem 0;
     font-size: 1.5rem;
-    border-bottom: 1px dotted #DEDEDE;
+    border-bottom: 1px dotted #dedede;
 
     .search-overlay & {
       font-size: 1.3rem;
@@ -15,5 +15,13 @@
 
   a {
     color: $darkRed;
+  }
+}
+
+.min-list {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
   }
 }
