@@ -53,7 +53,12 @@ class Search {
         this.searchResults.html(`
           <h2 class="search-overlay__section-title">Przepisy</h2>
           <ul class="link-list min-list">
-            <li><a href="${results[0].link}">${results[0].title.rendered}</a></li>
+          ${results
+            .map(
+              (item) =>
+                `<li><a href=${item.link}">${item.title.rendered}</a></li>`
+            )
+            .join('')}
           </ul>
         `)
       }
