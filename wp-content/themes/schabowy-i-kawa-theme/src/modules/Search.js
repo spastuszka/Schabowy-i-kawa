@@ -47,9 +47,15 @@ class Search {
 
   getResults() {
     $.getJSON(
-      'http://schabowy-i-kawa.local/wp-json/wp/v2/posts?search=%22Post%203%22',
-      function (results) {
-        alert(results[0].title.rendered)
+      'http://schabowy-i-kawa.local/wp-json/wp/v2/posts?search=' +
+        this.searchField.val(),
+      (results) => {
+        this.searchResults.html(`
+          <h2>Testowe informacje</h2>
+          <ul>
+            <li><a href="${results[0].link}">${results[0].title.rendered}</a></li>
+          </ul>
+        `)
       }
     )
   }
