@@ -36,7 +36,7 @@ class Search {
           this.searchResults.html('<div class="loader"></div>')
           this.isSpinnerVisible = true
         }
-        this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
+        this.typingTimer = setTimeout(this.getResults.bind(this), 750)
       } else {
         this.searchResults.html(' ')
         this.isSpinnerVisible = false
