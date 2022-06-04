@@ -29,11 +29,17 @@ class Search {
     if (this.searchField.val() != this.previousValue) {
       //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
       clearTimeout(this.typingTimer)
-      if (!this.isSpinnerVisible) {
-        this.searchResults.html('<div class="loader"></div>')
-        this.isSpinnerVisible = true
+
+      if (this.searchField.val()) {
+        if (!this.isSpinnerVisible) {
+          this.searchResults.html('<div class="loader"></div>')
+          this.isSpinnerVisible = true
+        }
+        this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
+      } else {
+        this.searchResults.html(' ')
+        this.isSpinnerVisible = false
       }
-      this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
     }
     //Ustanowienie zmiennej ktora bedzie przechowywac wartosc pola wyszuykiwania
     this.previousValue = this.searchField.val()
