@@ -46,8 +46,12 @@ class Search {
   }
 
   getResults() {
-    this.searchResults.html('Test result')
-    this.isSpinnerVisible = false
+    $.getJSON(
+      'http://schabowy-i-kawa.local/wp-json/wp/v2/posts?search=%22Post%203%22',
+      function (results) {
+        alert(results[0].title.rendered)
+      }
+    )
   }
 
   openOverlay() {
