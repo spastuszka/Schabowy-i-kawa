@@ -50,16 +50,22 @@ class Search {
       'http://schabowy-i-kawa.local/wp-json/wp/v2/posts?search=' +
         this.searchField.val(),
       (results) => {
+        //map - tworzenie i wykomnanie funkcji na kazdym elemencie tablicy
+        //ponizej operator trojargumentowy
         this.searchResults.html(`
           <h2 class="search-overlay__section-title">Przepisy</h2>
-          <ul class="link-list min-list">
+          ${
+            results.length
+              ? '<ul class="link-list min-list">'
+              : '<p>Brak informacji</p>'
+          }
           ${results
             .map(
               (item) =>
                 `<li><a href="${item.link}">${item.title.rendered}</a></li>`
             )
             .join('')}
-          </ul>
+          ${results.length ? '</ul>' : ''}
         `)
       }
     )
