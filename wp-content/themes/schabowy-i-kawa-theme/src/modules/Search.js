@@ -67,6 +67,7 @@ class Search {
             .join('')}
           ${results.length ? '</ul>' : ''}
         `)
+        this.isSpinnerVisible = false
       }
     )
   }
