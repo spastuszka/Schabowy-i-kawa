@@ -79,7 +79,7 @@ class Search {
     $('body').addClass('body-no-scroll')
     //deprecated focus - todo - fix
     setTimeout(() => {
-      this.searchField.focus()
+      this.searchField.trigger('focus')
     }, 301)
   }
   closeOverlay() {
