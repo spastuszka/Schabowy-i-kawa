@@ -47,42 +47,49 @@ class Search {
   }
 
   getResults() {
-    $.getJSON(
-      cookingData.root_url +
-        '/wp-json/wp/v2/posts?search=' +
-        this.searchField.val(),
-      (results) => {
-        //map - tworzenie i wykomnanie funkcji na kazdym elemencie tablicy
-        //ponizej operator trojargumentowy
-        this.searchResults.html(`
+    //asynchroniczne wykonanie search'a
+    $.when(
+      $.getJSON(
+        cookingData.root_url +
+          '/wp-json/wp/v2/posts?search=' +
+          this.searchField.val()
+      ),
+      $.getJSON(
+        cookingData.root_url +
+          '/wp-json/wp/v2/pages?search=' +
+          this.searchField.val()
+      )
+    ).then((posts, pages) => {
+      let combinedResults = posts[0].concat(pages[0])
+      this.searchResults.html(`
           <h2 class="search-overlay__section-title">Przepisy</h2>
           ${
-            results.length
+            combinedResults.length
               ? '<ul class="link-list min-list">'
               : '<p>Brak informacji</p>'
           }
-          ${results
+          ${combinedResults
             .map(
               (item) =>
                 `<li><a href="${item.link}">${item.title.rendered}</a></li>`
             )
             .join('')}
-          ${results.length ? '</ul>' : ''}
+          ${combinedResults.length ? '</ul>' : ''}
         `)
-        this.isSpinnerVisible = false
-      }
-    )
+      this.isSpinnerVisible = false
+    })
   }
 
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active')
     $('body').addClass('body-no-scroll')
-    //deprecated focus - todo - fix
+    this.searchField.val('')
     setTimeout(() => this.searchField.trigger('focus'), 301)
   }
   closeOverlay() {
     this.searchOverlay.removeClass('search-overlay--active')
     $('body').removeClass('body-no-scroll')
+    this.searchResults.html('')
   }
 
   keyPressSearch(e) {
