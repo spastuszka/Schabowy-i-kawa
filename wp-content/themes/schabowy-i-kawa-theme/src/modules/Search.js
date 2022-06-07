@@ -59,9 +59,10 @@ class Search {
           '/wp-json/wp/v2/pages?search=' +
           this.searchField.val()
       )
-    ).then((posts, pages) => {
-      let combinedResults = posts[0].concat(pages[0])
-      this.searchResults.html(`
+    ).then(
+      (posts, pages) => {
+        let combinedResults = posts[0].concat(pages[0])
+        this.searchResults.html(`
           <h2 class="search-overlay__section-title">Przepisy</h2>
           ${
             combinedResults.length
@@ -76,8 +77,13 @@ class Search {
             .join('')}
           ${combinedResults.length ? '</ul>' : ''}
         `)
-      this.isSpinnerVisible = false
-    })
+        this.isSpinnerVisible = false
+      },
+      () => {
+        //obsluga bledow, jezeli cos nie gra
+        this.searchResults.html('Nieoczekiwany błąd, proszę spróbować ponownie')
+      }
+    )
   }
 
   openOverlay() {
