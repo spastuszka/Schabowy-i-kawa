@@ -1,5 +1,8 @@
 <?php
 
+//dla organizacji stworzony osobny folder z plikiem do ktorego odnosi sie dany path
+require get_theme_file_path('/include/search-route.php');
+
 function cooking_custom_rest(){
   register_rest_field('post','authorName',array(
     'get_callback' => function(){ return get_the_author();}
