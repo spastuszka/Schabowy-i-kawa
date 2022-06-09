@@ -47,35 +47,74 @@ class Search {
   }
 
   getResults() {
-    //asynchroniczne wykonanie search'a
-    $.when(
-      $.getJSON(
-        cookingData.root_url +
-          '/wp-json/wp/v2/posts?search=' +
-          this.searchField.val()
-      ),
-      $.getJSON(
-        cookingData.root_url +
-          '/wp-json/wp/v2/pages?search=' +
-          this.searchField.val()
-      )
-    ).then(
-      (posts, pages) => {
-        let combinedResults = posts[0].concat(pages[0])
+    $.getJSON(
+      cookingData.root_url +
+        '/wp-json/cookers/v1/search?term=' +
+        this.searchField.val(),
+      (results) => {
         this.searchResults.html(`
-          <h2 class="search-overlay__section-title">Przepisy</h2>
-          ${
-            combinedResults.length
-              ? '<ul class="link-list min-list">'
-              : '<p>Brak informacji</p>'
-          }
-          ${combinedResults
-            .map(
-              (item) =>
-                `<li><a href="${item.link}">${item.title.rendered}</a></li>`
-            )
-            .join('')}
-          ${combinedResults.length ? '</ul>' : ''}
+          <div class="row">
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Strony</h2>
+              ${
+                results.pageInfo.length
+                  ? '<ul class="link-list min-list">'
+                  : '<p>Brak informacji</p>'
+              }
+              ${results.pageInfo
+                .map(
+                  (item) =>
+                    `<li><a href="${item.permalink}">${item.title}</a></li>`
+                )
+                .join('')}
+              ${results.pageInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Porady</h2>
+              ${
+                results.postInfo.length
+                  ? '<ul class="link-list min-list">'
+                  : '<p>Brak informacji</p>'
+              }
+              ${results.postInfo
+                .map(
+                  (item) =>
+                    `<li><a href="${item.permalink}">${item.title}</a></li>`
+                )
+                .join('')}
+              ${results.postInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Przepisy</h2>
+              ${
+                results.recipeInfo.length
+                  ? '<ul class="link-list min-list">'
+                  : '<p>Brak informacji</p>'
+              }
+              ${results.recipeInfo
+                .map(
+                  (item) =>
+                    `<li><a href="${item.permalink}">${item.title}</a></li>`
+                )
+                .join('')}
+              ${results.recipeInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Kucharze</h2>
+              ${
+                results.cookerInfo.length
+                  ? '<ul class="link-list min-list">'
+                  : '<p>Brak informacji</p>'
+              }
+              ${results.cookerInfo
+                .map(
+                  (item) =>
+                    `<li><a href="${item.permalink}">${item.title}</a></li>`
+                )
+                .join('')}
+              ${results.cookerInfo.length ? '</ul>' : ''}
+            </div>
+          </div>
         `)
         this.isSpinnerVisible = false
       },
