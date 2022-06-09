@@ -10,20 +10,25 @@ function cookerRegSearch(){
 add_action('rest_api_init','cookerRegSearch');
 
 function cookingSearchResults($data){
-  $cookers = new WP_Query(array(
-    'post_type' => 'cooker',
+  $mainQuery = new WP_Query(array(
+    'post_type' => array('post','pages','cooker','recipe'),
     's' => sanitize_text_field($data['term']),
   ));
 
-  $cookersResults = array();
+  $searchQueryResults = array(
+    'postInfo' => array(),
+    'pageInfo' => array(),
+    'cookerInfo' => array(),
+    'recipeInfo' => array(),
+  );
 
-  while($cookers -> have_posts()){
-    $cookers->the_post();
-    array_push($cookersResults, array(
+  while($mainQuery -> have_posts()){
+    $mainQuery->the_post();
+    array_push($searchQueryResults, array(
       'title' => get_the_title(),
       'permalink' => get_the_permalink(),
     ));
   }
 
-  return $cookersResults;
+  return $searchQueryResults;
 }
