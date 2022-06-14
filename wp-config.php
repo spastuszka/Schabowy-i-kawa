@@ -67,7 +67,7 @@ $table_prefix = 'wp_';
 
 
 define('WP_DISABLE_FATAL_ERROR_HANDLER', true);   // 5.2 and later
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy publishing. */
 
