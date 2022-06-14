@@ -597,9 +597,12 @@ body.login {
   width: 100%;
   margin: 0 auto 30px auto;
 }
-.site-footer__footer_logo--img {
-  height: calc(2.3461538462vw + 15.9538461538px);
-  width: calc(6.3461538462vw + 43.1538461538px);
+.site-footer__footer_logo--text {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10pt;
 }
 .site-footer__site_map {
   width: 100%;
@@ -690,7 +693,8 @@ body.login {
   z-index: 20;
   margin: 0;
   font-size: 1.75rem;
-  font-weight: 100;
+  font-weight: 300;
+  color: #fff;
 }
 .site-logo strong {
   font-weight: 400;
