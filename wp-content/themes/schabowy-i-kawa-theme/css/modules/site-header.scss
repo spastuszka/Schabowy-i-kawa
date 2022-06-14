@@ -20,16 +20,23 @@
 
   &__menu {
     visibility: hidden;
-  position: absolute;
-  background-color: rgba(12, 56, 97, 0.89);
-  left: 0;
-  right: 0;
-  top: -20px;
-  padding-top: 58px;
-  opacity: 0;
-  transform: translateY(-20%);
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
-  padding-bottom: 20px;
+    position: absolute;
+    background-color: rgba(12, 56, 97, 0.89);
+    left: 0;
+    right: 0;
+    top: -20px;
+    padding-top: 58px;
+    opacity: 0;
+    transform: translateY(-20%);
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+      transform 0.3s ease-out;
+    padding-bottom: 20px;
+
+    &--active {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
 
     @include atMedium {
       visibility: visible;
@@ -102,9 +109,8 @@
   }
 }
 
-
 .search-trigger {
-  font-size:1.2rem;
+  font-size: 1.2rem;
   display: none;
   color: #fff;
   position: relative;

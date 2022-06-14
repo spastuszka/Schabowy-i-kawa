@@ -1,7 +1,9 @@
-import "../css/style.scss"
+import '../css/style.scss'
 
+// Our modules / classes
 import MobileMenu from './modules/MobileMenu'
+import Search from './modules/Search'
 
-//Instant new object
-
-const mobileMenu = new MobileMenu();
+// Instantiate a new object using our modules/classes
+const mobileMenu = new MobileMenu()
+const liveSeach = new Search()

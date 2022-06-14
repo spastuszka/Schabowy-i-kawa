@@ -1,4 +1,4 @@
-.advice-summary{
+.advice-summary {
   width: 100%;
   display: -ms-flexbox;
   display: flex;
@@ -10,24 +10,24 @@
   flex-wrap: wrap;
   overflow: hidden;
 
-  &__item{
+  &__item {
     width: calc(calc(100% / 3) - 10px);
     margin: 0 0 45px 0;
 
-    &--inner{
+    &--inner {
       text-align: left;
     }
 
-    &--wrapper{
+    &--wrapper {
       position: relative;
       overflow: hidden;
       margin-bottom: calc(1.4423076923vw + 2.3076923077px);
     }
 
-    &--description{
+    &--description {
       margin-top: 0.5rem;
 
-      .rec{
+      .rec {
         text-align: center;
       }
     }

@@ -4,13 +4,13 @@
   background-color: $lightPink;
   margin: 0 0 40px 0;
 
-  @include atSmallMedium{
+  @include atSmallMedium {
     margin: 0 0 40px 20px;
     width: 300px;
     float: right;
   }
 
-  &__title{
+  &__title {
     margin: 0;
     font-weight: normal;
     text-align: center;
@@ -18,29 +18,30 @@
     background-color: $darkRed;
     color: #fff;
 
-    a{
+    a {
       color: #fff;
       text-decoration: none;
       background-color: $darkRed;
     }
   }
 
-  li{
+  li {
     border-top: 1px solid #f4de89;
   }
 
-  li:first-child{
+  li:first-child {
     border-top: none;
   }
 
-  &__active,.current_page_item{
+  &__active,
+  .current_page_item {
     text-align: center;
     background-color: #f4e6b1;
     color: $darkRed;
     font-weight: bold;
   }
 
-  li a{
+  li a {
     display: block;
     text-align: center;
     padding: 17px 10px;
@@ -48,8 +49,8 @@
     color: $darkRed;
     transition: all 0.3s;
   }
-  
-  li a:hover{
+
+  li a:hover {
     color: $darkRed;
     background-color: #f2e3aa;
   }
