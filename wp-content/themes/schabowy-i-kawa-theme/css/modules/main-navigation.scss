@@ -8,7 +8,7 @@
 
   ul:before,
   ul:after {
-    content: " ";
+    content: ' ';
     display: table;
   }
 
@@ -37,7 +37,7 @@
   color: #fff;
   text-decoration: none;
   font-weight: 400;
-  font-size:1.2rem;
+  font-size: 1.2rem;
   @include atMedium {
     display: inline-block;
     padding: 0;
@@ -48,4 +48,3 @@
 .main-navigation a:hover {
   color: $darkRedHover;
 }
-

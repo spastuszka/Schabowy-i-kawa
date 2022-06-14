@@ -1,18 +1,10 @@
-.min-list {
-  padding: 0;
-  margin: 0;
-}
-.min-list li {
-  list-style: none;
-}
-
-.bold{
+.bold {
   font-weight: bold;
 }
 
 .container {
   max-width: 1920px;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
   padding: 0 16px;
   position: relative;
@@ -41,7 +33,7 @@
   font-size: 0.85rem;
 }
 
-.t-dark{
+.t-dark {
   color: #000;
 }
 
@@ -67,7 +59,7 @@
 .container:after,
 .group:before,
 .group:after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 .container:after,
@@ -82,10 +74,9 @@
   margin: 0;
 }
 
-.full-width-split{
+.full-width-split {
   padding: 40px;
 }
-
 
 /* Breadcrumbs */
 .breadcrumb {
@@ -98,4 +89,49 @@
 .breadcrumb a {
   color: $darkRed;
   text-decoration: none;
+}
+
+.one-half,
+.one-third,
+.one-fourth,
+.one-fifth,
+.one-sixth {
+  padding-bottom: 1.6rem;
+}
+
+@include atMedium {
+  .row {
+    margin-right: -50px;
+  }
+
+  .one-half,
+  .one-third,
+  .two-thirds,
+  .one-quarter,
+  .one-fifth,
+  .one-sixth {
+    padding-bottom: 0;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 50px;
+  }
+
+  .two-thirds {
+    width: 66.66%;
+  }
+  .one-half {
+    width: 50%;
+  }
+  .one-third {
+    width: 33.33%;
+  }
+  .one-quarter {
+    width: 25%;
+  }
+  .one-fifth {
+    width: 20%;
+  }
+  .one-sixth {
+    width: 16.66%;
+  }
 }

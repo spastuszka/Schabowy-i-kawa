@@ -10,7 +10,190 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.scss */ "./css/style.scss");
+/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+/* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
+ // Our modules / classes
 
+
+ // Instantiate a new object using our modules/classes
+
+const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
+const liveSeach = new _modules_Search__WEBPACK_IMPORTED_MODULE_2__["default"]();
+
+/***/ }),
+
+/***/ "./src/modules/MobileMenu.js":
+/*!***********************************!*\
+  !*** ./src/modules/MobileMenu.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+class MobileMenu {
+  constructor() {
+    this.menu = document.querySelector(".site-header__menu");
+    this.openButton = document.querySelector(".site-header__menu-trigger");
+    this.events();
+  }
+
+  events() {
+    this.openButton.addEventListener("click", () => this.openMenu());
+  }
+
+  openMenu() {
+    this.openButton.classList.toggle("fa-bars");
+    this.openButton.classList.toggle("fa-window-close");
+    this.menu.classList.toggle("site-header__menu--active");
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileMenu);
+
+/***/ }),
+
+/***/ "./src/modules/Search.js":
+/*!*******************************!*\
+  !*** ./src/modules/Search.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class Search {
+  // 1. Opis naszego obiektu oraz jego inicjalizacja
+  constructor() {
+    this.addSearchHTML();
+    this.openButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search-trigger');
+    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay__close');
+    this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay');
+    this.searchField = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-term');
+    this.searchResults = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-overlay__results');
+    this.events();
+    this.isOverlayOpen = false;
+    this.typingTimer;
+    this.isSpinnerVisible = false;
+    this.previousValue;
+  } // 2. Zdarzenia - np. kliknięcie, najechanie itp.
+
+
+  events() {
+    this.openButton.on('click', this.openOverlay.bind(this));
+    this.closeButton.on('click', this.closeOverlay.bind(this));
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', this.keyPressSearch.bind(this));
+    this.searchField.on('keyup', this.typingLogic.bind(this));
+  } // 3. Metody
+
+
+  typingLogic() {
+    //warunek logiczny uruchamiajacy wyszukiwanie wtedy kiedy wartos pola wyszukiwania sie zmienia
+    if (this.searchField.val() != this.previousValue) {
+      //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
+      clearTimeout(this.typingTimer);
+
+      if (this.searchField.val()) {
+        if (!this.isSpinnerVisible) {
+          this.searchResults.html('<div class="loader"></div>');
+          this.isSpinnerVisible = true;
+        }
+
+        this.typingTimer = setTimeout(this.getResults.bind(this), 750);
+      } else {
+        this.searchResults.html(' ');
+        this.isSpinnerVisible = false;
+      }
+    } //Ustanowienie zmiennej ktora bedzie przechowywac wartosc pola wyszuykiwania
+
+
+    this.previousValue = this.searchField.val();
+  }
+
+  getResults() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(cookingData.root_url + '/wp-json/cookers/v1/search?term=' + this.searchField.val(), results => {
+      this.searchResults.html(`
+          <div class="row">
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Strony</h2>
+              ${results.pageInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+              ${results.pageInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+              ${results.pageInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Porady</h2>
+              ${results.postInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+              ${results.postInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+              ${results.postInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Przepisy</h2>
+              ${results.recipeInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+              ${results.recipeInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+              ${results.recipeInfo.length ? '</ul>' : ''}
+            </div>
+            <div class="one-quarter">
+              <h2 class="search-overlay__section-title">Kucharze</h2>
+              ${results.cookerInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+              ${results.cookerInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+              ${results.cookerInfo.length ? '</ul>' : ''}
+            </div>
+          </div>
+        `);
+      this.isSpinnerVisible = false;
+    }, () => {
+      //obsluga bledow, jezeli cos nie gra
+      this.searchResults.html('Nieoczekiwany błąd, proszę spróbować ponownie');
+    });
+  }
+
+  openOverlay() {
+    this.searchOverlay.addClass('search-overlay--active');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('body-no-scroll');
+    this.searchField.val('');
+    setTimeout(() => this.searchField.trigger('focus'), 301);
+  }
+
+  closeOverlay() {
+    this.searchOverlay.removeClass('search-overlay--active');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('body-no-scroll');
+    this.searchResults.html('');
+  }
+
+  keyPressSearch(e) {
+    if (e.keyCode == 83 && !this.isOverlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()('input, textarea').is(':focus')) {
+      this.openOverlay();
+      this.isOverlayOpen = true;
+    }
+
+    if (e.keyCode == 27 && this.isOverlayOpen) {
+      this.closeOverlay();
+      this.isOverlayOpen = false;
+    }
+  } //dodanie wyszukiwarki na koniec kodu umieszczajac go do footera
+
+
+  addSearchHTML() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').append(`
+    <div class="search-overlay">
+      <div class="search-overlay__top">
+        <div class="container">
+          <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
+          <input type="text" class="search-term" placeholder="Wyszukaj..." id="search-term">
+          <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i> 
+      </div>
+    </div>
+      <div class="container">
+        <div id="search-overlay__results"></div>
+      </div>
+    </div>
+    `);
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
 
 /***/ }),
 
@@ -23,6 +206,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/***/ (function(module) {
+
+module.exports = window["jQuery"];
 
 /***/ })
 
@@ -87,6 +280,30 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	}();
 /******/ 	

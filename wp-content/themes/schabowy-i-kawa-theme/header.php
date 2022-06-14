@@ -13,17 +13,11 @@
       <h1 class="site-logo--text float-left">
         <a href="<?php echo site_url(); ?>"><img class="site-logo--img" src="<?php echo get_theme_file_uri('/images/logo_doradca_smaku.svg'); ?>" alt="Logo Schabowy i Kawa"></a>
       </h1>
-      <span class="site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
       <div class="site-header__menu group">
         <nav class="main-navigation">
-          <!-- Menu dynamiczne używane przez zwykłego użytkownika -->
-          <?php /*
-          wp_nav_menu(array(
-            'theme_location' => 'defaultHeader',
-          )); */
-          ?>
-          <!-- Menu zmieniane manualnie w kodzie -->
+
           <ul>
             <li <?php if (is_page('o-nas') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/o-nas'); ?> ">O nas</a></li>
             <li <?php if (get_post_type() == 'recipe') echo 'class="current-menu-item"'; ?>><a href="<?php echo get_post_type_archive_link('recipe'); ?>">Przepisy</a></li>

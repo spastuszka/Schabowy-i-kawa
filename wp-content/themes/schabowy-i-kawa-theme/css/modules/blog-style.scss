@@ -1,6 +1,6 @@
 /* Blog */
 
-.blog-flex-container{
+.blog-flex-container {
   width: 100%;
   display: -ms-flexbox;
   display: flex;
@@ -10,15 +10,15 @@
   overflow: hidden;
 }
 
-.post-item{
+.post-item {
   width: calc(calc(100% / 3) - 20px);
   margin: 0 0 45px 0;
   padding: 10px;
 }
-.headline--post-title{
+.headline--post-title {
   margin-top: 20px;
 
-  a{
+  a {
     color: $darkRed;
     text-decoration: none;
   }

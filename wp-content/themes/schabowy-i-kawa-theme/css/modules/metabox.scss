@@ -52,8 +52,8 @@
     background-color: adjust-color(#0000ff, $lightness: -5%);
   }
 
-  .metabox__blog{
-    &-home-link{
+  .metabox__blog {
+    &-home-link {
       background-color: $darkRed;
       color: #fff;
       display: inline-block;
@@ -61,7 +61,7 @@
       border-radius: 3px 0 0 3px;
       font-weight: normal;
     }
-    &-home-link:hover{
+    &-home-link:hover {
       text-decoration: none;
       background-color: $darkRed;
     }

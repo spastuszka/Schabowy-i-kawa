@@ -16,26 +16,26 @@
     font-weight: 300;
   }
 
-  &--medium{
+  &--medium {
     font-size: 1.2rem;
     padding: 6px 30px;
     font-weight: 400;
   }
 
-  &--dark-red{
+  &--dark-red {
     background-color: $darkRed;
   }
 
-  &--dark-red:hover{
+  &--dark-red:hover {
     background-color: $darkRedHover;
   }
 
-  &--dark-outline{
-    color:$darkRed;
+  &--dark-outline {
+    color: $darkRed;
     border: 2px solid $darkRed;
   }
 
-  &--dark-outline:hover{
+  &--dark-outline:hover {
     color: inherit;
     background-color: $darkRedHover;
     border: 2px solid $darkRed;
@@ -50,12 +50,12 @@
     }
   }
 
-  &--pink{
-    color:#000;
+  &--pink {
+    color: #000;
     background-color: $lightPink;
   }
 
-  &--pink:hover{
+  &--pink:hover {
     background: $lightPink;
   }
 }

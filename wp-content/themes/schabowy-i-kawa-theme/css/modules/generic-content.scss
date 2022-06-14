@@ -16,10 +16,10 @@
   h4,
   h5,
   h6 {
-    font-family: "Lato", sans-serif;
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -61,8 +61,8 @@
       font-size: 1.15rem;
     }
   }
-  
-  &--recipe_excerpt{
+
+  &--recipe_excerpt {
     margin-top: 10px;
-    }
+  }
 }

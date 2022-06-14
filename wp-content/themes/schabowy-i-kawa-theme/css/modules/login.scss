@@ -3,7 +3,10 @@
 body.login .button-primary {
   background-color: $lightPink;
   border-color: scale-color($lightPink, $lightness: -10%);
-  text-shadow: 0 -1px 1px scale-color($lightPink, $lightness: -15%), 1px 0 1px scale-color($lightPink, $lightness: -15%), 0 1px 1px scale-color($lightPink, $lightness: -15%), -1px 0 1px scale-color($lightPink, $lightness: -15%);
+  text-shadow: 0 -1px 1px scale-color($lightPink, $lightness: -15%),
+    1px 0 1px scale-color($lightPink, $lightness: -15%),
+    0 1px 1px scale-color($lightPink, $lightness: -15%),
+    -1px 0 1px scale-color($lightPink, $lightness: -15%);
   box-shadow: 0 1px 0 scale-color($lightPink, $lightness: -20%);
 }
 
@@ -12,7 +15,10 @@ body.login .button-primary:focus,
 body.login .button-primary:hover {
   background-color: scale-color($lightPink, $lightness: -9%);
   border-color: $lightPink;
-  text-shadow: 0 -1px 1px scale-color($lightPink, $lightness: -20%), 1px 0 1px scale-color($lightPink, $lightness: -20%), 0 1px 1px scale-color($lightPink, $lightness: -20%), -1px 0 1px scale-color($lightPink, $lightness: -20%);
+  text-shadow: 0 -1px 1px scale-color($lightPink, $lightness: -20%),
+    1px 0 1px scale-color($lightPink, $lightness: -20%),
+    0 1px 1px scale-color($lightPink, $lightness: -20%),
+    -1px 0 1px scale-color($lightPink, $lightness: -20%);
   box-shadow: 0 1px 0 scale-color($lightPink, $lightness: -25%);
 }
 
