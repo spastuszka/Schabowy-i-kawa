@@ -58,5 +58,25 @@ function cookingSearchResults($data){
     
   }
 
+  $cookerRelationships = new WP_Query(array(
+    'post_type' => 'recipe',
+    'meta_query' =>  array(
+      array(
+        'key' => 'related_cookers',
+        'compare' => 'LIKE',
+        'value' => '"83"',
+        )
+      )
+    ));
+
+    while($cookerRelationships -> have_posts()){
+      $cookerRelationships->the_post();
+      if(get_post_type() == 'recipe'){
+        array_push($searchQueryResults['recipeInfo'],array(
+          'title' => get_the_title(),
+          'permalink' => get_the_permalink(),
+        ));
+      }
+    }
   return $searchQueryResults;
 }
