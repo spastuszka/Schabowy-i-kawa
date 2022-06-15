@@ -78,5 +78,8 @@ function cookingSearchResults($data){
         ));
       }
     }
+
+    $searchQueryResults['recipeInfo'] = array_unique($searchQueryResults['recipeInfo'],SORT_REGULAR);
+
   return $searchQueryResults;
 }
