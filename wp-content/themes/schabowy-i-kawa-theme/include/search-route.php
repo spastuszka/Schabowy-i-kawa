@@ -59,15 +59,19 @@ function cookingSearchResults($data){
     
   }
 
+  $cookerMetaQuery = array('relation' => 'OR');
+
+  foreach($searchQueryResults['cookerInfo'] as $item){
+    array_push($cookerMetaQuery,array(
+      'key' => 'related_cookers',
+      'compare' => 'LIKE',
+      'value' => '"'. $item['id'] .'"',
+      ));
+  }
+
   $cookerRelationships = new WP_Query(array(
     'post_type' => 'recipe',
-    'meta_query' =>  array(
-      array(
-        'key' => 'related_cookers',
-        'compare' => 'LIKE',
-        'value' => '"'.$searchQueryResults['cookerInfo'][0]['id'].'"',
-        )
-      )
+    'meta_query' => $cookerMetaQuery,
     ));
 
     while($cookerRelationships -> have_posts()){
