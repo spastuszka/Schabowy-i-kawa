@@ -1,19 +1,20 @@
 import $ from 'jquery'
+import axios from 'axios'
 
 class Search {
   // 1. Opis naszego obiektu oraz jego inicjalizacja
   constructor() {
     this.addSearchHTML()
-    this.openButton = $('.js-search-trigger')
-    this.closeButton = $('.search-overlay__close')
-    this.searchOverlay = $('.search-overlay')
-    this.searchField = $('#search-term')
-    this.searchResults = $('#search-overlay__results')
-    this.events()
+    this.openButton = document.querySelectorAll('.js-search-trigger')
+    this.closeButton = document.querySelector('.search-overlay__close')
+    this.searchOverlay = document.querySelector('.search-overlay')
+    this.searchField = document.querySelector('#search-term')
+    this.searchResults = document.querySelector('#search-overlay__results')
     this.isOverlayOpen = false
-    this.typingTimer
     this.isSpinnerVisible = false
     this.previousValue
+    this.typingTimer
+    this.events()
   }
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
