@@ -59,6 +59,9 @@ function cookingSearchResults($data){
     
   }
 
+  /* nowa tablica zastosowana w celu przejrzenia kazdego rezultatu drugiego WP_Query
+  laczacego relacje dwoch custom queries
+  */
   $cookerMetaQuery = array('relation' => 'OR');
 
   foreach($searchQueryResults['cookerInfo'] as $item){
