@@ -57,7 +57,7 @@ while (have_posts()) {
             </div>
           </div>
           <div class="recipe_text">
-            <?php the_content(); ?>
+            <?php the_field('body_content'); ?>
           </div>
         </div>
       </div>

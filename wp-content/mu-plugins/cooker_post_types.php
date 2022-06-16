@@ -7,7 +7,7 @@ function cooker_post_types()
   // Custom Post Type - Recipes
   register_post_type('recipe', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+    'supports' => array('title', 'thumbnail', 'excerpt'),
     'rewrite' => array(
       'slug' => 'recipes',
     ),
