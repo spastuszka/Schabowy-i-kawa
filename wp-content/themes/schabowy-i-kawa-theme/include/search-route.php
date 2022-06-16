@@ -46,6 +46,7 @@ function cookingSearchResults($data){
       array_push($searchQueryResults['cookerInfo'], array(
         'title' => get_the_title(),
         'permalink' => get_the_permalink(),
+        'id' => get_the_ID(),
       ));
     }
 
@@ -64,7 +65,7 @@ function cookingSearchResults($data){
       array(
         'key' => 'related_cookers',
         'compare' => 'LIKE',
-        'value' => '"83"',
+        'value' => '"'.$searchQueryResults['cookerInfo'][0]['id'].'"',
         )
       )
     ));
