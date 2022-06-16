@@ -2547,6 +2547,12 @@ class Search {
 
 
   events() {
+    this.openButton.forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        this.openOverlay();
+      });
+    });
     this.openButton.on('click', this.openOverlay.bind(this));
     this.closeButton.on('click', this.closeOverlay.bind(this));
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', this.keyPressSearch.bind(this));

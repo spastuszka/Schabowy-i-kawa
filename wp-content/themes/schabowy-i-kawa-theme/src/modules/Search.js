@@ -19,6 +19,12 @@ class Search {
 
   // 2. Zdarzenia - np. kliknięcie, najechanie itp.
   events() {
+    this.openButton.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault()
+        this.openOverlay()
+      })
+    })
     this.openButton.on('click', this.openOverlay.bind(this))
     this.closeButton.on('click', this.closeOverlay.bind(this))
     $(document).on('keydown', this.keyPressSearch.bind(this))
