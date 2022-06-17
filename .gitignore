@@ -204,7 +204,7 @@ wp-content/themes/schabowy-i-kawa-theme/images/*
 wp-content/mu-plugins/*
 wp-content/plugins/*
 /wp-content/themes/schabowy-i-kawa-theme/images/*
-/wp-content/themes/schabowy-i-kawa-theme/build/
+/wp-content/themes/schabowy-i-kawa-theme/build/*
 
 # ignore node dependency directories (used by grunt)
 node_modules/
@@ -218,10 +218,5 @@ node_modules/
 !composer.json
 
 # End of https://www.toptal.com/developers/gitignore/api/wordpress,node
-
-#My Gitignore sources
-
-build/*
-!build/build.xml
 
 #Images
