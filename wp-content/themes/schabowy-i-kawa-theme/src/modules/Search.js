@@ -33,23 +33,23 @@ class Search {
   // 3. Metody
   typingLogic() {
     //warunek logiczny uruchamiajacy wyszukiwanie wtedy kiedy wartos pola wyszukiwania sie zmienia
-    if (this.searchField.val() != this.previousValue) {
+    if (this.searchField.value != this.previousValue) {
       //Czyszczenie wcześniej uruchomienego timera w zmiennej typingTimer
       clearTimeout(this.typingTimer)
 
-      if (this.searchField.val()) {
+      if (this.searchField.value) {
         if (!this.isSpinnerVisible) {
-          this.searchResults.html('<div class="loader"></div>')
+          this.searchResults.innerHTML = '<div class="loader"></div>'
           this.isSpinnerVisible = true
         }
         this.typingTimer = setTimeout(this.getResults.bind(this), 750)
       } else {
-        this.searchResults.html(' ')
+        this.searchResults.innerHTML = ''
         this.isSpinnerVisible = false
       }
     }
     //Ustanowienie zmiennej ktora bedzie przechowywac wartosc pola wyszuykiwania
-    this.previousValue = this.searchField.val()
+    this.previousValue = this.searchField.value
   }
 
   getResults() {
