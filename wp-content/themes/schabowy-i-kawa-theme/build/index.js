@@ -2553,10 +2553,9 @@ class Search {
         this.openOverlay();
       });
     });
-    this.openButton.on('click', this.openOverlay.bind(this));
-    this.closeButton.on('click', this.closeOverlay.bind(this));
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', this.keyPressSearch.bind(this));
-    this.searchField.on('keyup', this.typingLogic.bind(this));
+    this.closeButton.addEventListener('click', () => this.closeOverlay());
+    document.addEventListener('keydown', e => this.keyPressSearch(e));
+    this.searchField.addEventListener('keyup', () => this.typingLogic());
   } // 3. Metody
 
 
