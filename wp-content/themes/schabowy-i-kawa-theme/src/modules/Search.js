@@ -132,15 +132,18 @@ class Search {
   }
 
   openOverlay() {
-    this.searchOverlay.addClass('search-overlay--active')
-    $('body').addClass('body-no-scroll')
-    this.searchField.val('')
+    this.searchOverlay.classList.add('search-overlay--active')
+    document.body.classList.add('body-no-scroll')
+    this.searchField.value = ''
     setTimeout(() => this.searchField.trigger('focus'), 301)
+    this.isOverlayOpen = true
+    return false
   }
   closeOverlay() {
-    this.searchOverlay.removeClass('search-overlay--active')
-    $('body').removeClass('body-no-scroll')
-    this.searchResults.html('')
+    this.searchOverlay.classList.remove('search-overlay--active')
+    document.body.classList.remove('body-no-scroll')
+    console.log('our close method just ran!')
+    this.isOverlayOpen = false
   }
 
   keyPressSearch(e) {
