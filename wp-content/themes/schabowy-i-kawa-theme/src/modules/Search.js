@@ -146,19 +146,18 @@ class Search {
     this.isOverlayOpen = false
   }
 
-  keyPressSearch(e) {
+  keyPressDispatcher(e) {
     if (
       e.keyCode == 83 &&
       !this.isOverlayOpen &&
-      !$('input, textarea').is(':focus')
+      document.activeElement.tagName != 'INPUT' &&
+      document.activeElement.tagName != 'TEXTAREA'
     ) {
       this.openOverlay()
-      this.isOverlayOpen = true
     }
 
     if (e.keyCode == 27 && this.isOverlayOpen) {
       this.closeOverlay()
-      this.isOverlayOpen = false
     }
   }
 

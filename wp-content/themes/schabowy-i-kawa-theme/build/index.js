@@ -2635,15 +2635,13 @@ class Search {
     this.isOverlayOpen = false;
   }
 
-  keyPressSearch(e) {
-    if (e.keyCode == 83 && !this.isOverlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()('input, textarea').is(':focus')) {
+  keyPressDispatcher(e) {
+    if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != 'INPUT' && document.activeElement.tagName != 'TEXTAREA') {
       this.openOverlay();
-      this.isOverlayOpen = true;
     }
 
     if (e.keyCode == 27 && this.isOverlayOpen) {
       this.closeOverlay();
-      this.isOverlayOpen = false;
     }
   } //dodanie wyszukiwarki na koniec kodu umieszczajac go do footera
 
