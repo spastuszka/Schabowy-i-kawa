@@ -2582,42 +2582,123 @@ class Search {
     this.previousValue = this.searchField.value;
   }
 
-  getResults() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(cookingData.root_url + '/wp-json/cookers/v1/search?term=' + this.searchField.val(), results => {
-      this.searchResults.html(`
-          <div class="row">
-            <div class="one-quarter">
-              <h2 class="search-overlay__section-title">Strony</h2>
-              ${results.pageInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
-              ${results.pageInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
-              ${results.pageInfo.length ? '</ul>' : ''}
-            </div>
-            <div class="one-quarter">
-              <h2 class="search-overlay__section-title">Porady</h2>
-              ${results.postInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
-              ${results.postInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
-              ${results.postInfo.length ? '</ul>' : ''}
-            </div>
-            <div class="one-quarter">
-              <h2 class="search-overlay__section-title">Przepisy</h2>
-              ${results.recipeInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
-              ${results.recipeInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
-              ${results.recipeInfo.length ? '</ul>' : ''}
-            </div>
-            <div class="one-quarter">
-              <h2 class="search-overlay__section-title">Kucharze</h2>
-              ${results.cookerInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
-              ${results.cookerInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
-              ${results.cookerInfo.length ? '</ul>' : ''}
-            </div>
-          </div>
-        `);
+  async getResults() {
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_1___default().get(cookingData.root_url + '/wp-json/cookers/v1/search?term=' + this.searchField.value);
+      const results = response.data;
+      this.searchResults.innerHTML = `
+      <div class="row">
+        <div class="one-quarter">
+          <h2 class="search-overlay__section-title">Strony</h2>
+          ${results.pageInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+          ${results.pageInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+          ${results.pageInfo.length ? '</ul>' : ''}
+        </div>
+        <div class="one-quarter">
+          <h2 class="search-overlay__section-title">Porady</h2>
+          ${results.postInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+          ${results.postInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+          ${results.postInfo.length ? '</ul>' : ''}
+        </div>
+        <div class="one-quarter">
+          <h2 class="search-overlay__section-title">Przepisy</h2>
+          ${results.recipeInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+          ${results.recipeInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+          ${results.recipeInfo.length ? '</ul>' : ''}
+        </div>
+        <div class="one-quarter">
+          <h2 class="search-overlay__section-title">Kucharze</h2>
+          ${results.cookerInfo.length ? '<ul class="link-list min-list">' : '<p>Brak informacji</p>'}
+          ${results.cookerInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+          ${results.cookerInfo.length ? '</ul>' : ''}
+        </div>
+      </div>
+    `;
       this.isSpinnerVisible = false;
-    }, () => {
-      //obsluga bledow, jezeli cos nie gra
-      this.searchResults.html('Nieoczekiwany błąd, proszę spróbować ponownie');
-    });
+    } catch (e) {
+      console.log(e);
+    }
   }
+  /*======= */
+  // getResults() {
+  //   $.getJSON(
+  //     cookingData.root_url +
+  //       '/wp-json/cookers/v1/search?term=' +
+  //       this.searchField.val(),
+  //     (results) => {
+  //       this.searchResults.html(`
+  //         <div class="row">
+  //           <div class="one-quarter">
+  //             <h2 class="search-overlay__section-title">Strony</h2>
+  //             ${
+  //               results.pageInfo.length
+  //                 ? '<ul class="link-list min-list">'
+  //                 : '<p>Brak informacji</p>'
+  //             }
+  //             ${results.pageInfo
+  //               .map(
+  //                 (item) =>
+  //                   `<li><a href="${item.permalink}">${item.title}</a></li>`
+  //               )
+  //               .join('')}
+  //             ${results.pageInfo.length ? '</ul>' : ''}
+  //           </div>
+  //           <div class="one-quarter">
+  //             <h2 class="search-overlay__section-title">Porady</h2>
+  //             ${
+  //               results.postInfo.length
+  //                 ? '<ul class="link-list min-list">'
+  //                 : '<p>Brak informacji</p>'
+  //             }
+  //             ${results.postInfo
+  //               .map(
+  //                 (item) =>
+  //                   `<li><a href="${item.permalink}">${item.title}</a></li>`
+  //               )
+  //               .join('')}
+  //             ${results.postInfo.length ? '</ul>' : ''}
+  //           </div>
+  //           <div class="one-quarter">
+  //             <h2 class="search-overlay__section-title">Przepisy</h2>
+  //             ${
+  //               results.recipeInfo.length
+  //                 ? '<ul class="link-list min-list">'
+  //                 : '<p>Brak informacji</p>'
+  //             }
+  //             ${results.recipeInfo
+  //               .map(
+  //                 (item) =>
+  //                   `<li><a href="${item.permalink}">${item.title}</a></li>`
+  //               )
+  //               .join('')}
+  //             ${results.recipeInfo.length ? '</ul>' : ''}
+  //           </div>
+  //           <div class="one-quarter">
+  //             <h2 class="search-overlay__section-title">Kucharze</h2>
+  //             ${
+  //               results.cookerInfo.length
+  //                 ? '<ul class="link-list min-list">'
+  //                 : '<p>Brak informacji</p>'
+  //             }
+  //             ${results.cookerInfo
+  //               .map(
+  //                 (item) =>
+  //                   `<li><a href="${item.permalink}">${item.title}</a></li>`
+  //               )
+  //               .join('')}
+  //             ${results.cookerInfo.length ? '</ul>' : ''}
+  //           </div>
+  //         </div>
+  //       `)
+  //       this.isSpinnerVisible = false
+  //     },
+  //     () => {
+  //       //obsluga bledow, jezeli cos nie gra
+  //       this.searchResults.html('Nieoczekiwany błąd, proszę spróbować ponownie')
+  //     }
+  //   )
+  // }
+
 
   openOverlay() {
     this.searchOverlay.classList.add('search-overlay--active');
@@ -2647,7 +2728,7 @@ class Search {
 
 
   addSearchHTML() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').append(`
+    document.body.insertAdjacentHTML('beforeend', `
     <div class="search-overlay">
       <div class="search-overlay__top">
         <div class="container">
