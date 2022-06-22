@@ -208,18 +208,17 @@ class Search {
     this.searchOverlay.classList.add('search-overlay--active')
     document.body.classList.add('body-no-scroll')
     this.searchField.value = ''
-    setTimeout(() => this.searchField.trigger('focus'), 301)
+    setTimeout(() => this.searchField.focus(), 301)
     this.isOverlayOpen = true
     return false
   }
   closeOverlay() {
     this.searchOverlay.classList.remove('search-overlay--active')
     document.body.classList.remove('body-no-scroll')
-    console.log('our close method just ran!')
     this.isOverlayOpen = false
   }
 
-  keyPressDispatcher(e) {
+  keyPressSearch(e) {
     if (
       e.keyCode == 83 &&
       !this.isOverlayOpen &&

@@ -2522,11 +2522,8 @@ class MobileMenu {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 
 class Search {
@@ -2584,7 +2581,7 @@ class Search {
 
   async getResults() {
     try {
-      const response = await axios__WEBPACK_IMPORTED_MODULE_1___default().get(cookingData.root_url + '/wp-json/cookers/v1/search?term=' + this.searchField.value);
+      const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(cookingData.root_url + '/wp-json/cookers/v1/search?term=' + this.searchField.value);
       const results = response.data;
       this.searchResults.innerHTML = `
       <div class="row">
@@ -2619,7 +2616,7 @@ class Search {
       console.log(e);
     }
   }
-  /*======= */
+  /*======= JQuery - old*/
   // getResults() {
   //   $.getJSON(
   //     cookingData.root_url +
@@ -2704,7 +2701,7 @@ class Search {
     this.searchOverlay.classList.add('search-overlay--active');
     document.body.classList.add('body-no-scroll');
     this.searchField.value = '';
-    setTimeout(() => this.searchField.trigger('focus'), 301);
+    setTimeout(() => this.searchField.focus(), 301);
     this.isOverlayOpen = true;
     return false;
   }
@@ -2712,11 +2709,10 @@ class Search {
   closeOverlay() {
     this.searchOverlay.classList.remove('search-overlay--active');
     document.body.classList.remove('body-no-scroll');
-    console.log('our close method just ran!');
     this.isOverlayOpen = false;
   }
 
-  keyPressDispatcher(e) {
+  keyPressSearch(e) {
     if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != 'INPUT' && document.activeElement.tagName != 'TEXTAREA') {
       this.openOverlay();
     }
@@ -2760,17 +2756,6 @@ class Search {
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "jquery":
-/*!*************************!*\
-  !*** external "jQuery" ***!
-  \*************************/
-/***/ (function(module) {
-
-"use strict";
-module.exports = window["jQuery"];
 
 /***/ })
 
