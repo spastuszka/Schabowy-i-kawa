@@ -696,6 +696,10 @@ body.login {
   font-weight: 300;
   color: #fff;
 }
+.site-logo--text a {
+  text-decoration: none;
+  color: #fff;
+}
 .site-logo strong {
   font-weight: 400;
 }
