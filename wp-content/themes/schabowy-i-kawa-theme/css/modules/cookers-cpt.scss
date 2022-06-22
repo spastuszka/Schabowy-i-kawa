@@ -1,0 +1,127 @@
+/* CPT - Cookers */
+
+section {
+  display: block;
+}
+
+.cookers_inner {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.users_list {
+  width: 100%;
+  padding-left: calc(5.7692307692vw + -65.77px);
+  padding-right: calc(5.7692307692vw + -65.77px);
+  margin-bottom: calc(2.1634615385vw + 3.46px);
+
+  &_inner {
+    display: flex;
+  }
+}
+
+.user_promo {
+  &_card {
+    width: calc(calc(100% / 3) - 10px);
+    margin-bottom: calc(2.8846153846vw + 4.62px);
+
+    &--inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+
+      span {
+        border-radius: 50%;
+        display: block;
+        width: calc(6.0096153846vw + 9.62px);
+        height: calc(6.0096153846vw + 9.62px);
+      }
+    }
+  }
+
+  &_desc {
+    width: calc(calc(100% / 2));
+    margin-bottom: calc(2.8846153846vw + 4.62px);
+
+    &--inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.default_avatar_icon {
+  width: 140px;
+  height: 140px;
+}
+
+.user_info {
+  flex-grow: 1;
+  padding-left: calc(1.4423076923vw + 2.31px);
+}
+
+.user_name {
+  font-size: calc(18px + 6 * ((100vw - 1400px) / 520));
+  text-decoration: none;
+  color: $darkRed;
+  text-transform: uppercase;
+}
+
+.user_cooker_info {
+  display: flex;
+}
+
+.user_profile {
+  &_statistics {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: calc(0.9615384615vw + 1.54px);
+    margin-top: calc(0.9615384615vw + 1.54px);
+
+    .statistics {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-right: calc(1.2019230769vw + 1.92px);
+    }
+  }
+}
+
+.statistics .icon {
+  margin: 0 15px 0 0;
+}
+
+.statistics .black_heart_icon_svg {
+  width: 39px;
+  height: 29px;
+}
+
+.generic_red_button {
+  background: $darkRed;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  outline: 0;
+  text-align: center;
+
+  .small {
+    padding: calc(0px + 0 * ((100vw - 1400px) / 520))
+      calc(24px + 6 * ((100vw - 1400px) / 520));
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    height: calc(1.6923076923vw + 11.51px);
+  }
+}

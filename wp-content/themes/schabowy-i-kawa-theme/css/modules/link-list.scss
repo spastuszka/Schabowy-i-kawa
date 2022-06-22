@@ -1,0 +1,26 @@
+.link-list {
+  li {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+
+    .search-overlay & {
+      font-size: 1.3rem;
+    }
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    color: $darkRed;
+  }
+}
+
+.min-list {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
