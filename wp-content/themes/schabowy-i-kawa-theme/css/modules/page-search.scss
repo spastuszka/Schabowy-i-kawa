@@ -18,9 +18,21 @@
   flex-basis: auto;
   flex-grow: 1;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   padding: 10px;
   @include atSmall {
     font-size: 1.4rem;
   }
+}
+
+.search-submit {
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: $darkRed;
+  font-family: 'Lato', sans-serif;
+  padding: 0 20px;
+  margin-left: 10px;
 }
