@@ -28,7 +28,12 @@ while (have_posts()) {
     echo '<h2 class="headline headline--small-plus">Brak wyników wyszukiwania zgodnych z Twoją frazą.</h2>';
   }
   ?>
+
 </div>
-<div class="container container--narrow"><?php echo paginate_links(); ?> </div>
+<div class="container container--narrow page-section">
+<div class="generic-content"> <?php
+get_search_form(); ?>
+</div>
+</div>
 
 <?php get_footer(); ?>
