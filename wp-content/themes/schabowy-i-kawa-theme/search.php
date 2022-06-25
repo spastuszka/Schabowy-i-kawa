@@ -25,15 +25,13 @@ while (have_posts()) {
 
 <?php } echo paginate_links();
   } else {
-    echo '<h2 class="headline headline--small-plus">Brak wyników wyszukiwania zgodnych z Twoją frazą.</h2>';
+    echo '<div class="container container--narrow page-section">';
+    echo '<h2 class="headline headline--small-plus t-center">Brak wyników wyszukiwania zgodnych z Twoją frazą.</h2>';
+    echo '<div class="generic-content">'. get_search_form() .'</div>';
+    echo '</div>';
   }
   ?>
 
-</div>
-<div class="container container--narrow page-section">
-<div class="generic-content"> <?php
-get_search_form(); ?>
-</div>
 </div>
 
 <?php get_footer(); ?>
