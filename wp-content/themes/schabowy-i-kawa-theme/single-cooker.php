@@ -40,6 +40,7 @@ while (have_posts()) {
         </div>
         <div>
           <h3>Przepisy:</h3>
+          <div class="recipe-summary__all">
           <?php
 
           $homepageRecipes = new WP_Query(array(
@@ -80,6 +81,7 @@ while (have_posts()) {
           <?php }
           wp_reset_postdata();
           ?>
+          </div>
         </div>
       </div>
     </div>
