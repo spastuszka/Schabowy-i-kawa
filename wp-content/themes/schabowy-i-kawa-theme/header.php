@@ -11,7 +11,9 @@
   <header class="site-header">
     <div class="container">
       <h1 class="site-logo--text float-left">
-      <?php if ( function_exists( 'the_custom_logo' ) ) { the_custom_logo();} ?>
+      <?php
+      the_custom_logo()
+      ?>
       </h1>
       <a href="<?php echo esc_url(site_url('/wyszukaj')) ?>" class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></a>
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>

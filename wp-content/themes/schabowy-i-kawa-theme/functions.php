@@ -68,15 +68,12 @@ function cooking_features()
   add_image_size('pageBanner', 1500, 350, true);
   add_image_size('postImg', 500, 350, true);
   //Custom logo
-  $defaults = array(
-    'height'               => 50,
-    'width'                => 200,
-    'flex-height'          => false,
-    'flex-width'           => false,
-    'header-text'          => array( 'site-title', 'site-description' ),
-    'unlink-homepage-logo' => false, 
-  );
-  add_theme_support( 'custom-logo',$defaults);
+  add_theme_support( 'custom-logo', array(
+    'width'       => 170,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array( 'site-title', 'site-description' ),
+  ) );
 }
 
 add_action('after_setup_theme', 'cooking_features');
