@@ -29,7 +29,7 @@
         </nav>
         <a href="<?php echo esc_url(site_url('/wyszukaj')) ?>" class="search-trigger js-search-trigger push-right"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
         <div class="site-header__util">
-          <a href="#" class="btn btn--medium btn--dark-red float-left push-right">Zaloguj</a>
+          <a href="#" class="btn btn--medium btn--dark-red float-left">Zaloguj</a>
           <a href="#" class="btn btn--medium btn--dark btn--register float-left">Rejestracja</a>
         </div>
       </div>

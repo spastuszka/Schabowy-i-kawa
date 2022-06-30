@@ -27,11 +27,14 @@
 
   &--dark-red {
     color: $darkRed;
-    border-bottom: 1px solid white;
+    border: 1px solid $darkRed;
+    border-radius: 3px;
   }
 
   &--dark-red:hover {
-    border-bottom: 1px solid $darkRed;
+    color: #fff;
+    background-color: $darkRedHover;
+    border: 1px solid $darkRedHover;
   }
 
   &--dark-outline {
@@ -62,5 +65,13 @@
 
   &--pink:hover {
     background: $lightPink;
+  }
+
+  &--register {
+    color: #fff;
+    background-color: $darkRed;
+    border: 1px solid $darkRed;
+    border-radius: 3px;
+    margin-left: 5px;
   }
 }

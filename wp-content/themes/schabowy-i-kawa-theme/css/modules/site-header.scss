@@ -45,7 +45,7 @@
       position: static;
       background-color: transparent;
       float: right;
-      padding-top: 0.6em;
+      padding-top: 0.8em;
       padding-bottom: 0;
       top: 0;
     }
@@ -92,7 +92,7 @@
     padding: 0 0 0 20px;
 
     @include atMedium {
-      padding: 0px 20px;
+      padding: 0px 20px 0px 0px;
       float: right;
     }
   }
