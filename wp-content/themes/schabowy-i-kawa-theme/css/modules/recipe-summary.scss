@@ -51,11 +51,13 @@
 .item__title {
   font-size: 22px;
   line-height: 32px;
+  text-align: center;
   &--cooker {
     font-size: 16px;
     line-height: 18px;
   }
-  &--cooker a {
+  &--cooker a,
+  a {
     text-decoration: none;
     color: $darkRed;
   }
@@ -64,6 +66,7 @@
 .item__stats {
   margin-top: 1rem;
   display: flex;
+  justify-content: center;
 }
 
 .stats__duration {
