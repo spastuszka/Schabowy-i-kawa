@@ -10,7 +10,10 @@
 </div>
 
 <div class="full-width-split group">
-  <h2 class="headline headline--large-medium t-left t-dark">Polecane przepisy</h2>
+  <div class="headline--container">
+    <h2 class="headline headline--medium headline--hr t-center t-dark">Polecane przepisy</h2>
+  </div>
+
 
   <div class="recipe-summary">
 
@@ -48,7 +51,9 @@
 </div>
 
 <div class="full-width-split group">
-  <h2 class="headline headline--large-medium t-left t-dark">Porady i inspiracje</h2>
+  <div class="headline--container">
+    <h2 class="headline headline--medium headline--hr t-center t-dark">Porady i inspiracje</h2>
+  </div>
   <div class="advice-summary">
     <?php
 
