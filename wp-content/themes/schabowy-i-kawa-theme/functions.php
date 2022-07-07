@@ -67,6 +67,7 @@ function cooking_features()
   add_image_size('recipeLandscape', 400, 200, true);
   add_image_size('pageBanner', 1500, 350, true);
   add_image_size('postImg', 500, 350, true);
+  add_image_size('postThumbImg', 650, 350, true);
   //Custom logo
   add_theme_support('custom-logo', array(
     'width'       => 170,
