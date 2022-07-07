@@ -18,10 +18,16 @@
     &--wrapper {
       position: relative;
       overflow: hidden;
-      margin-bottom: calc(1.4423076923vw + 2.3076923077px);
+      margin-bottom: -3px;
     }
     &--description {
-      margin-top: 0.5rem;
+      margin-top: 0px;
+      padding-top: 2vw;
+      padding-bottom: 20px;
+      border-left: 1px solid #f4f4f4;
+      border-right: 1px solid #f4f4f4;
+      border-bottom: 1px solid #f4f4f4;
+      border-radius: 0px 0px 5px 5px;
     }
     &--button {
       margin-top: 0.5rem;
@@ -33,6 +39,12 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+}
+
+.recipe-hover {
+  border-left: 1px solid #470d21;
+  border-right: 1px solid #470d21;
+  border-bottom: 1px solid #470d21;
 }
 
 .img_wrapper {
