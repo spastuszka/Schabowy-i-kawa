@@ -5,6 +5,10 @@
       line-height: 39px;
       font-weight: 900;
     }
+    &__excerpt {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
   }
   &--info {
     position: relative;
@@ -17,5 +21,11 @@
       font-weight: 700;
       color: $darkRed;
     }
+  }
+  &--gallery {
+    text-align: center;
+  }
+  &--content {
+    margin-top: 2rem;
   }
 }
