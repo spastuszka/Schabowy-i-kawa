@@ -194,7 +194,6 @@ wp-config.php
 # wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
-
 !wp-content/themes/schabowy-i-kawa-theme/images/
 wp-content/themes/schabowy-i-kawa-theme/images/*
 wp-content/themes/schabowy-i-kawa-theme/build/
