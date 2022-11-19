@@ -71,17 +71,37 @@ while (have_posts()) {
               <h2>SKŁADNIKI</h2>
             </div>
             <div class="ingredients_group">
-              <ul class="ingredients_list">
-                <?php if (have_rows('recipe_ingredients')) : ?>
-                  <?php while (have_rows('recipe_ingredients')) : the_row(); ?>
-                    <li>
-                      <p><?php the_sub_field('product_name'); ?></p>
-                      <span class="bold"><?php the_sub_field('product_value'); ?>
-                        <?php the_sub_field('product_unit'); ?></span>
-                    </li>
-                  <?php endwhile; ?>
+              <?php
+              //check if flexible content exists
+              if (have_rows('recipe_section_ingredients')) :
+                // loop flexible content
+                while (have_rows('recipe_section_ingredients')) : the_row();
+                  // check current layout exists
+                  if (get_row_layout() == 'recipe_ingredients_all') :
+              ?>
+                    <!-- Check if first sub field exists about title -->
+                    <h2><?php the_sub_field('recipe_ingredients_title'); ?></h2>
+                    <?php
+                    // check if the nested repeater field has rows of data
+                    if (have_rows('recipe_ingredients')) :
+                      echo '<ul class="ingredients_list">';
+                      // loop through the rows of data
+                      while (have_rows('recipe_ingredients')) : the_row();
+                    ?>
+                        <li>
+                          <p><?php the_sub_field('ingredient_name'); ?></p>
+                          <span class="bold"><?php the_sub_field('ingredient_value'); ?>
+                            <?php the_sub_field('ingredient_unit'); ?></span>
+                  <?php
+                      endwhile;
+                      echo '</ul>';
+                    endif;
+                  endif;
+                endwhile;
+              else :
+                  ?>
+                  <p>Żadne składniki nie zostały wskazane</p>
                 <?php endif; ?>
-              </ul>
             </div>
           </div>
         </div>

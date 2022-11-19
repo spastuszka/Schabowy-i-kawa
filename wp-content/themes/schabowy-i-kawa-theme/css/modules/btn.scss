@@ -1,7 +1,6 @@
 .btn {
   display: inline-block;
   cursor: pointer;
-  border-radius: 4px;
   overflow: hidden;
   text-decoration: none;
   color: #fff;
@@ -19,26 +18,35 @@
   &--medium {
     font-size: 1.2rem;
     padding: 6px 30px;
-    font-weight: 400;
+    font-weight: 300;
+  }
+
+  &--dark {
+    color: #000;
   }
 
   &--dark-red {
-    background-color: $darkRed;
+    color: $darkRed;
+    border: 1px solid $darkRed;
+    border-radius: 3px;
   }
 
   &--dark-red:hover {
+    color: #fff;
     background-color: $darkRedHover;
+    border: 1px solid $darkRedHover;
   }
 
   &--dark-outline {
     color: $darkRed;
-    border: 2px solid $darkRed;
+    font-weight: 300;
+    border-bottom: 1px solid $darkRed;
   }
 
   &--dark-outline:hover {
-    color: inherit;
+    color: #fff;
     background-color: $darkRedHover;
-    border: 2px solid $darkRed;
+    border-bottom: 1px solid $darkRed;
   }
 
   &--large {
@@ -57,5 +65,14 @@
 
   &--pink:hover {
     background: $lightPink;
+  }
+
+  &--register {
+    color: #fff;
+    background-color: $darkRed;
+    border: 1px solid $darkRed;
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-right: 16px;
   }
 }

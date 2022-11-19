@@ -67,6 +67,14 @@ function cooking_features()
   add_image_size('recipeLandscape', 400, 200, true);
   add_image_size('pageBanner', 1500, 350, true);
   add_image_size('postImg', 500, 350, true);
+  add_image_size('postThumbImg', 650, 350, true);
+  //Custom logo
+  add_theme_support('custom-logo', array(
+    'width'       => 170,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array('site-title', 'site-description'),
+  ));
 }
 
 add_action('after_setup_theme', 'cooking_features');
@@ -78,26 +86,3 @@ function blog_custom_excerpt_length($length)
   return 20;
 }
 add_filter('excerpt_length', 'blog_custom_excerpt_length', 999);
-
-
-/* Breadcrumbs function */
-function get_breadcrumb()
-{
-  echo '<a href="' . home_url() . '" rel="nofollow">Strona Główna</a>';
-  if (is_category() || is_single()) {
-    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
-    the_category(' &bull; ');
-    if (is_single()) {
-      echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
-      the_title();
-    }
-  } elseif (is_page()) {
-    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
-    echo the_title();
-  } elseif (is_search()) {
-    echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
-    echo '"<em>';
-    echo the_search_query();
-    echo '</em>"';
-  }
-}

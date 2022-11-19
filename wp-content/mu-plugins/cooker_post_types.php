@@ -6,6 +6,8 @@ function cooker_post_types()
 {
   // Custom Post Type - Recipes
   register_post_type('recipe', array(
+    'capability_type' => 'recipe',
+    'map_meta_cap' => true,
     'show_in_rest' => true,
     'supports' => array('title', 'thumbnail', 'excerpt'),
     'rewrite' => array(
@@ -42,6 +44,8 @@ function cooker_post_types()
     ),
     'menu_icon' => 'dashicons-admin-users',
   ));
+
+  register_taxonomy('recipe_category', 'recipe', array('hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true));
 }
 
 add_action('init', 'cooker_post_types');

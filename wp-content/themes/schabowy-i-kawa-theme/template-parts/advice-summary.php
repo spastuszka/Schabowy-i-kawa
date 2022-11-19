@@ -6,7 +6,7 @@
           the_post_thumbnail('postImg');
         } else {
         ?>
-          <?php echo wp_get_attachment_image(58, 'postImg'); ?>
+          <?php echo wp_get_attachment_image(134, 'postImg'); ?>
         <?php
         }
         ?>

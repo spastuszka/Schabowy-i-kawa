@@ -46,10 +46,7 @@ section {
     margin-bottom: calc(2.8846153846vw + 4.62px);
 
     &--inner {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: nowrap;
+      display: block;
     }
   }
 }
