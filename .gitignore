@@ -194,7 +194,7 @@ wp-config.php
 # wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
-!/wp-content/plugins/our-first-unique-plugin
+
 !wp-content/themes/schabowy-i-kawa-theme/images/
 wp-content/themes/schabowy-i-kawa-theme/images/*
 wp-content/themes/schabowy-i-kawa-theme/build/
@@ -204,6 +204,7 @@ wp-content/themes/schabowy-i-kawa-theme/build/
 # unless explicitly whitelisted at the end of this file
 wp-content/mu-plugins/*
 wp-content/plugins/*
+!/wp-content/plugins/our-first-unique-plugin
 /wp-content/themes/schabowy-i-kawa-theme/images/*
 
 
