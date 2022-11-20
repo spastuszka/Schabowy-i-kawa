@@ -149,6 +149,7 @@ dist
 # you can delete this whole section/until Configuration.
 /wp-admin/
 /wp-content/plugins/
+
 /wp-content/index.php
 /wp-content/languages
 /wp-content/plugins/index.php
@@ -202,6 +203,7 @@ wp-content/themes/schabowy-i-kawa-theme/build/
 # unless explicitly whitelisted at the end of this file
 wp-content/mu-plugins/*
 wp-content/plugins/*
+!/wp-content/plugins/our-first-unique-plugin
 /wp-content/themes/schabowy-i-kawa-theme/images/*
 
 
