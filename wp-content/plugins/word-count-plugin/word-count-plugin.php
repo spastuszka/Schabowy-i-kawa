@@ -20,7 +20,7 @@ class WordCountAndTimePlugin
     add_settings_section('wcp_first_section', null, null, 'word-count-settings-page');
 
 
-    /* Pole - Display location - 2 ponisze pola */
+    /* Pole - Display location - 2 ponizsze pola */
     /* Dodanie pola ustawień HTML*/
     add_settings_field(
       'wcp_location',
@@ -39,7 +39,7 @@ class WordCountAndTimePlugin
       )
     );
 
-    /* Pole - Headline - 2 ponisze pola */
+    /* Pole - Headline - 2 ponizsze pola */
     /* Dodanie pola ustawień HTML*/
     add_settings_field(
       'wcp_headline',
@@ -57,7 +57,31 @@ class WordCountAndTimePlugin
         'default' => 'Post Statistics',
       )
     );
+
+    /* Pole - WordCount - 2 ponizsze pola */
+    /* Dodanie pola ustawień HTML*/
+    add_settings_field(
+      'wcp_wordcount',
+      'Word Count',
+      array($this, 'wordCountHTML'),
+      'word-count-settings-page',
+      'wcp_first_section',
+    );
+    /* Rejestracja pola w bazie danych */
+    register_setting(
+      'wordcountplugin',
+      'wcp_wordcount',
+      array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default' => '1',
+      )
+    );
   }
+
+  function wordCountHTML()
+  { ?>
+    <input type="checkbox" name="wcp_wordcount" value="1" <?php checked(get_option('wcp_wordcount'), '1'); ?>>
+  <?php }
 
   function headlineHTML()
   { ?>
