@@ -76,7 +76,31 @@ class WordCountAndTimePlugin
         'default' => '1',
       )
     );
+
+    /* Pole - Character Count - 2 ponizsze pola */
+    /* Dodanie pola ustawień HTML*/
+    add_settings_field(
+      'wcp_character_count',
+      'Character Count',
+      array($this, 'characterCountHTML'),
+      'word-count-settings-page',
+      'wcp_first_section',
+    );
+    /* Rejestracja pola w bazie danych */
+    register_setting(
+      'wordcountplugin',
+      'wcp_character_count',
+      array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default' => '1',
+      )
+    );
   }
+
+  function characterCountHTML()
+  { ?>
+    <input type="checkbox" name="wcp_character_count" value="1" <?php checked(get_option('wcp_character_count'), '1'); ?>>
+  <?php }
 
   function wordCountHTML()
   { ?>
