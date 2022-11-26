@@ -18,6 +18,9 @@ class WordCountAndTimePlugin
   {
     /* Dodanie sekcji, która będzie wyświetlać dodane i zarejestrowane pole */
     add_settings_section('wcp_first_section', null, null, 'word-count-settings-page');
+
+
+    /* Pole - Display location - 2 ponisze pola */
     /* Dodanie pola ustawień HTML*/
     add_settings_field(
       'wcp_location',
@@ -33,6 +36,25 @@ class WordCountAndTimePlugin
       array(
         'sanitize_callback' => 'sanitize_text_field',
         'default' => '0',
+      )
+    );
+
+    /* Pole - Headline - 2 ponisze pola */
+    /* Dodanie pola ustawień HTML*/
+    add_settings_field(
+      'wcp_headline',
+      'Headline Text',
+      array($this, 'headlineHTML'),
+      'word-count-settings-page',
+      'wcp_first_section',
+    );
+    /* Rejestracja pola w bazie danych */
+    register_setting(
+      'wordcountplugin',
+      'wcp_headline',
+      array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default' => 'Post Statistics',
       )
     );
   }
