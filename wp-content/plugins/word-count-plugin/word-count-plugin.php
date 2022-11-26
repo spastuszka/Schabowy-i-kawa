@@ -59,10 +59,15 @@ class WordCountAndTimePlugin
     );
   }
 
+  function headlineHTML()
+  { ?>
+    <input type="text" name="wcp_headline" value="<?php echo esc_attr(get_option('wcp_headline')); ?>">
+  <?php }
+
   /* Funkcja dodająca HTML do pola ustawień - location */
   function locationHTML()
   {
-?>
+  ?>
     <select name="wcp_location">
       <option value="0" <?php selected(get_option('wcp_location'), '0'); ?>>Beginning of post</option>
       <option value="1" <?php selected(get_option('wcp_location'), '1'); ?>>End of post</option>
