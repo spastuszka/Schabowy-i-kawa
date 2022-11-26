@@ -63,9 +63,10 @@ class WordCountAndTimePlugin
     add_settings_field(
       'wcp_wordcount',
       'Word Count',
-      array($this, 'wordCountHTML'),
+      array($this, 'checkboxHTML'),
       'word-count-settings-page',
       'wcp_first_section',
+      array('theName' => 'wcp_wordcount'),
     );
     /* Rejestracja pola w bazie danych */
     register_setting(
@@ -82,9 +83,10 @@ class WordCountAndTimePlugin
     add_settings_field(
       'wcp_character_count',
       'Character Count',
-      array($this, 'characterCountHTML'),
+      array($this, 'checkboxHTML'),
       'word-count-settings-page',
       'wcp_first_section',
+      array('theName' => 'wcp_character_count'),
     );
     /* Rejestracja pola w bazie danych */
     register_setting(
@@ -95,7 +97,38 @@ class WordCountAndTimePlugin
         'default' => '1',
       )
     );
+
+    /* Pole - Read Time - 2 ponizsze pola */
+    /* Dodanie pola ustawień HTML*/
+    add_settings_field(
+      'wcp_read_time',
+      'Read Time',
+      array($this, 'checkboxHTML'),
+      'word-count-settings-page',
+      'wcp_first_section',
+      array('theName' => 'wcp_read_time'),
+    );
+    /* Rejestracja pola w bazie danych */
+    register_setting(
+      'wordcountplugin',
+      'wcp_read_time',
+      array(
+        'sanitize_callback' => 'sanitize_text_field',
+        'default' => '1',
+      )
+    );
   }
+
+  function checkboxHTML($args)
+  { ?>
+    <input type="checkbox" name="<?php echo $args['theName'] ?>" value="1" <?php checked(get_option($args['theName']), '1'); ?>>
+  <?php }
+
+  /*
+  function readTimeHTML()
+  { ?>
+    <input type="checkbox" name="wcp_read_time" value="1" <?php checked(get_option('wcp_read_time'), '1'); ?>>
+  <?php }
 
   function characterCountHTML()
   { ?>
@@ -106,6 +139,7 @@ class WordCountAndTimePlugin
   { ?>
     <input type="checkbox" name="wcp_wordcount" value="1" <?php checked(get_option('wcp_wordcount'), '1'); ?>>
   <?php }
+  */
 
   function headlineHTML()
   { ?>
