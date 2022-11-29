@@ -13,7 +13,53 @@ class WordCountAndTimePlugin
   {
     add_action('admin_menu', array($this, 'adminLinkPage'));
     add_action('admin_init', array($this, 'settings'));
+    add_filter('the_content', array($this, 'ifWrap'));
   }
+
+  function ifWrap($content)
+  {
+    if (
+      is_main_query() and is_single() and
+      (get_option('wcp_wordcount', '1') or
+        get_option('wcp_character_count', '1') or
+        get_option('wcp_read_time', '1')
+      )
+    ) {
+      return $this->createHTML($content);
+    }
+    return $content;
+  }
+
+  function createHTML($content)
+  {
+    $html = '<h3>' . esc_html(get_option('wcp_headline', 'Post Statistics')) . '</h3><p>';
+
+    // obliczanie liczby słów pojedynczo, poniewaz będzie opotrzebna zarówno do czasu czytania
+
+    if (get_option('wcp_wordcount', '1') == '1' or get_option('wcp_read_time', '1') == '1') {
+      $wordCount = str_word_count(strip_tags($content));
+    }
+
+    if (get_option('wcp_wordcount', '1') == '1') {
+      $html .= 'Ten post ma: ' . $wordCount . ' słów.<br />';
+    }
+
+    if (get_option('wcp_character_count', '1') == '1') {
+      $html .= 'Ten post ma: ' . strlen(strip_tags($content)) . ' znaków.<br />';
+    }
+
+    if (get_option('wcp_read_time', '1') == '1') {
+      $html .= 'Czas czytania tego postu to: ' . round($wordCount / 225) . ' minut(a).<br />';
+    }
+
+    $html .= '</p>';
+
+    if (get_option('wcp_location', '0') == '0') {
+      return $html . $content;
+    }
+    return $content . $html;
+  }
+
   function settings()
   {
     /* Dodanie sekcji, która będzie wyświetlać dodane i zarejestrowane pole */
@@ -22,22 +68,9 @@ class WordCountAndTimePlugin
 
     /* Pole - Display location - 2 ponizsze pola */
     /* Dodanie pola ustawień HTML*/
-    add_settings_field(
-      'wcp_location',
-      'Display location',
-      array($this, 'locationHTML'),
-      'word-count-settings-page',
-      'wcp_first_section',
-    );
+    add_settings_field('wcp_location', 'Display Location', array($this, 'locationHTML'), 'word-count-settings-page', 'wcp_first_section');
     /* Rejestracja pola w bazie danych */
-    register_setting(
-      'wordcountplugin',
-      'wcp_location',
-      array(
-        'sanitize_callback' => 'sanitize_text_field',
-        'default' => '0',
-      )
-    );
+    register_setting('wordcountplugin', 'wcp_location', array('sanitize_callback' => 'sanitizeLocation', 'default' => '0'));
 
     /* Pole - Headline - 2 ponizsze pola */
     /* Dodanie pola ustawień HTML*/
@@ -77,6 +110,16 @@ class WordCountAndTimePlugin
         'default' => '1',
       )
     );
+
+    /* Oczyszczanie pola - Location */
+    function sanitizeLocation($input)
+    {
+      if ($input != '0' and $input != '1') {
+        add_settings_error('wcp_location', 'wcp_location_error', 'Display location must be either beginning or end.');
+        return get_option('wcp_location');
+      }
+      return $input;
+    }
 
     /* Pole - Character Count - 2 ponizsze pola */
     /* Dodanie pola ustawień HTML*/
