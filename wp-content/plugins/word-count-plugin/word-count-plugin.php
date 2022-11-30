@@ -16,6 +16,13 @@ class WordCountAndTimePlugin
     add_action('admin_menu', array($this, 'adminLinkPage'));
     add_action('admin_init', array($this, 'settings'));
     add_filter('the_content', array($this, 'ifWrap'));
+    /* Translation */
+    add_action('init', array($this, 'languages'));
+  }
+
+  function languages()
+  {
+    load_plugin_textdomain('wcp-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages');
   }
 
   function ifWrap($content)
@@ -43,7 +50,7 @@ class WordCountAndTimePlugin
     }
 
     if (get_option('wcp_wordcount', '1') == '1') {
-      $html .= 'Ten post ma: ' . $wordCount . ' słów.<br />';
+      $html .= __('Ten post ma:', 'wcp-plugin') . ' ' . $wordCount . ' ' . __('słów', 'wcp-plugin') . '.<br />';
     }
 
     if (get_option('wcp_character_count', '1') == '1') {
