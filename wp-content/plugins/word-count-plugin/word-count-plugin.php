@@ -204,7 +204,7 @@ class WordCountAndTimePlugin
 
   function adminLinkPage()
   {
-    add_options_page('Word Count Settings', 'Word Count', 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'));
+    add_options_page('Word Count Settings', __('Word Count', 'wcp-plugin'), 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'));
   }
 
   /* Ogólne opakowanie całej strony */
