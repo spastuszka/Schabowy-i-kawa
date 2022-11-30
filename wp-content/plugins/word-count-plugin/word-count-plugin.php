@@ -5,6 +5,8 @@
   Description: Plugin counting words, characters and reading time of a single post
   Version: 1.0
   Author: Sebstian Pastuszka
+  Text Domain: wcp-plugin
+  Domain Path: /languages
 */
 
 class WordCountAndTimePlugin
