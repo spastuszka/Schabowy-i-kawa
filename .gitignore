@@ -204,6 +204,7 @@ wp-content/themes/schabowy-i-kawa-theme/build/
 wp-content/mu-plugins/*
 wp-content/plugins/*
 !/wp-content/plugins/word-count-plugin
+!/wp-content/plugins/gutenberg-custom-plugin
 /wp-content/themes/schabowy-i-kawa-theme/images/*
 
 
