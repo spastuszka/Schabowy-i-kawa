@@ -27,9 +27,9 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
       </div>
     )
   },
-  save: function(){
+  save: function(props){
     return (
-     <p>Today the sky is x and the grass is y</p>
+     <p>Today the sky is {props.attributes.skyColor} and the grass is {props.attributes.grassColor}.</p>
     )
   }
 })
