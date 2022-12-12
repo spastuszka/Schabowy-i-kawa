@@ -9,8 +9,8 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   edit: function(){
     return(
       <div>
-        <input type="text" placeholer="sky color" onChange={skyColor}/>
-        <input type="text" placeholer="grass color" onChange={grassColor}/>
+        <input type="text" placeholder="sky color" onChange={updateSkyColor}/>
+        <input type="text" placeholder="grass color" onChange={updateGrassColor}/>
       </div>
     )
   },
