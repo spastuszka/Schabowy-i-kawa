@@ -6,7 +6,20 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
     skyColor:{type:"string"},
     grassColor:{type:"string"},
   },
-  edit: function(){
+  edit: function(props){
+    
+    function updateSkyColor(e){
+      props.setAttributes({
+        skyColor: e.target.value
+      })
+    }
+
+    function updateGrassColor(e){
+      props.setAttributes({
+        grassColor: e.target.value
+      })
+    }
+
     return(
       <div>
         <input type="text" placeholder="sky color" onChange={updateSkyColor}/>
