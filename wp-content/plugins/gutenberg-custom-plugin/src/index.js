@@ -2,20 +2,21 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   title: "Gutenberg Block",
   icon: "smiley",
   category: "common",
+  attributes:{
+    skyColor:{type:"string"},
+    grassColor:{type:"string"},
+  },
   edit: function(){
     return(
       <div>
-        <p>Hello. This is a paragraph.</p>
-        <h4>Hi there!</h4>
+        <input type="text" placeholer="sky color" onChange={skyColor}/>
+        <input type="text" placeholer="grass color" onChange={grassColor}/>
       </div>
     )
   },
   save: function(){
     return (
-      <>
-        <h3>This is a h3 fragment</h3>
-        <h5>This is a h5 fragment</h5>
-      </>
+     <p>Today the sky is x and the grass is y</p>
     )
   }
 })
