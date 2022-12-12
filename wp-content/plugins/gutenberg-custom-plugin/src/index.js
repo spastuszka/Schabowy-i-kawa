@@ -3,9 +3,19 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   icon: "smiley",
   category: "common",
   edit: function(){
-    return <h3>This is a h3 from JSX</h3>
+    return(
+      <div>
+        <p>Hello. This is a paragraph.</p>
+        <h4>Hi there!</h4>
+      </div>
+    )
   },
   save: function(){
-    return wp.element.createElement("h1",null,"This is the frontend.")
+    return (
+      <>
+        <h3>This is a h3 fragment</h3>
+        <h5>This is a h5 fragment</h5>
+      </>
+    )
   }
 })
