@@ -32,23 +32,6 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
     )
   },
   save: function(props){
-    return (
-     <h3>Today the sky is completly {props.attributes.skyColor} and the grass is {props.attributes.grassColor}.</h3>
-    )
+    return null
   },
-  deprecated:[{
-    attributes:{
-      skyColor:{
-        type:"string",
-      },
-      grassColor:{
-        type:"string",
-      },
-    },
-    save: function(props){
-      return (
-       <p>Today the sky is {props.attributes.skyColor} and the grass is {props.attributes.grassColor}.</p>
-      )
-    },
-  }]
 })
