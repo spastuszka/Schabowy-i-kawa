@@ -3,8 +3,16 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   icon: "smiley",
   category: "common",
   attributes:{
-    skyColor:{type:"string"},
-    grassColor:{type:"string"},
+    skyColor:{
+      type:"string",
+      source:"text",
+      selector:".skyColor"
+    },
+    grassColor:{
+      type:"string",
+      source:"text",
+      selector:".grassColor"
+    },
   },
   edit: function(props){
     
@@ -29,7 +37,7 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   },
   save: function(props){
     return (
-     <p>Today the sky is {props.attributes.skyColor} and the grass is {props.attributes.grassColor}.</p>
+     <p>Today the sky is <span className="skyColor">{props.attributes.skyColor}</span> and the grass is <span className="grassColor">{props.attributes.grassColor}</span>.</p>
     )
   }
 })
