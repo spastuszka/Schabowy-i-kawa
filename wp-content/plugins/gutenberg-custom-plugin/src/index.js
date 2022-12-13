@@ -22,8 +22,8 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
 
     return(
       <div>
-        <input type="text" placeholder="sky color" onChange={updateSkyColor}/>
-        <input type="text" placeholder="grass color" onChange={updateGrassColor}/>
+        <input type="text" placeholder="sky color" value={props.attributes.skyColor} onChange={updateSkyColor}/>
+        <input type="text" placeholder="grass color" value={props.attributes.grassColor} onChange={updateGrassColor}/>
       </div>
     )
   },
