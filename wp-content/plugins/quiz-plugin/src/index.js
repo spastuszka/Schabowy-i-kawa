@@ -1,4 +1,4 @@
-wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
+wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   title: "Quiz Block",
   icon: "smiley",
   category: "common",
