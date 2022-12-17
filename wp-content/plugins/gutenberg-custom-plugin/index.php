@@ -27,7 +27,6 @@ class GutenbergCustom
 
   function theHTML($attributes)
   {
-    // return '<p>Today the sky is ' . $attributes['skyColor'] . ' and the grass is ' . $attributes['grassColor'] . '.!!!</p>';
     ob_start(); ?>
     <h3>Today the sky is <?php echo esc_html($attributes['skyColor']) ?> and the grass is <?php echo esc_html($attributes['grassColor']) ?>!</h3>
 
