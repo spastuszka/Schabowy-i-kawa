@@ -1,14 +1,14 @@
 <?php
 /*
     Plugin Name: Quiz Plugin
-    Description: My second plugin about gutenberg custom element
+    Description: My second about custom quiz
     Version: 1.0
-    Author: Sebstian Pastuszka
+    Author: Sebastian Pastuszka
   */
 
 if (!defined('ABSPATH')) exit; // Zabezpieczenie przed bezpośrednim dostępem do pliku poprzez URL bezpośredni do pliku
 
-class GutenbergCustom
+class QuizCustom
 {
   function __construct()
   {
@@ -18,9 +18,9 @@ class GutenbergCustom
 
   function adminAssets()
   {
-    wp_register_script('ourtestblocktype', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-element'));
+    wp_register_script('quizblocktype', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-element'));
     register_block_type('quiz-plugin/gutenberg-block-quiz', array(
-      'editor_script' => 'ourtestblocktype',
+      'editor_script' => 'quizblocktype',
       'render_callback' => array($this, 'theHTML')
     ));
   }
@@ -35,4 +35,4 @@ class GutenbergCustom
   }
 }
 
-$gutenbergCustom = new GutenbergCustom();
+$quizCustom = new QuizCustom();
