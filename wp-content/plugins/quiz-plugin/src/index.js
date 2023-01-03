@@ -32,7 +32,7 @@ function EditComponent(props){
   }
 
   return(
-    <div>
+    <div className='paying-attention-edit-block'>
       <TextControl
         label="Question:"
       />
