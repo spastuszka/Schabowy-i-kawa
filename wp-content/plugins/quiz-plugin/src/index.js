@@ -37,6 +37,7 @@ function EditComponent(props){
       <TextControl
         label="Question:"
       />
+      <p>Answers:</p>
     </div>
   )
 }
