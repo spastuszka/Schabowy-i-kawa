@@ -44,10 +44,12 @@ function EditComponent(props){
         </FlexBlock>
         <FlexItem>
           <Button>
-            <Icon/>
+            <Icon icon="star-empty"/>
           </Button>
         </FlexItem>
-        <FlexItem></FlexItem>
+        <FlexItem>
+          <Button>Delete</Button>
+        </FlexItem>
       </Flex>
     </div>
   )
