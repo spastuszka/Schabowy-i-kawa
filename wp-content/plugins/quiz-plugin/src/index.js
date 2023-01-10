@@ -38,6 +38,13 @@ function EditComponent(props){
         label="Question:"
       />
       <p>Answers:</p>
+      <Flex>
+        <FlexBlock>
+          <TextControl />
+        </FlexBlock>
+        <FlexItem></FlexItem>
+        <FlexItem></FlexItem>
+      </Flex>
     </div>
   )
 }
