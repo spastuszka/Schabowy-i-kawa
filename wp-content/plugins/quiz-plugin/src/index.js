@@ -1,5 +1,5 @@
 import './index.scss'
-import {TextControl} from '@wordpress/components'
+import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon} from '@wordpress/components'
 wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   title: "Quiz Block",
   icon: "smiley",
