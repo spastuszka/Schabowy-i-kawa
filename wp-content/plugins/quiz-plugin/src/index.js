@@ -42,7 +42,11 @@ function EditComponent(props){
         <FlexBlock>
           <TextControl />
         </FlexBlock>
-        <FlexItem></FlexItem>
+        <FlexItem>
+          <Button>
+            <Icon/>
+          </Button>
+        </FlexItem>
         <FlexItem></FlexItem>
       </Flex>
     </div>
