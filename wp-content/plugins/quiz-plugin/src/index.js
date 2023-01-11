@@ -48,7 +48,7 @@ function EditComponent(props){
           </Button>
         </FlexItem>
         <FlexItem>
-          <Button>Delete</Button>
+          <Button isLink className='question-delete-btn'>Delete</Button>
         </FlexItem>
       </Flex>
     </div>
