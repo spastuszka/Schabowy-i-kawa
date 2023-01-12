@@ -5,10 +5,7 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   icon: "smiley",
   category: "common",
   attributes:{
-    skyColor:{
-      type:"string",
-    },
-    grassColor:{
+    question:{
       type:"string",
     },
   },
