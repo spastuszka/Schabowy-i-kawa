@@ -35,9 +35,9 @@ function EditComponent(props){
   return(
     <div className='paying-attention-edit-block'>
       <TextControl
-        label="Question:"
+        label="Question:" style={{fontSize:"20px"}}
       />
-      <p>Answers:</p>
+      <p style={{fontSize:"13px", margin:"20px 0 8px 0"}}>Answers:</p>
       <Flex>
         <FlexBlock>
           <TextControl />
