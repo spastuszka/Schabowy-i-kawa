@@ -32,7 +32,7 @@ function EditComponent(props){
   return(
     <div className='paying-attention-edit-block'>
       <TextControl
-        label="Question:" style={{fontSize:"20px"}}
+        label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize:"20px"}}
       />
       <p style={{fontSize:"13px", margin:"20px 0 8px 0"}}>Answers:</p>
       <Flex>
