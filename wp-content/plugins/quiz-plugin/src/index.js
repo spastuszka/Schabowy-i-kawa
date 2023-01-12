@@ -48,9 +48,10 @@ function EditComponent(props){
           </Button>
         </FlexItem>
         <FlexItem>
-          <Button isLink className='question-delete-btn'>Delete</Button>
+          <Button variant="link" className='question-delete-btn'>Delete</Button>
         </FlexItem>
       </Flex>
+      <Button variant="primary">Add another answer</Button>
     </div>
   )
 }
