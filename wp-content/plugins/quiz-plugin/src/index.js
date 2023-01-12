@@ -17,16 +17,8 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
 
 function EditComponent(props){
     
-  function updateSkyColor(e){
-    props.setAttributes({
-      skyColor: e.target.value
-    })
-  }
-
-  function updateGrassColor(e){
-    props.setAttributes({
-      grassColor: e.target.value
-    })
+  function updateQuestion(value){
+    props.setAttributes({question:value})
   }
 
   return(
