@@ -49,7 +49,11 @@ function EditComponent(props){
           </Flex>
         )
       })}
-      <Button variant="primary">Add another answer</Button>
+      <Button variant="primary" onClick={()=>{
+        props.setAttributes({
+          answers: props.attributes.answers.concat([""])
+        })
+      }}>Add another answer</Button>
     </div>
   )
 }
