@@ -5,9 +5,8 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   icon: "smiley",
   category: "common",
   attributes:{
-    question:{
-      type:"string",
-    },
+    question:{type:"string"},
+    answers:{type:"array", default:[""]},
   },
   edit: EditComponent,
   save: function(props){
