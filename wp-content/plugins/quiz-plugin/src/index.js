@@ -26,11 +26,17 @@ function EditComponent(props){
         label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize:"20px"}}
       />
       <p style={{fontSize:"13px", margin:"20px 0 8px 0"}}>Answers:</p>
-      {props.attributes.answers.map(function(answer){
+      {props.attributes.answers.map(function(answer, index){
         return(
           <Flex>
             <FlexBlock>
-              <TextControl value={answer}/>
+              <TextControl value={answer} onChange={(newValue)=>{
+                const newAnswers = props.attributes.answers.concat([])
+                newAnswers[index] = newValue
+                props.setAttributes({
+                  answers: newAnswers
+                })
+              }}/>
             </FlexBlock>
             <FlexItem>
               <Button>
