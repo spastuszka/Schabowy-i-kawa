@@ -39,7 +39,7 @@ function EditComponent(props){
         return(
           <Flex>
             <FlexBlock>
-              <TextControl autoFocus={answer == undefined} value={answer} onChange={(newValue)=>{
+              <TextControl autoFocus = {answer == undefined} value={answer} onChange={(newValue)=>{
                 const newAnswers = props.attributes.answers.concat([])
                 newAnswers[index] = newValue
                 props.setAttributes({
