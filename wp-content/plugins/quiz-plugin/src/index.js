@@ -7,6 +7,7 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   attributes:{
     question:{type:"string"},
     answers:{type:"array", default:[""]},
+    correctAnswer: {type:"number", default:undefined}
   },
   edit: EditComponent,
   save: function(props){
