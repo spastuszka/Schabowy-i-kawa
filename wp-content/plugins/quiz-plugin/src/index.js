@@ -32,14 +32,14 @@ function EditComponent(props){
   return(
     <div className='paying-attention-edit-block'>
       <TextControl
-        label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize:"20px"}}
+         label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize:"20px"}}
       />
       <p style={{fontSize:"13px", margin:"20px 0 8px 0"}}>Answers:</p>
       {props.attributes.answers.map(function(answer, index){
         return(
           <Flex>
             <FlexBlock>
-              <TextControl value={answer} onChange={(newValue)=>{
+              <TextControl autoFocus={answer == undefined} value={answer} onChange={(newValue)=>{
                 const newAnswers = props.attributes.answers.concat([])
                 newAnswers[index] = newValue
                 props.setAttributes({
@@ -60,7 +60,7 @@ function EditComponent(props){
       })}
       <Button variant="primary" onClick={()=>{
         props.setAttributes({
-          answers: props.attributes.answers.concat([""])
+          answers: props.attributes.answers.concat([undefined])
         })
       }}>Add another answer</Button>
     </div>
