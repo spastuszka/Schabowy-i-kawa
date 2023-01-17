@@ -56,7 +56,7 @@ function EditComponent(props){
             </FlexBlock>
             <FlexItem>
               <Button onClick={()=> markAsCorrect(index)}>
-                <Icon className='mark-as-correct' icon="star-empty"/>
+                <Icon className='mark-as-correct' icon={props.attributes.correctAnswer == index ? "star-filled" : "star-empty"}/>
               </Button>
             </FlexItem>
             <FlexItem>
