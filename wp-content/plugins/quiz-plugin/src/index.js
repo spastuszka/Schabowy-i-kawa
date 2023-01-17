@@ -30,6 +30,12 @@ function EditComponent(props){
     })
   }
 
+  function markAsCorrect(indexToMark){
+    props.setAttributes({
+      correctAnswer: indexToMark
+    })
+  }
+
   return(
     <div className='paying-attention-edit-block'>
       <TextControl
@@ -49,7 +55,7 @@ function EditComponent(props){
               }}/>
             </FlexBlock>
             <FlexItem>
-              <Button>
+              <Button onClick={()=> markAsCorrect(index)}>
                 <Icon className='mark-as-correct' icon="star-empty"/>
               </Button>
             </FlexItem>
