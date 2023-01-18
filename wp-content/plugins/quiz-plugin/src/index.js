@@ -1,7 +1,7 @@
 import './index.scss'
 import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon} from '@wordpress/components'
 
-function ourStartFunction(){
+(function (){
   let locked = false
 
   wp.data.subscribe(function(){
@@ -19,9 +19,7 @@ function ourStartFunction(){
       wp.data.dispatch("core/editor").unlockPostSaving("noanswer")
     }
   })
-}
-
-ourStartFunction();
+})()
 
 wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   title: "Quiz Block",
