@@ -28,6 +28,12 @@ function EditComponent(props){
     props.setAttributes({
       answers: newAnswers
     })
+
+    if(indexToDelete == props.attributes.correctAnswer){
+      props.setAttributes({
+        correctAnswer: undefined
+      })
+    }
   }
 
   function markAsCorrect(indexToMark){
