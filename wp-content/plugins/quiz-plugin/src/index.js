@@ -1,5 +1,28 @@
 import './index.scss'
 import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon} from '@wordpress/components'
+
+function ourStartFunction(){
+  let locked = false
+
+  wp.data.subscribe(function(){
+    const results = wp.data.select("core/block-editor").getBlocks().filter(function(block){
+      return block.name == "quiz-plugin/gutenberg-block-quiz" && block.attributes.correctAnswer == undefined
+    })
+
+    if(results.length && locked == false){
+      locked = true
+      wp.data.dispatch("core/editor").lockPostSaving("noanswer")
+    }
+
+    if(!results.length && locked){
+      locked = false
+      wp.data.dispatch("core/editor").unlockPostSaving("noanswer")
+    }
+  })
+}
+
+ourStartFunction();
+
 wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   title: "Quiz Block",
   icon: "smiley",
