@@ -31,9 +31,8 @@ class QuizCustom
   {
     if (!is_admin()) {
       wp_enqueue_script('attentionFrontend', plugin_dir_url(__FILE__) . 'build/frontend.js', array('wp-element'));
-      wp_enqueue_style('attentionFrontendStyles', plugin_dir_url(__FILE__) . 'build/frontend.js');
+      wp_enqueue_style('attentionFrontendStyles', plugin_dir_url(__FILE__) . 'build/frontend.css');
     }
-
     ob_start(); ?>
     <div class="paying-attention-update-me"></div>
 
