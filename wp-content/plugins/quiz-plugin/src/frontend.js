@@ -1,2 +1,7 @@
 import './frontend.scss'
-alert('Test');
+
+const divsToUpdate = document.querySelectorAll(".paying-attention-update-me")
+
+divsToUpdate.forEach(function(div){
+  div.innerHTML = "hello"
+})
