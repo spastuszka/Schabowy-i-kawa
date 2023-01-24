@@ -5,14 +5,15 @@ import ReactDOM from 'react-dom'
 const divsToUpdate = document.querySelectorAll(".paying-attention-update-me")
 
 divsToUpdate.forEach(function(divContainer){
-  // ReactDOM.render(<Quiz/>, divContainer)
+    const data = JSON.parse(divContainer.querySelector("pre").innerHTML)
+  ReactDOM.render(<Quiz question={data.question}/>, divContainer)
   divContainer.classList.remove("paying-attention-update-me")
 })
 
-function Quiz(){
+function Quiz(props){
   return(
     <div className="paying-attention-frontend">
-      Hello from React
+        {props.question}
     </div>
   )
 }
