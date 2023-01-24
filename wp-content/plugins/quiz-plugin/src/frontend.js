@@ -6,8 +6,8 @@ const divsToUpdate = document.querySelectorAll(".paying-attention-update-me")
 
 divsToUpdate.forEach(function(divContainer){
     const data = JSON.parse(divContainer.querySelector("pre").innerHTML)
-  ReactDOM.render(<Quiz question={data.question}/>, divContainer)
-  divContainer.classList.remove("paying-attention-update-me")
+    ReactDOM.render(<Quiz {...data}/>, divContainer)
+    divContainer.classList.remove("paying-attention-update-me")
 })
 
 function Quiz(props){
