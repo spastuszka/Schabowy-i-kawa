@@ -13,7 +13,8 @@ divsToUpdate.forEach(function(divContainer){
 function Quiz(props){
   return(
     <div className="paying-attention-frontend">
-        {props.question}
+        <p>{props.question}</p>
+        <ul></ul>
     </div>
   )
 }
