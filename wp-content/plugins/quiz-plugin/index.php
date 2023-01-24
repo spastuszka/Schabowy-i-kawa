@@ -35,7 +35,7 @@ class QuizCustom
     }
     ob_start(); ?>
     <div class="paying-attention-update-me">
-      <pre><?php echo wp_json_encode($attributes) ?></pre>
+      <pre style="display: none;"><?php echo wp_json_encode($attributes) ?></pre>
     </div>
 
 <?php
