@@ -14,7 +14,11 @@ function Quiz(props){
   return(
     <div className="paying-attention-frontend">
         <p>{props.question}</p>
-        <ul></ul>
+        <ul>
+            {props.answers.map(function (answer){
+                return <li>{answer}</li>
+            })}
+        </ul>
     </div>
   )
 }
