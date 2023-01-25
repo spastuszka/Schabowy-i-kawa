@@ -15,8 +15,8 @@ function Quiz(props){
     <div className="paying-attention-frontend">
         <p>{props.question}</p>
         <ul>
-            {props.answers.map(function (answer){
-                return <li>{answer}</li>
+            {props.answers.map(function (answer, index){
+                return <li onClick={()=> handleAnswer(index)}>{answer}</li>
             })}
         </ul>
     </div>
