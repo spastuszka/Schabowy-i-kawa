@@ -11,7 +11,15 @@ divsToUpdate.forEach(function(divContainer){
 })
 
 function Quiz(props){
-  return(
+    function handleAnswer(index) {
+        if(index == props.correctAnswer){
+            alert('Congrats!')
+        } else{
+            alert('You lose!')
+        }
+    }
+
+    return(
     <div className="paying-attention-frontend">
         <p>{props.question}</p>
         <ul>
