@@ -14,9 +14,9 @@ function Quiz(props){
     const [isCorrect, setIsCorrect] = useState(undefined)
     function handleAnswer(index) {
         if(index == props.correctAnswer){
-            alert('Congrats!')
+            setIsCorrect(true)
         } else{
-            alert('You lose!')
+            setIsCorrect(false)
         }
     }
 
