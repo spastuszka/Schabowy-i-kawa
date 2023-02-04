@@ -12,12 +12,19 @@ divsToUpdate.forEach(function(divContainer){
 
 function Quiz(props){
     const [isCorrect, setIsCorrect] = useState(undefined)
+    const [isCorrectDelayed, setIsCorrectDelayed] = useState(undefined)
 
     useEffect(()=>{
         if(isCorrect == false){
             setTimeout(()=>{
                 setIsCorrect(undefined)
             },2600)
+        }
+
+        if(isCorrect === true){
+            setTimeout(()=>{
+                setIsCorrectDelayed(true)
+            },1000)
         }
     }, [isCorrect])
     function handleAnswer(index) {
@@ -33,7 +40,18 @@ function Quiz(props){
         <p>{props.question}</p>
         <ul>
             {props.answers.map(function (answer, index){
-                return <li onClick={isCorrect === true ? undefined : ()=> handleAnswer(index)}>{answer}</li>
+                return(
+                    <li onClick={isCorrect === true ? undefined : ()=> handleAnswer(index)}>
+                        {isCorrectDelayed === true && index == props.correctAnswer && (
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                 className="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                            </svg>
+                        )}
+                        {answer}
+                    </li>
+                )
             })}
         </ul>
         <div className={"correct-message" + (isCorrect == true ? " correct-message--visible" : "")}>
