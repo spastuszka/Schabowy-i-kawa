@@ -1,5 +1,5 @@
 import './frontend.scss'
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import ReactDOM from 'react-dom'
 
 const divsToUpdate = document.querySelectorAll(".paying-attention-update-me")
