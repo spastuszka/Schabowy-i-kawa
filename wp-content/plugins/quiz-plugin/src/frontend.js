@@ -28,7 +28,7 @@ function Quiz(props){
                 return <li onClick={()=> handleAnswer(index)}>{answer}</li>
             })}
         </ul>
-        <div className="correct-message">
+        <div className={"correct-message" + (isCorrect == true ? " correct-message--visible" : "")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  className="bi bi-emoji-smile" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -37,7 +37,7 @@ function Quiz(props){
             </svg>
             <p>That is correct !</p>
         </div>
-        <div className="incorrect-message">
+        <div className={"incorrect-message" + (isCorrect == false ? " incorrect-message--visible" : "")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  className="bi bi-emoji-frown" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
