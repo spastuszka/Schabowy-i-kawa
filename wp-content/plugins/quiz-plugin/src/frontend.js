@@ -41,8 +41,10 @@ function Quiz(props){
         <ul>
             {props.answers.map(function (answer, index){
                 return(
-                    <li onClick={isCorrect === true ? undefined : ()=> handleAnswer(index)}>
-                        {isCorrectDelayed === true && index == props.correctAnswer && (
+                    <li className={(isCorrectDelayed === true && index === props.correctAnswer ? "no-click" : "")
+                        + (isCorrectDelayed === true && index !== props.correctAnswer ? "fade-incorrect" : "")
+                    } onClick={isCorrect === true ? undefined : ()=> handleAnswer(index)}>
+                        {isCorrectDelayed === true && index === props.correctAnswer && (
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                  className="bi bi-check" viewBox="0 0 16 16">
                                 <path
