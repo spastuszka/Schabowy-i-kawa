@@ -1,5 +1,6 @@
 import './index.scss'
-import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon} from '@wordpress/components'
+import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon, PanelBody, PanelRow, ColorPicker} from '@wordpress/components'
+import {InspectorControls, BlockControls, AlignmentToolbar} from '@wordpress/block-editor'
 
 (function (){
   let locked = false
@@ -28,7 +29,9 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
   attributes:{
     question:{type:"string"},
     answers:{type:"array", default:[""]},
-    correctAnswer: {type:"number", default:undefined}
+    correctAnswer: {type:"number", default:undefined},
+    bgColor: {type: "string", default: "#EBEBEB"},
+    theAlignment: {type: "string", default: "left"}
   },
   edit: EditComponent,
   save: function(props){
@@ -64,7 +67,17 @@ function EditComponent(props){
   }
 
   return(
-    <div className='paying-attention-edit-block'>
+    <div className='paying-attention-edit-block' style={{backgroundColor: props.attributes.bgColor}}>
+      <BlockControls>
+        <AlignmentToolbar value={props.attributes.theAlignment} onChange={x => props.setAttributes({theAlignment: x})}/>
+      </BlockControls>
+      <InspectorControls>
+        <PanelBody title="Background Color" initialOpen={true}>
+          <PanelRow>
+            <ColorPicker color={props.attributes.bgColor} onChangeComplete={x => props.setAttributes({bgColor: x.hex})} disableAlpha={true}/>
+          </PanelRow>
+        </PanelBody>
+      </InspectorControls>
       <TextControl
          label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize:"20px"}}
       />
