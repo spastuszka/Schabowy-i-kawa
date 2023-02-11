@@ -33,6 +33,7 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
     bgColor: {type: "string", default: "#EBEBEB"},
     theAlignment: {type: "string", default: "left"}
   },
+  description:"Give your audience a chance to prove their comprehension",
   example: {
     attributes:{
       question: "What is the most popular web CMS?",
