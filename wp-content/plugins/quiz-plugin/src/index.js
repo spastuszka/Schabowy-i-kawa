@@ -33,6 +33,15 @@ wp.blocks.registerBlockType('quiz-plugin/gutenberg-block-quiz',{
     bgColor: {type: "string", default: "#EBEBEB"},
     theAlignment: {type: "string", default: "left"}
   },
+  example: {
+    attributes:{
+      question: "What is the most popular web CMS?",
+      correctAnswer: 2,
+      answers: ['Prestashop', 'WordPress', 'Joomla'],
+      theAlignment: "left",
+      bgColor: "#CFE8F1"
+    }
+  },
   edit: EditComponent,
   save: function(props){
     return null
