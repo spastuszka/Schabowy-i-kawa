@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "gutenberg-custom-plugin/test-gutenberg-block",
+  "title": "Gutenberg Block - Block.json",
+  "editorScript": "file:./index.js",
+  "script": "file:./script.js",
+  "viewScript": [ "file:./view.js", "example-shared-view-script" ],
+  "editorStyle": "file:./index.css",
+  "style": [ "file:./style.css", "example-shared-style" ],
+  "render": "file:./render.php"
+}
