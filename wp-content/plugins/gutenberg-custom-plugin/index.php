@@ -21,6 +21,7 @@ class GutenbergCustom
     wp_register_script('ourtestblocktype', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-element'));
     register_block_type('gutenberg-custom-plugin/test-gutenberg-block', array(
       'editor_script' => 'ourtestblocktype',
+      'editor_style' => 'quizeditcss',
       'render_callback' => array($this, 'theHTML')
     ));
   }
