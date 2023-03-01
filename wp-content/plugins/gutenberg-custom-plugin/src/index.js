@@ -13,6 +13,8 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
     },
   },
   edit: function(props){
+
+    const blockProps = useBlockProps()
     
     function updateSkyColor(e){
       props.setAttributes({
@@ -27,7 +29,7 @@ wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
     }
 
     return(
-      <div>
+      <div {...blockProps}>
         <input type="text" placeholder="sky color" value={props.attributes.skyColor} onChange={updateSkyColor}/>
         <input type="text" placeholder="grass color" value={props.attributes.grassColor} onChange={updateGrassColor}/>
       </div>
