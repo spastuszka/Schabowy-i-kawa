@@ -6,6 +6,5 @@
   "editorScript": "file:./build/index.js",
   "editorStyle": "file:./build/index.css",
   "script": "file:./build/script.js",
-  "viewScript": [ "file:./build/view.js", "example-shared-view-script" ],
-  "style": [ "file:./buiild/style.css", "example-shared-style" ]
+  "style": [ "file:./build/style.css", "example-shared-style" ]
 }
