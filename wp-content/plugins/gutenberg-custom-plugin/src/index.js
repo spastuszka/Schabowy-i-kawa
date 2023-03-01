@@ -1,3 +1,5 @@
+import{useBlockProps} from "@wordpress/block-editor" 
+
 wp.blocks.registerBlockType('gutenberg-custom-plugin/test-gutenberg-block',{
   title: "Gutenberg Block",
   icon: "smiley",
