@@ -19,8 +19,6 @@ class GutenbergCustom
   function adminAssets()
   {
     register_block_type(__DIR__, array(
-      'editor_script' => 'ourtestblocktype',
-      'editor_style' => 'quizeditcss',
       'render_callback' => array($this, 'theHTML')
     ));
   }

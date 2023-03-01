@@ -3,10 +3,9 @@
   "apiVersion": 2,
   "name": "gutenberg-custom-plugin/test-gutenberg-block",
   "title": "Gutenberg Block - Block.json",
-  "editorScript": "file:./index.js",
-  "script": "file:./script.js",
-  "viewScript": [ "file:./view.js", "example-shared-view-script" ],
-  "editorStyle": "file:./index.css",
-  "style": [ "file:./style.css", "example-shared-style" ],
-  "render": "file:./render.php"
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "script": "file:./build/script.js",
+  "viewScript": [ "file:./build/view.js", "example-shared-view-script" ],
+  "style": [ "file:./buiild/style.css", "example-shared-style" ]
 }
