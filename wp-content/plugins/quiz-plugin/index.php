@@ -18,11 +18,19 @@ class QuizCustom
 
   function adminAssets()
   {
-    wp_register_style('quizeditcss', plugin_dir_url(__FILE__) . 'build/index.css');
-    wp_register_script('quizblocktype', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-element', 'wp-editor'));
-    register_block_type('quiz-plugin/gutenberg-block-quiz', array(
-      'editor_script' => 'quizblocktype',
-      'editor_style' => 'quizeditcss',
+    /* Old version without - block.json */
+
+    // wp_register_style('quizeditcss', plugin_dir_url(__FILE__) . 'build/index.css');
+    // wp_register_script('quizblocktype', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-element', 'wp-editor'));
+
+    // register_block_type('quiz-plugin/gutenberg-block-quiz', array(
+    //   'editor_script' => 'quizblocktype',
+    //   'editor_style' => 'quizeditcss',
+    //   'render_callback' => array($this, 'theHTML')
+    // ));
+
+    /* New version with block.json - recommended by WP */
+    register_block_type(__DIR__, array(
       'render_callback' => array($this, 'theHTML')
     ));
   }
@@ -31,7 +39,7 @@ class QuizCustom
   {
     if (!is_admin()) {
       wp_enqueue_script('attentionFrontend', plugin_dir_url(__FILE__) . 'build/frontend.js', array('wp-element'));
-      wp_enqueue_style('attentionFrontendStyles', plugin_dir_url(__FILE__) . 'build/frontend.css');
+      // wp_enqueue_style('attentionFrontendStyles', plugin_dir_url(__FILE__) . 'build/frontend.css');
     }
     ob_start(); ?>
     <div class="paying-attention-update-me">
