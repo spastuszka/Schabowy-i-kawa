@@ -5,6 +5,9 @@ wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   description: "Include a short description and link to a cooker of your choice",
   icon: "welcome-learn-more",
   category: "common",
+  attributes:{
+    cookID:{type:"string"},
+  },
   edit: EditComponent,
   save: function () {
     return null
