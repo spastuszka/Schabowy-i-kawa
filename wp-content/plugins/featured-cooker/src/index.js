@@ -15,10 +15,10 @@ function EditComponent() {
   return (
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
-        We will have a select dropdown form element here.
+        Tu będzie menu rozwijane wszystkich kucharzy
       </div>
       <div>
-        The HTML preview of the selected professor will appear here.
+        Tu będzie podgląd jakiego kucharza wybraliśmy i jak to wygląda.
       </div>
     </div>
   )
