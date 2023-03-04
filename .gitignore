@@ -226,6 +226,7 @@ node_modules/
 ../schabowy-i-kawa-theme/build/
 /wp-content/plugins/gutenberg-custom-plugin/build
 /wp-content/plugins/quiz-plugin/build
+/wp-content/plugins/featured-cooker/build
 
 # End of https://www.toptal.com/developers/gitignore/api/wordpress,node
 
