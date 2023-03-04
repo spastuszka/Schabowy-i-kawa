@@ -19,6 +19,7 @@ function EditComponent(props) {
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
         <select onChange={e => props.setAttributes({cookID: e.target.value})}>
+          <option value="">Select a cooker</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
