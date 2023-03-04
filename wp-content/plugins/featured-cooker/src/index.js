@@ -14,7 +14,7 @@ wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   }
 })
 
-function EditComponent() {
+function EditComponent(props) {
   return (
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
