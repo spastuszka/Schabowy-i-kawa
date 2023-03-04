@@ -15,7 +15,11 @@ function EditComponent() {
   return (
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
-        Tu będzie menu rozwijane wszystkich kucharzy
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </div>
       <div>
         Tu będzie podgląd jakiego kucharza wybraliśmy i jak to wygląda.
