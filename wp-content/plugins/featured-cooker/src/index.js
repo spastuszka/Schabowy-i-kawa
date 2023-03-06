@@ -1,4 +1,5 @@
 import "./index.scss"
+import {useSelect} from "@wordpress/data"
 
 wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   title: "Cooker Callout",
@@ -15,6 +16,12 @@ wp.blocks.registerBlockType("ourplugin/featured-cooker", {
 })
 
 function EditComponent(props) {
+  const allCooks = useSelect(select => {
+    return select("core").getEntityRecords("postType","cooker",{per_page:-1})
+  },[])
+
+
+  
   return (
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
