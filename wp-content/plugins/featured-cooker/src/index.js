@@ -20,8 +20,8 @@ function EditComponent(props) {
     return select("core").getEntityRecords("postType","cooker",{per_page:-1})
   },[])
 
+  if(allCooks == undefined) return <p>Loading ...</p>
 
-  
   return (
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
