@@ -30,7 +30,12 @@ class FeaturedCooker
 
   function renderCallback($attributes)
   {
-    return '<p>We will replace this content soon.</p>';
+    if ($attributes['cookID']) {
+      wp_enqueue_style('featuredCookerStyle');
+      return generateCookerHTML($attributes['cookID']);
+    } else {
+      return NULL;
+    }
   }
 }
 
