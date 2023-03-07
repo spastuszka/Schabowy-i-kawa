@@ -27,9 +27,11 @@ function EditComponent(props) {
       <div className="cooker-select-container">
         <select onChange={e => props.setAttributes({cookID: e.target.value})}>
           <option value="">Select a cooker</option>
-          <option value="1" selected={props.attributes.cookID == 1}>1</option>
-          <option value="2" selected={props.attributes.cookID == 2}>2</option>
-          <option value="3" selected={props.attributes.cookID == 3}>3</option>
+          {allCooks.map(cook =>{
+            return(
+              <option value={cook.id} selected={props.attributes.cookID == cook.id}>{cook.title.rendered}</option>
+            )
+          })}
         </select>
       </div>
       <div>
