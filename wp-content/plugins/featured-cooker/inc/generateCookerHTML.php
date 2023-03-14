@@ -11,7 +11,15 @@ function generateCookerHTML($id)
     $cookPost->the_post();
     ob_start(); ?>
 
-    <div class="cooker-callout">Test</div>
+    <div class="cooker-callout">
+      <!-- This is a place when wher user see cooker photo -->
+      <div class="cooker-callout__photo" style="background-image: url(<?php the_post_thumbnail_url('cookerPortrait') ?>);"></div>
+      <!-- This is a description about cooker -->
+      <div class="cooker-callout__text">
+        <h5><?php the_title(); ?></h5>
+        <p><?php echo wp_trim_words(get_the_content(), 30) ?></p>
+      </div>
+    </div>
 
 <?php
     wp_reset_postdata();
