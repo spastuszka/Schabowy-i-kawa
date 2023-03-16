@@ -9,6 +9,7 @@ function generateCookerHTML($id)
 
   while ($cookPost->have_posts()) {
     $cookPost->the_post();
+    /* Start buffer */
     ob_start(); ?>
 
     <div class="cooker-callout">
@@ -18,11 +19,13 @@ function generateCookerHTML($id)
       <div class="cooker-callout__text">
         <h5><?php the_title(); ?></h5>
         <p><?php echo wp_trim_words(get_the_content(), 30) ?></p>
+        <p><strong><a href="<?php the_permalink(); ?>">Learn more about <?php the_title(); ?> &raquo;</a></strong></p>
       </div>
     </div>
 
 <?php
     wp_reset_postdata();
+    /* End buffer */
     return ob_get_clean();
   }
 }
