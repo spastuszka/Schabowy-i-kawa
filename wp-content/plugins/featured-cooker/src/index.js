@@ -18,6 +18,10 @@ wp.blocks.registerBlockType("ourplugin/featured-cooker", {
 })
 
 function EditComponent(props) {
+
+  /* state-related variables and addition of an initial value */
+  const [thePreview, setThePreview] = useState("")
+
   const allCooks = useSelect(select => {
     return select("core").getEntityRecords("postType","cooker",{per_page:-1})
   },[])
