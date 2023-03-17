@@ -1,5 +1,7 @@
 import "./index.scss"
 import {useSelect} from "@wordpress/data"
+import {useState, useEffect} from "react"
+import apiFetch from "@wordpress/api-fetch"
 
 wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   title: "Cooker Callout",
