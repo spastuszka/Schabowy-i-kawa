@@ -15,7 +15,24 @@ class FeaturedCooker
   function __construct()
   {
     add_action('init', [$this, 'onInit']);
+    add_action('rest_api_init', [$this, 'cookHTML']);
   }
+
+  /* Created link structur about new REST API endpoint */
+  function cookHTML()
+  {
+    register_rest_route('featuredCooker/v1', 'getHTML', array(
+      'methods' => WP_REST_SERVER::READABLE,
+      'callback' => [$this, 'getCookHTML']
+    ));
+  }
+
+  /* Function thtat return the content of the endpoint */
+  function getCookHTML($data)
+  {
+    return generateCookerHTML($data['cookID']);
+  }
+
 
   function onInit()
   {
