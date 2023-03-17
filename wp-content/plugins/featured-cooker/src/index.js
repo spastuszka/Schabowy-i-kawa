@@ -22,6 +22,19 @@ function EditComponent(props) {
   /* state-related variables and addition of an initial value */
   const [thePreview, setThePreview] = useState("")
 
+  /* Created effect every time when state parameter change - cookID */
+  useEffect(() => {
+    async function go(){
+      const response = await apiFetch(
+        { 
+          path: `featuredCooker/v1/getHTML?cookID=${props.attributes.cookID}`,
+          method: "GET",
+        })
+        setThePreview(response)
+    }
+    go()
+  }, [props.attributes.cookID])
+
   const allCooks = useSelect(select => {
     return select("core").getEntityRecords("postType","cooker",{per_page:-1})
   },[])
