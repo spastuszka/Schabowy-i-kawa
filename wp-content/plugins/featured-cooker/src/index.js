@@ -1,5 +1,7 @@
 import "./index.scss"
 import {useSelect} from "@wordpress/data"
+import {useState, useEffect} from "react"
+import apiFetch from "@wordpress/api-fetch"
 
 wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   title: "Cooker Callout",
@@ -16,6 +18,23 @@ wp.blocks.registerBlockType("ourplugin/featured-cooker", {
 })
 
 function EditComponent(props) {
+
+  /* state-related variables and addition of an initial value */
+  const [thePreview, setThePreview] = useState("")
+
+  /* Created effect every time when state parameter change - cookID */
+  useEffect(() => {
+    async function go(){
+      const response = await apiFetch(
+        { 
+          path: `featuredCooker/v1/getHTML?cookID=${props.attributes.cookID}`,
+          method: "GET",
+        })
+        setThePreview(response)
+    }
+    go()
+  }, [props.attributes.cookID])
+
   const allCooks = useSelect(select => {
     return select("core").getEntityRecords("postType","cooker",{per_page:-1})
   },[])
@@ -35,7 +54,8 @@ function EditComponent(props) {
         </select>
       </div>
       <div>
-        Tu będzie podgląd jakiego kucharza wybraliśmy i jak to wygląda.
+        {/* This is the parameter that allows React to display content it normally deems unsafe */}
+        <div dangerouslySetInnerHTML={{__html: thePreview}}></div>
       </div>
     </div>
   )

@@ -9,12 +9,32 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
+require_once(plugin_dir_path(__FILE__) . 'inc/generateCookerHTML.php');
 class FeaturedCooker
 {
   function __construct()
   {
     add_action('init', [$this, 'onInit']);
+    add_action('rest_api_init', [$this, 'cookHTML']);
   }
+
+  /* Created link structur about new REST API endpoint */
+  function cookHTML()
+  {
+    register_rest_route('featuredCooker/v1', 'getHTML', array(
+      'methods' => WP_REST_SERVER::READABLE,
+      'callback' => [$this, 'getCookHTML']
+    ));
+  }
+
+  /* Function thtat return the content of the endpoint */
+  function getCookHTML($data)
+  {
+    /* We only return data, not modifit and order the json data - 
+    generate via generateCookerHTML function*/
+    return generateCookerHTML($data['cookID']);
+  }
+
 
   function onInit()
   {
@@ -30,7 +50,12 @@ class FeaturedCooker
 
   function renderCallback($attributes)
   {
-    return '<p>We will replace this content soon.</p>';
+    if ($attributes['cookID']) {
+      wp_enqueue_style('featuredCookerStyle');
+      return generateCookerHTML($attributes['cookID']);
+    } else {
+      return NULL;
+    }
   }
 }
 

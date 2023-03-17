@@ -202,7 +202,7 @@ wp-content/themes/schabowy-i-kawa-theme/build/
 
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
-wp-content/mu-plugins/*
+!wp-content/mu-plugins/*
 wp-content/plugins/*
 !/wp-content/plugins/word-count-plugin
 !/wp-content/plugins/gutenberg-custom-plugin
