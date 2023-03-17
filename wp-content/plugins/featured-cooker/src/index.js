@@ -54,7 +54,8 @@ function EditComponent(props) {
         </select>
       </div>
       <div>
-        Tu będzie podgląd jakiego kucharza wybraliśmy i jak to wygląda.
+        {/* This is the parameter that allows React to display content it normally deems unsafe */}
+        <div dangerouslySetInnerHTML={{__html: thePreview}}></div>
       </div>
     </div>
   )
