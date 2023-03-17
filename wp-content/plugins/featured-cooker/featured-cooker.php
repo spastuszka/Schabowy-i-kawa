@@ -30,6 +30,7 @@ class FeaturedCooker
   /* Function thtat return the content of the endpoint */
   function getCookHTML($data)
   {
+    /* We only return data, not modifit and order the json data */
     return generateCookerHTML($data['cookID']);
   }
 
