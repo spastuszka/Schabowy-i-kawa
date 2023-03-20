@@ -49,7 +49,8 @@ function EditComponent(props) {
       .map(x => x.attributes.cookID) /* Modyfikujemy na nową tablicę, tylko id kucharzy występujących w danym poście */
       .filter((x, index, arrCook) => {
         /* Filtrowanie wyników aby nie było duplikatów w danej tablicy */
-        return arrCook.indexOf(x) == index
+        return arrCook.indexOf(x) == index /* Zwracanie, jeśli  w danej tablicy jest dany element , bo indexOf zwraca
+        pierwszy występujacy element i zwraca jego index (jeśli brak to -1), potem gdy porównujemy kolejne indexy, a nie kolejny jest taki sam, ale index juz inny to brak zwracania go. */
       } )
       console.log(cookFromMeta);
     /* Ustawienie wartości meta, aby dowiedzieć się, ile wystąpień danego kucharza jest w poście, wartości te później wykorzystamy do wyświetlenia listy postów w opisiue samego kucharza. */
