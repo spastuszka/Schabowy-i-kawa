@@ -38,6 +38,16 @@ class FeaturedCooker
 
   function onInit()
   {
+    /* Rejestrujemy wygenerowaną wczesniej w indx.js - funkcji updateTheCookMeta meta , aby zapisała sie w DB
+    
+    register_meta(typ-meta-danych (comment, post, user etc.), nazwa-meta-danych-w-kolumnie-DB, tablica-opcji )
+    */
+    register_meta('post', 'featurecooker', array(
+      'show_in_rest' => true,
+      'type' => 'number',
+      'single' => false
+    ));
+
     wp_register_script('featuredCookerScript', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
     wp_register_style('featuredCookerStyle', plugin_dir_url(__FILE__) . 'build/index.css');
 
