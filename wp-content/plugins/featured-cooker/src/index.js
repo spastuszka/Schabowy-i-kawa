@@ -24,6 +24,7 @@ function EditComponent(props) {
 
   /* Created effect every time when state parameter change - cookID */
   useEffect(() => {
+    updateTheCookMeta()
     async function go(){
       const response = await apiFetch(
         { 
@@ -34,6 +35,26 @@ function EditComponent(props) {
     }
     go()
   }, [props.attributes.cookID])
+
+
+  function updateTheCookMeta(){
+
+    /* Tutaj bierzemy pod uwagę wszystkie bloki, które mogą wystąpić w poście
+    moemy rpzecie dodać wiele wizytówek kucharzy w jednym poście. Filtrujemy
+    zatem je, tak aby u kadego kucharza się pojkawiły */
+
+    const cookFromMeta = wp.data.select("core/block-editor")
+      .getBlocks()
+      .filter(x => x.name == "ourplugin/featured-cooker")/* Filtrujemy tylko bloki z kucharzami */
+      .map(x => x.attributes.cookID) /* Modyfikujemy na nową tablicę, tylko id kucharzy występujących w danym poście */
+      .filter((x, index, arrCook) => {
+        /* Filtrowanie wyników aby nie było duplikatów w danej tablicy */
+        return arrCook.indexOf(x) == index
+      } )
+      console.log(cookFromMeta);
+    /* Ustawienie wartości meta, aby dowiedzieć się, ile wystąpień danego kucharza jest w poście, wartości te później wykorzystamy do wyświetlenia listy postów w opisiue samego kucharza. */
+    wp.data.dispatch("core/editor").editPost({meta: {featurecooker: cookFromMeta}});
+  }
 
   const allCooks = useSelect(select => {
     return select("core").getEntityRecords("postType","cooker",{per_page:-1})
