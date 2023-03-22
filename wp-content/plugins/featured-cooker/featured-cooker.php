@@ -16,6 +16,9 @@ class FeaturedCooker
   {
     add_action('init', [$this, 'onInit']);
     add_action('rest_api_init', [$this, 'cookHTML']);
+    /* Dodajemy filtr, który doda do wizytówek kucharzy informacje, w których postach jest ich skrócna wersja */
+
+    add_filter('the_content', [$this, 'addRelatedPosts']);
   }
 
   /* Created link structur about new REST API endpoint */
