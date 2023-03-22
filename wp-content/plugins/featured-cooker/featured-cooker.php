@@ -21,6 +21,18 @@ class FeaturedCooker
     add_filter('the_content', [$this, 'addRelatedPosts']);
   }
 
+  /* Funkcja, która odpowiada za to aby poniej zawartości opisu w single cooker mieć mozliwość podglądu w których postahc jest wizytówka osadzona */
+
+  function addRelatedPosts($content)
+  {
+    /* to zapytanie zwróci prawdę, gdy jesteśmy w single cooker widoku , jest to główne zapytnie wykorzystujące pętle*/
+    if (is_singular('cooker') && in_the_loop() && is_main_query()) {
+      /* połączymy tresć opisu z funkcją drukującą połaczone wpisy per id danego kucharza, którego przekazujemy jako argument*/
+      return $content . relatedPostsHTML(get_the_id());
+    }
+    return $content;
+  }
+
   /* Created link structur about new REST API endpoint */
   function cookHTML()
   {
