@@ -24,7 +24,9 @@ function EditComponent(props) {
 
   /* Created effect every time when state parameter change - cookID */
   useEffect(() => {
-    updateTheCookMeta()
+    /* If, który będzie blokował przy umieszczeniu komponentu gutneberg, aby nie pokazywał się zaden kucharz */
+    if(props.attributes.cookID){
+      updateTheCookMeta()
     async function go(){
       const response = await apiFetch(
         { 
@@ -34,7 +36,18 @@ function EditComponent(props) {
         setThePreview(response)
     }
     go()
+    }
   }, [props.attributes.cookID])
+
+  /* Utworzenie kolejnego efektu związanego z poprawnym i właściwym usunięciem odpowiedniego post meta związanego z wizytówką kucharza */
+
+  useEffect(() => {
+    /* Funkcja czyszcząca, która w momencie usuwania gdy coś zwraca będzie się wywoływać */
+    return () => {
+      updateTheCookMeta()
+    }
+    /* Normalnie jak nie podamy niczego do zwracania, to funkcja wywoła się tylko przy pierwszym wyrenderowaniu komponentu*/
+  }, [])
 
 
   function updateTheCookMeta(){
