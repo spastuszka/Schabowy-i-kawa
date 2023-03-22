@@ -10,6 +10,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 require_once(plugin_dir_path(__FILE__) . 'inc/generateCookerHTML.php');
+require_once(plugin_dir_path(__FILE__) . 'inc/relatedPostsHTML.php');
 class FeaturedCooker
 {
   function __construct()
