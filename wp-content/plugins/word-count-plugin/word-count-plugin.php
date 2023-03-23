@@ -50,7 +50,7 @@ class WordCountAndTimePlugin
     }
 
     if (get_option('wcp_wordcount', '1') == '1') {
-      $html .= __('Ten post ma:', 'wcp-plugin') . ' ' . $wordCount . ' ' . __('słów', 'wcp-plugin') . '.<br />';
+      $html .= esc_html__('This post have:', 'wcp-plugin') . ' ' . $wordCount . ' ' . esc_html__('words', 'wcp-plugin') . '.<br />';
     }
 
     if (get_option('wcp_character_count', '1') == '1') {
