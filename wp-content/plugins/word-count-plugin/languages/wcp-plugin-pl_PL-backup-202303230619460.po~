@@ -26,7 +26,7 @@ msgstr ""
 
 #: word-count-plugin.php:53
 msgid "This post have:"
-msgstr "Ten post ma:"
+msgstr "Ten <strong>post</strong> ma:"
 
 #: word-count-plugin.php:214
 msgid "Word Count"
