@@ -5,6 +5,8 @@
   Version: 1.0
   Author: Sebastian Pastuszka
   Author URI: https://www.linkedin.com/in/sebastian-pastuszka/
+  Text Domain: feature-cooker
+  Domain Path: /languages
 */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
