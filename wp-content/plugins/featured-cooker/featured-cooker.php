@@ -56,6 +56,7 @@ class FeaturedCooker
 
   function onInit()
   {
+    load_plugin_textdomain('feature-cooker', false, dirname(plugin_basename(__FILE__)) . '/languages');
     /* Rejestrujemy wygenerowaną wczesniej w indx.js - funkcji updateTheCookMeta meta , aby zapisała sie w DB
     
     register_meta(typ-meta-danych (comment, post, user etc.), nazwa-meta-danych-w-kolumnie-DB, tablica-opcji )
