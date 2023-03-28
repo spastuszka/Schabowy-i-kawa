@@ -5,6 +5,8 @@
   Version: 1.0
   Author: Sebastian Pastuszka
   Author URI: https://www.linkedin.com/in/sebastian-pastuszka/
+  Text Domain: feature-cooker
+  Domain Path: /languages
 */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
@@ -54,7 +56,12 @@ class FeaturedCooker
 
   function onInit()
   {
-    /* Rejestrujemy wygenerowaną wczesniej w indx.js - funkcji updateTheCookMeta meta , aby zapisała sie w DB
+    /* Połączenie pluginu z folderem, w którym będzie znajdować się tłumaczenie. Teraz WP wie, ze ta wtyczka obsługuje tłumaczenia */
+
+    load_plugin_textdomain('feature-cooker', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
+
+    /* Rejestrujemy wygenerowaną wczesniej w index.js - funkcji updateTheCookMeta meta , aby zapisała sie w DB
     
     register_meta(typ-meta-danych (comment, post, user etc.), nazwa-meta-danych-w-kolumnie-DB, tablica-opcji )
     */
