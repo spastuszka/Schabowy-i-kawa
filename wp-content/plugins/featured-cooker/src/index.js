@@ -3,6 +3,13 @@ import {useSelect} from "@wordpress/data"
 import {useState, useEffect} from "react"
 import apiFetch from "@wordpress/api-fetch"
 
+/* Jeżeli chcemy tłumaczyć wtyczkę, to np. taka Loco translate z plikami, js niezbyt sobie radzi, no chyba, że użyjemy globalnego zakresu z wp.i18n.
+
+tworzymy w tym miejscu skrót do niego, aby łatiwej go używać.
+*/
+
+const __ = wp.i18n.__;
+
 wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   title: "Cooker Callout",
   description: "Include a short description and link to a cooker of your choice",
@@ -80,7 +87,7 @@ function EditComponent(props) {
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
         <select onChange={e => props.setAttributes({cookID: e.target.value})}>
-          <option value="">Select a cooker</option>
+          <option value="">{__("Select a cooker","feature-cooker")}</option>
           {allCooks.map(cook =>{
             return(
               <option value={cook.id} selected={props.attributes.cookID == cook.id}>{cook.title.rendered}</option>

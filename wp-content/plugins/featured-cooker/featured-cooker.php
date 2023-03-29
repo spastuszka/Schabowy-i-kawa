@@ -74,6 +74,9 @@ class FeaturedCooker
     wp_register_script('featuredCookerScript', plugin_dir_url(__FILE__) . 'build/index.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
     wp_register_style('featuredCookerStyle', plugin_dir_url(__FILE__) . 'build/index.css');
 
+    /* Ta funkcja będzie łączyć przetłumaczone frazy z plikami JS i WP musi o tym wiedzieć. Dzięki temu mówimy mu o tym */
+    wp_set_script_translations('featuredCookerScript', 'feature-cooker', plugin_dir_path(__FILE__) . '/languages');
+
     register_block_type('ourplugin/featured-cooker', array(
       'render_callback' => [$this, 'renderCallback'],
       'editor_script' => 'featuredCookerScript',
