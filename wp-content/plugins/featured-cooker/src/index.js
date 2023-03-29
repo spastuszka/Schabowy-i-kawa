@@ -87,7 +87,7 @@ function EditComponent(props) {
     <div className="featured-cooker-wrapper">
       <div className="cooker-select-container">
         <select onChange={e => props.setAttributes({cookID: e.target.value})}>
-          <option value="">Select a cooker</option>
+          <option value="">{__("Select a cooker","feature-cooker")}</option>
           {allCooks.map(cook =>{
             return(
               <option value={cook.id} selected={props.attributes.cookID == cook.id}>{cook.title.rendered}</option>
