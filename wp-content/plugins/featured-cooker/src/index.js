@@ -3,6 +3,13 @@ import {useSelect} from "@wordpress/data"
 import {useState, useEffect} from "react"
 import apiFetch from "@wordpress/api-fetch"
 
+/* Jeżeli chcemy tłumaczyć wtyczkę, to np. taka Loco translate z plikami, js niezbyt sobie radzi, no chyba, że użyjemy globalnego zakresu z wp.i18n.
+
+tworzymy w tym miejscu skrót do niego, aby łatiwej go używać.
+*/
+
+const __ = wp.i18n.__;
+
 wp.blocks.registerBlockType("ourplugin/featured-cooker", {
   title: "Cooker Callout",
   description: "Include a short description and link to a cooker of your choice",
