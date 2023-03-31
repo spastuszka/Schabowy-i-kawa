@@ -1,11 +1,11 @@
-.pet-adoption-table {
+.cook-adoption-table {
   margin-top: 20px;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
-.pet-adoption-table th {
+.cook-adoption-table th {
   font-weight: bold;
   color: #fff;
   background-color: #4d4d4d;
@@ -15,17 +15,17 @@
   font-size: 12px;
 }
 
-.pet-adoption-table td {
+.cook-adoption-table td {
   border: 1px solid #ddd;
   padding: 12px 15px;
   font-size: 12px;
 }
 
-.pet-adoption-table tr:nth-child(odd) td {
+.cook-adoption-table tr:nth-child(odd) td {
   background-color: #f1f1f1;
 }
 
-.delete-pet-button {
+.delete-cook-button {
   border: none;
   background-color: #e2e2e2;
   color: red;
@@ -36,17 +36,17 @@
   opacity: 0.65;
 }
 
-.delete-pet-button:hover {
+.delete-cook-button:hover {
   opacity: 1;
 }
 
-.create-pet-form {
+.create-cook-form {
   margin-top: 30px;
   padding: 20px;
   background-color: rgb(240, 240, 240);
   border: 1px solid #ddd;
 }
 
-.create-pet-form p {
+.create-cook-form p {
   margin-bottom: 15px !important;
 }

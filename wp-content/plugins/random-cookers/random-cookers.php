@@ -1,51 +1,56 @@
 <?php
 
 /*
-  Plugin Name: Pet Adoption (New DB Table)
+  Plugin Name: Cookers Random Generator (New DB Table)
   Version: 1.0
-  Author: Brad
-  Author URI: https://www.udemy.com/user/bradschiff/
+  Author: Sebastian Pastuszka
+  Author URI: https://www.linkedin.com/in/sebastian-pastuszka/
 */
 
-if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-require_once plugin_dir_path(__FILE__) . 'inc/generatePet.php';
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+require_once plugin_dir_path(__FILE__) . 'inc/generateCookers.php';
 
-class PetAdoptionTablePlugin {
-  function __construct() {
-    add_action('activate_new-database-table/new-database-table.php', array($this, 'onActivate'));
+class CookersRandomTablePlugin
+{
+  function __construct()
+  {
+    add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
     add_action('admin_head', array($this, 'onAdminRefresh'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
 
-  function onActivate() {
-
+  function onActivate()
+  {
   }
 
-  function onAdminRefresh() {
-    
+  function onAdminRefresh()
+  {
   }
 
-  function loadAssets() {
-    if (is_page('pet-adoption')) {
-      wp_enqueue_style('petadoptioncss', plugin_dir_url(__FILE__) . 'pet-adoption.css');
+  function loadAssets()
+  {
+    if (is_page('random-cookers')) {
+      wp_enqueue_style('randomcookerscss', plugin_dir_url(__FILE__) . 'random-cookers.css');
     }
   }
 
-  function loadTemplate($template) {
-    if (is_page('pet-adoption')) {
-      return plugin_dir_path(__FILE__) . 'inc/template-pets.php';
+  function loadTemplate($template)
+  {
+    if (is_page('random-cookers')) {
+      return plugin_dir_path(__FILE__) . 'inc/template-cooks.php';
     }
     return $template;
   }
 
-  function populateFast() {
-    $query = "INSERT INTO $this->tablename (`species`, `birthyear`, `petweight`, `favfood`, `favhobby`, `favcolor`, `petname`) VALUES ";
-    $numberofpets = 100000;
-    for ($i = 0; $i < $numberofpets; $i++) {
-      $pet = generatePet();
-      $query .= "('{$pet['species']}', {$pet['birthyear']}, {$pet['petweight']}, '{$pet['favfood']}', '{$pet['favhobby']}', '{$pet['favcolor']}', '{$pet['petname']}')";
-      if ($i != $numberofpets - 1) {
+  function populateFast()
+  {
+    $query = "INSERT INTO $this->tablename (`birthyear`, `cookweight`, `favfood`, `favhobby`, `cookname`) VALUES ";
+    $numberofcookers = 100000;
+    for ($i = 0; $i < $numberofcookers; $i++) {
+      $cook = generatePet();
+      $query .= "('{$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}')";
+      if ($i != $numberofcookers - 1) {
         $query .= ", ";
       }
     }
@@ -59,7 +64,6 @@ class PetAdoptionTablePlugin {
     global $wpdb;
     $wpdb->query($query);
   }
-
 }
 
-$petAdoptionTablePlugin = new PetAdoptionTablePlugin();
+$cookersRandomTablePlugin = new CookersRandomTablePlugin();
