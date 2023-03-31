@@ -208,6 +208,7 @@ wp-content/plugins/*
 !/wp-content/plugins/gutenberg-custom-plugin
 !/wp-content/plugins/quiz-plugin
 !/wp-content/plugins/featured-cooker
+!/wp-content/plugins/random-cookers
 
 /wp-content/themes/schabowy-i-kawa-theme/images/*
 
