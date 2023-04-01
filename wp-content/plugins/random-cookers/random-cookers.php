@@ -22,6 +22,18 @@ class CookersRandomTablePlugin
 
   function onActivate()
   {
+    /* Access do utworzenie zmian w DB, który musi mieć funkcja dbDelta */
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+    /* Funkcja modyfikująca bazę danych na podstawie określonych instrukcji SQL */
+    dbDelta("CREATE TABLE cooks (
+      /* Teraz tworzymy kolumny tabeli */
+      id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+      birthyear smallint(5) NOT NULL DEFAULT 0,
+      cookweight smallint(5) NOT NULL DEFAULT 0,
+      favfood varchar(60) NOT NULL DEFAULT '',
+      favhobby varchar(60) NOT NULL DEFAULT '',
+    )");
   }
 
   function onAdminRefresh()
