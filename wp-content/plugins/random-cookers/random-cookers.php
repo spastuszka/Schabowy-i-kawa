@@ -33,6 +33,8 @@ class CookersRandomTablePlugin
       cookweight smallint(5) NOT NULL DEFAULT 0,
       favfood varchar(60) NOT NULL DEFAULT '',
       favhobby varchar(60) NOT NULL DEFAULT '',
+      cookname varchar(60) NOT NULL DEFAULT '',
+      PRIMARY KEY  (id)
     )");
   }
 
