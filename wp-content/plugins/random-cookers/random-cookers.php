@@ -14,6 +14,13 @@ class CookersRandomTablePlugin
 {
   function __construct()
   {
+    /* Globalna zmienna do uzyskania m.in prefiksu tabeli w DB danej instalacji WordPress */
+    global $wpdb;
+    /* Pobieranie sortowania znaków w bazie danych */
+    $this->charset = $wpdb->get_charset_collate();
+    /* Uzyskanie aktualnego prefixu tabel */
+    $this->tablename = $wpdb->prefix . "cooks";
+
     add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
     add_action('admin_head', array($this, 'onAdminRefresh'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
@@ -26,7 +33,7 @@ class CookersRandomTablePlugin
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
     /* Funkcja modyfikująca bazę danych na podstawie określonych instrukcji SQL */
-    dbDelta("CREATE TABLE cooks (
+    dbDelta("CREATE TABLE $this->tablename (
       /* Teraz tworzymy kolumny tabeli */
       id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
       birthyear smallint(5) NOT NULL DEFAULT 0,
@@ -35,7 +42,7 @@ class CookersRandomTablePlugin
       favhobby varchar(60) NOT NULL DEFAULT '',
       cookname varchar(60) NOT NULL DEFAULT '',
       PRIMARY KEY  (id)
-    )");
+    ) $this->charset;");
   }
 
   function onAdminRefresh()
