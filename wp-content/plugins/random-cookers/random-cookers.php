@@ -47,6 +47,15 @@ class CookersRandomTablePlugin
 
   function onAdminRefresh()
   {
+    /* Testowa struktura, która będzie dodawać nowe dane do tabeli po refreshu strony admina */
+    global $wpdb;
+    $wpdb->insert($this->tablename, array(
+      'birthyear' => 1998,
+      'cookweight' => 80,
+      'cookname' => 'Krzysztof P',
+      'favfood' => 'scrambled eggs',
+      'favhobby' => 'molecular gastronomy'
+    ));
   }
 
   function loadAssets()
