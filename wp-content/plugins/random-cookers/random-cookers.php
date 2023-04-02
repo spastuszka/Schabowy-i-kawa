@@ -22,7 +22,7 @@ class CookersRandomTablePlugin
     $this->tablename = $wpdb->prefix . "cooks";
 
     add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
-    add_action('admin_head', array($this, 'onAdminRefresh'));
+    add_action('admin_head', array($this, 'populateFast'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
@@ -48,14 +48,8 @@ class CookersRandomTablePlugin
   function onAdminRefresh()
   {
     /* Testowa struktura, która będzie dodawać nowe dane do tabeli po refreshu strony admina */
-    global $wpdb;
-    $wpdb->insert($this->tablename, array(
-      'birthyear' => 1998,
-      'cookweight' => 80,
-      'cookname' => 'Krzysztof P',
-      'favfood' => 'scrambled eggs',
-      'favhobby' => 'molecular gastronomy'
-    ));
+    // global $wpdb;
+    // $wpdb->insert($this->tablename, generateCooks());
   }
 
   function loadAssets()
@@ -76,10 +70,12 @@ class CookersRandomTablePlugin
   function populateFast()
   {
     $query = "INSERT INTO $this->tablename (`birthyear`, `cookweight`, `favfood`, `favhobby`, `cookname`) VALUES ";
-    $numberofcookers = 100000;
+
+    $numberofcookers = 10000;
+    $cook = generateCooks();
     for ($i = 0; $i < $numberofcookers; $i++) {
       $cook = generateCooks();
-      $query .= "('{$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}')";
+      $query .= "({$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}' )";
       if ($i != $numberofcookers - 1) {
         $query .= ", ";
       }
