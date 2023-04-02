@@ -78,7 +78,7 @@ class CookersRandomTablePlugin
     $query = "INSERT INTO $this->tablename (`birthyear`, `cookweight`, `favfood`, `favhobby`, `cookname`) VALUES ";
     $numberofcookers = 100000;
     for ($i = 0; $i < $numberofcookers; $i++) {
-      $cook = generatePet();
+      $cook = generateCooks();
       $query .= "('{$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}')";
       if ($i != $numberofcookers - 1) {
         $query .= ", ";
