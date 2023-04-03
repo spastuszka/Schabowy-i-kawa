@@ -22,7 +22,8 @@ class CookersRandomTablePlugin
     $this->tablename = $wpdb->prefix . "cooks";
 
     add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
-    add_action('admin_head', array($this, 'populateFast'));
+    /* Aktywować, gdy chcemy kolejnych randomowych kucharzy do listy */
+    // add_action('admin_head', array($this, 'populateFast'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
