@@ -18,6 +18,14 @@ get_header(); ?>
 
   <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong>x</strong> results (showing the first x).</p>
 
+  <!-- Przykładowe wyciąganie danych z bazy danych z customowej tabeli -->
+  <?php
+  global $wpdb;
+  /* Utworzenie prefiksu dynamicznego dla customowej tabeli */
+  $tablename = $wpdb->prefix . 'cooks';
+  $ourQuery = $wpdb->prepare("SELECT * from $tablename LIMIT 100");
+  $cooks_res = $wpdb->get_results($ourQuery);
+  ?>
   <table class="cook-adoption-table">
     <tr>
       <th>Name</th>
@@ -26,13 +34,18 @@ get_header(); ?>
       <th>Hobby</th>
       <th>Favorite Food</th>
     </tr>
-    <tr>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
+    <?php
+    foreach ($cooks_res as $cook) { ?>
+      <tr>
+        <td><?php echo $cook->cookname; ?></td>
+        <td><?php echo $cook->cookweight; ?></td>
+        <td><?php echo $cook->birthyear; ?></td>
+        <td><?php echo $cook->favhobby; ?></td>
+        <td><?php echo $cook->favfood; ?></td>
+      </tr>
+    <?php }
+    ?>
+
   </table>
 
 </div>
