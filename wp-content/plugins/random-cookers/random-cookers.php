@@ -14,18 +14,43 @@ class CookersRandomTablePlugin
 {
   function __construct()
   {
+    /* Globalna zmienna do uzyskania m.in prefiksu tabeli w DB danej instalacji WordPress */
+    global $wpdb;
+    /* Pobieranie sortowania znaków w bazie danych */
+    $this->charset = $wpdb->get_charset_collate();
+    /* Uzyskanie aktualnego prefixu tabel */
+    $this->tablename = $wpdb->prefix . "cooks";
+
     add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
-    add_action('admin_head', array($this, 'onAdminRefresh'));
+    /* Aktywować, gdy chcemy kolejnych randomowych kucharzy do listy */
+    // add_action('admin_head', array($this, 'populateFast'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
 
   function onActivate()
   {
+    /* Access do utworzenie zmian w DB, który musi mieć funkcja dbDelta */
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+
+    /* Funkcja modyfikująca bazę danych na podstawie określonych instrukcji SQL */
+    dbDelta("CREATE TABLE $this->tablename (
+      /* Teraz tworzymy kolumny tabeli */
+      id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+      birthyear smallint(5) NOT NULL DEFAULT 0,
+      cookweight smallint(5) NOT NULL DEFAULT 0,
+      favfood varchar(60) NOT NULL DEFAULT '',
+      favhobby varchar(60) NOT NULL DEFAULT '',
+      cookname varchar(60) NOT NULL DEFAULT '',
+      PRIMARY KEY  (id)
+    ) $this->charset;");
   }
 
   function onAdminRefresh()
   {
+    /* Testowa struktura, która będzie dodawać nowe dane do tabeli po refreshu strony admina */
+    // global $wpdb;
+    // $wpdb->insert($this->tablename, generateCooks());
   }
 
   function loadAssets()
@@ -46,10 +71,12 @@ class CookersRandomTablePlugin
   function populateFast()
   {
     $query = "INSERT INTO $this->tablename (`birthyear`, `cookweight`, `favfood`, `favhobby`, `cookname`) VALUES ";
-    $numberofcookers = 100000;
+
+    $numberofcookers = 10000;
+    $cook = generateCooks();
     for ($i = 0; $i < $numberofcookers; $i++) {
-      $cook = generatePet();
-      $query .= "('{$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}')";
+      $cook = generateCooks();
+      $query .= "({$cook['birthyear']}, {$cook['cookweight']}, '{$cook['favfood']}', '{$cook['favhobby']}', '{$cook['cookname']}' )";
       if ($i != $numberofcookers - 1) {
         $query .= ", ";
       }
