@@ -1,6 +1,6 @@
- 
  <?php
 
+  /* Utworzenie dynamicznego zapytania przeszukującego tabelę związaną z daną kolumną względem danej wartości */
   class GetCooksSQL
   {
     function __construct()
@@ -9,8 +9,18 @@
       global $wpdb;
       /* Utworzenie prefiksu dynamicznego dla customowej tabeli */
       $tablename = $wpdb->prefix . 'cooks';
-      /* Utworzenie dynamicznego zapytania przeszukującego tabelę związaną z daną kolumną względem danej wartości */
-      $ourQuery = $wpdb->prepare("SELECT * from $tablename WHERE cookname = %s LIMIT 100", array($_GET['cookname']));
-      $this->cooks = $wpdb->get_results($ourQuery);
+
+      /* Podstawowe zahardkodowanie początku zapytania oraz połączenie całego zapytania dynamicznego z trzech części*/
+      $query = "SELECT * FROM $tablename ";
+      /* Tu będzie metoa przeszukująca odpowiednie kolumny */
+      $query .= $this->createWhereText();
+      $query .= " LIMIT 100";
+
+      $this->args = $this->getArgs();
+
+      /* W razie braków danych, tutaj będzie metoda, która pozwoli na przedtsaiwenie stosownych informacji */
+      $this->placeholders = $this->createPlaceholders();
+
+      $this->cooks = $wpdb->get_results($wpdb->prepare($query, $this->placeholders));
     }
   }
