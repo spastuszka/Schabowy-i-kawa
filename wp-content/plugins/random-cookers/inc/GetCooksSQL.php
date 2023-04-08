@@ -9,8 +9,8 @@
       global $wpdb;
       /* Utworzenie prefiksu dynamicznego dla customowej tabeli */
       $tablename = $wpdb->prefix . 'cooks';
-      /* Utworzenie domyślnego zapytania przeszukującego całą tabelę */
-      $ourQuery = $wpdb->prepare("SELECT * from $tablename LIMIT 100");
+      /* Utworzenie dynamicznego zapytania przeszukującego tabelę związaną z daną kolumną względem danej wartości */
+      $ourQuery = $wpdb->prepare("SELECT * from $tablename WHERE cookname = %s LIMIT 100", array($_GET['cookname']));
       $this->cooks = $wpdb->get_results($ourQuery);
     }
   }
