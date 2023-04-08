@@ -18,9 +18,6 @@
 
       $this->args = $this->getArgs();
 
-      /* W razie braków danych, tutaj będzie metoda, która pozwoli na przedtsaiwenie stosownych informacji */
-      $this->placeholders = $this->createPlaceholders();
-
-      $this->cooks = $wpdb->get_results($wpdb->prepare($query, $this->placeholders));
+      $this->cooks = $wpdb->get_results($wpdb->prepare($query, $this->args));
     }
   }
