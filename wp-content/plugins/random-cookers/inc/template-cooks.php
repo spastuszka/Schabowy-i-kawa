@@ -23,6 +23,7 @@ get_header(); ?>
   global $wpdb;
   /* Utworzenie prefiksu dynamicznego dla customowej tabeli */
   $tablename = $wpdb->prefix . 'cooks';
+  /* Utworzenie domyślnego zapytania przeszukującego całą tabelę */
   $ourQuery = $wpdb->prepare("SELECT * from $tablename LIMIT 100");
   $cooks_res = $wpdb->get_results($ourQuery);
   ?>
@@ -35,6 +36,7 @@ get_header(); ?>
       <th>Favorite Food</th>
     </tr>
     <?php
+    /* Wydrukowanie wszystkich wyników z DB */
     foreach ($cooks_res as $cook) { ?>
       <tr>
         <td><?php echo $cook->cookname; ?></td>
