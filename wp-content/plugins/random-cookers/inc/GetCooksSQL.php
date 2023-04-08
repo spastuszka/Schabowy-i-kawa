@@ -21,3 +21,17 @@
       $this->cooks = $wpdb->get_results($wpdb->prepare($query, $this->args));
     }
   }
+
+  /* Funkcja przekazaująca odpowiednie argumenty w zależności, czy dany warunek zgodzi się z przekazanymi kluczami w url */
+  function getArgs()
+  {
+    $temp = [];
+
+    if (isset($_GET['cookname'])) $temp['cookname'] = sanitize_text_field($_GET['cookname']);
+    if (isset($_GET['cookweight'])) $temp['cookweight'] = sanitize_text_field($_GET['cookweight']);
+    if (isset($_GET['favhobby'])) $temp['favhobby'] = sanitize_text_field($_GET['favhobby']);
+    if (isset($_GET['favfood'])) $temp['favfood'] = sanitize_text_field($_GET['favfood']);
+    if (isset($_GET['birthyear'])) $temp['birthyear'] = sanitize_text_field($_GET['favfood']);
+
+    return $temp;
+  }
