@@ -14,9 +14,17 @@
 
       /* Podstawowe zahardkodowanie początku zapytania oraz połączenie całego zapytania dynamicznego z trzech części*/
       $query = "SELECT * FROM $tablename ";
+
+      /* Liczenie zapytań */
+      $countQuery = "SELECT COUNT(*) FROM $tablename ";
+      $countQuery .= $this->createWhereText();
+
       /* Tu będzie metoa przeszukująca odpowiednie kolumny */
       $query .= $this->createWhereText();
       $query .= " LIMIT 100";
+
+      /* Zmienna, która przekazuje wartość ilość zapytań */
+      $this->count = $wpdb->get_var($wpdb->prepare($countQuery, $this->args));
 
       $this->cooks = $wpdb->get_results($wpdb->prepare($query, $this->args));
     }
