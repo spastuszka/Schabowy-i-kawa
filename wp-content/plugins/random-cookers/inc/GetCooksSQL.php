@@ -34,5 +34,49 @@
       if (isset($_GET['minweight'])) $temp['minweight'] = sanitize_text_field($_GET['minweight']);
       if (isset($_GET['maxweight'])) $temp['maxweight'] = sanitize_text_field($_GET['maxweight']);
 
-    return $temp;
+      return $temp;
+    }
+
+    /* Funkcja, które mówi gdzie szukać w zależności jaki klucz będzie przedstawiony */
+    function createWhereText()
+    {
+      $whereQuery = "";
+
+      if (count((is_countable($this->args) ? $this->args : []))) {
+        $whereQuery = "WHERE ";
+      }
+
+      /* Wyciąganie nazw kluczy, które zostaną znaleziony np. birthyear etc. */
+
+      $currentPosition = 0;
+
+      if (is_array($this->args) || is_object($this->args)) {
+        foreach ($this->args as $index => $item) {
+          $whereQuery .= $this->specificQuery($index);
+          if ($currentPosition != count($this->args) - 1) {
+            $whereQuery .= " AND ";
+          }
+          $currentPosition++;
+        }
+        return $whereQuery;
+      }
+    }
+
+
+    /* Funkcja, która będzie decydować, czy przekazywana będzie liczba, czy string zgodnie z $wpdb->prepare() */
+    function specificQuery($index)
+    {
+      switch ($index) {
+        case "minweight":
+          return "cookweight >= %d";
+        case "maxweight":
+          return "cookweight <= %d";
+        case "minyear":
+          return "birthyear >= %d";
+        case "maxyear":
+          return "birthyear <= %d";
+        default:
+          return $index . " = %s";
+      }
+    }
   }
