@@ -1,5 +1,9 @@
 <?php
 
+/* Przeniesienie tworzenia zapytań SQL do osobnego pliku */
+require_once plugin_dir_path(__FILE__) . '/GetCooksSQL.php';
+$getCooksSQL = new GetCooksSQL();
+
 get_header(); ?>
 
 <div class="page-banner">
@@ -16,16 +20,9 @@ get_header(); ?>
 
 <div class="container container--narrow page-section">
 
-  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong>x</strong> results (showing the first x).</p>
+  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong><?php echo $getCooksSQL->count; ?></strong> results (showing the first <?php echo count($getCooksSQL->cooks); ?>).</p>
 
-  <!-- Przykładowe wyciąganie danych z bazy danych z customowej tabeli -->
-  <?php
-  global $wpdb;
-  /* Utworzenie prefiksu dynamicznego dla customowej tabeli */
-  $tablename = $wpdb->prefix . 'cooks';
-  $ourQuery = $wpdb->prepare("SELECT * from $tablename LIMIT 100");
-  $cooks_res = $wpdb->get_results($ourQuery);
-  ?>
+
   <table class="cook-adoption-table">
     <tr>
       <th>Name</th>
@@ -35,7 +32,8 @@ get_header(); ?>
       <th>Favorite Food</th>
     </tr>
     <?php
-    foreach ($cooks_res as $cook) { ?>
+    /* Wydrukowanie wszystkich wyników z DB */
+    foreach ($getCooksSQL->cooks as $cook) { ?>
       <tr>
         <td><?php echo $cook->cookname; ?></td>
         <td><?php echo $cook->cookweight; ?></td>
