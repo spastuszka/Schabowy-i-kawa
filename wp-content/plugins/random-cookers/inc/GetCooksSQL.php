@@ -50,6 +50,7 @@
 
       $currentPosition = 0;
 
+      /* Składanie zapytanie po WHERE z odpowiednimy argumentami */
       if (is_array($this->args) || is_object($this->args)) {
         foreach ($this->args as $index => $item) {
           $whereQuery .= $this->specificQuery($index);
