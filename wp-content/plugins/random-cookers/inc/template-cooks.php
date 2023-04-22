@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div class="container container--narrow page-section">
 
-  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong><?php echo $getCooksSQL->count; ?></strong> results (showing the first <?php echo count($getCooksSQL->cooks); ?>).</p>
+  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong><?php echo number_format($getCooksSQL->count); ?></strong> results (showing the first <?php echo count($getCooksSQL->cooks); ?>).</p>
 
 
   <table class="cook-adoption-table">
