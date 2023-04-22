@@ -50,7 +50,7 @@ get_header(); ?>
         if (current_user_can('administrator')) { ?>
           <td style="text-align: center;">
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
-              <input type="hidden" name="action" value="deletepet">
+              <input type="hidden" name="action" value="deletecook">
               <input type="hidden" name="idtodelete" value="<?php echo $cook->id; ?>">
               <button class="delete-cook-button">X</button>
             </form>
