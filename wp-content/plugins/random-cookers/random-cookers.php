@@ -24,8 +24,26 @@ class CookersRandomTablePlugin
     add_action('activate_random-cookers/random-cookers.php', array($this, 'onActivate'));
     /* Aktywować, gdy chcemy kolejnych randomowych kucharzy do listy */
     // add_action('admin_head', array($this, 'populateFast'));
+    add_action('admin_post_createcook', array($this, 'createCook'));
+    /* To zabezpieczych danych hook by był obsłużony tylko dla administrator */
+    add_action('admin_post_nopriv_createcook', array($this, 'createCook'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
+  }
+
+  /* Funkcja odpowiadająca za stworzenie kucharz po stroni admina */
+  function createCook()
+  {
+    if (current_user_can('administrator')) {
+      $cook = generateCooks();
+      $cook['cookname'] = sanitize_text_field($_POST['incomingcookname']);
+      global $wpdb;
+      $wpdb->insert($this->tablename, $cook);
+      wp_redirect(site_url('/random-cookers'));
+    } else {
+      /* Jeśli to nie admin robimy redirect do stronyg głównej */
+      wp_redirect(site_url());
+    }
   }
 
   function onActivate()

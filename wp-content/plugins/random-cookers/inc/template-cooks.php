@@ -46,6 +46,19 @@ get_header(); ?>
 
   </table>
 
+  <!-- Formularz dodawania kucharzy do listy -->
+  <?php
+  if (current_user_can('administrator')) { ?>
+    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="create-cook-form" method="POST">
+      <p>Enter the name for the new cooker.</p>
+      <!-- Do tego ukrytego pola podłączoamy się aby po stronie admina publikować rzeczy -->
+      <input type="hidden" name="action" value="createcook">
+      <input type="text" name="incomingcookname" placeholder="name...">
+      <button type="submit">Add cooker</button>
+    </form>
+  <?php
+  }
+  ?>
 </div>
 
 <?php get_footer(); ?>
