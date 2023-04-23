@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div class="container container--narrow page-section">
 
-  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong><?php echo $getCooksSQL->count; ?></strong> results (showing the first <?php echo count($getCooksSQL->cooks); ?>).</p>
+  <p>This page took <strong><?php echo timer_stop(); ?></strong> seconds to prepare. Found <strong><?php echo number_format($getCooksSQL->count); ?></strong> results (showing the first <?php echo count($getCooksSQL->cooks); ?>).</p>
 
 
   <table class="cook-adoption-table">
@@ -30,6 +30,12 @@ get_header(); ?>
       <th>Birth Year</th>
       <th>Hobby</th>
       <th>Favorite Food</th>
+      <?php
+      if (current_user_can('administrator')) { ?>
+        <th>Delete</th>
+      <?php
+      }
+      ?>
     </tr>
     <?php
     /* Wydrukowanie wszystkich wyników z DB */
@@ -40,12 +46,38 @@ get_header(); ?>
         <td><?php echo $cook->birthyear; ?></td>
         <td><?php echo $cook->favhobby; ?></td>
         <td><?php echo $cook->favfood; ?></td>
+
+        <?php
+        if (current_user_can('administrator')) { ?>
+          <td style="text-align: center;">
+            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
+              <input type="hidden" name="action" value="deletecook">
+              <input type="hidden" name="idtodelete" value="<?php echo $cook->id; ?>">
+              <button class="delete-cook-button">X</button>
+            </form>
+          </td>
+        <?php
+        }
+        ?>
       </tr>
     <?php }
     ?>
 
   </table>
 
+  <!-- Formularz dodawania kucharzy do listy -->
+  <?php
+  if (current_user_can('administrator')) { ?>
+    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="create-cook-form" method="POST">
+      <p>Enter the name for the new cooker.</p>
+      <!-- Do tego ukrytego pola podłączoamy się aby po stronie admina publikować rzeczy -->
+      <input type="hidden" name="action" value="createcook">
+      <input type="text" name="incomingcookname" placeholder="name...">
+      <button type="submit">Add cooker</button>
+    </form>
+  <?php
+  }
+  ?>
 </div>
 
 <?php get_footer(); ?>
